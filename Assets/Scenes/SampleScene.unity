@@ -378,6 +378,18 @@ PrefabInstance:
       value: card
       objectReference: {fileID: 0}
     - target: {fileID: 4025149097385552233, guid: 5ac201a3764f7004a9a4486882887825, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4025149097385552233, guid: 5ac201a3764f7004a9a4486882887825, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4025149097385552233, guid: 5ac201a3764f7004a9a4486882887825, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4025149097385552233, guid: 5ac201a3764f7004a9a4486882887825, type: 3}
       propertyPath: m_LocalPosition.x
       value: 51.1733
       objectReference: {fileID: 0}
@@ -415,6 +427,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4025149097385552233, guid: 5ac201a3764f7004a9a4486882887825, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4025149097385552233, guid: 5ac201a3764f7004a9a4486882887825, type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671198641378025879, guid: 5ac201a3764f7004a9a4486882887825, type: 3}
