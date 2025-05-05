@@ -3,11 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|c:\\users\\lorenzo\\nerd\u0027s_revenge\\assets\\script\\fpsinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\fpsinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\WorldMaterialsFree\\Shaders\\WorldMatURPFree.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\WorldMaterialsFree\\Shaders\\WorldMatURPFree.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\assets\\script\\fakemarketlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\fakemarketlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|c:\\users\\lorenzo\\nerd\u0027s_revenge\\assets\\script\\marketmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\assets\\script\\marketmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\marketmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -38,11 +46,35 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FPSInput.cs",
+              "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\FPSInput.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\FPSInput.cs",
+              "ToolTip": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\FPSInput.cs",
+              "RelativeToolTip": "Assets\\Script\\FPSInput.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAYwB4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T21:41:32.233Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "WorldMatURPFree.shader",
+              "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\WorldMaterialsFree\\Shaders\\WorldMatURPFree.shader",
+              "RelativeDocumentMoniker": "Assets\\WorldMaterialsFree\\Shaders\\WorldMatURPFree.shader",
+              "ToolTip": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\WorldMaterialsFree\\Shaders\\WorldMatURPFree.shader",
+              "RelativeToolTip": "Assets\\WorldMaterialsFree\\Shaders\\WorldMatURPFree.shader",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2025-05-05T21:30:32.905Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "MarketManager.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\MarketManager.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\MarketManager.cs",
@@ -50,12 +82,11 @@
               "RelativeToolTip": "Assets\\Script\\MarketManager.cs",
               "ViewState": "AgIAAFMAAAAAAAAAAAAwwFcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T14:10:44.736Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-04T14:10:44.736Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "FakeMarketLogin.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\FakeMarketLogin.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\FakeMarketLogin.cs",
@@ -63,12 +94,11 @@
               "RelativeToolTip": "Assets\\Script\\FakeMarketLogin.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T13:33:29.999Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-04T13:33:29.999Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "ComputerInteraction.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\ComputerInteraction.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\ComputerInteraction.cs",
@@ -80,7 +110,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "VolumetricLineBehavior.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\VolumetricLines\\Scripts\\VolumetricLineBehavior.cs",
               "RelativeDocumentMoniker": "Assets\\VolumetricLines\\Scripts\\VolumetricLineBehavior.cs",
@@ -92,7 +122,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "MouseLook.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Player\\MouseLook.cs",
               "RelativeDocumentMoniker": "Assets\\Player\\MouseLook.cs",
@@ -103,7 +133,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "MauseLook.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Player\\MauseLook.cs",
               "RelativeDocumentMoniker": "Assets\\Player\\MauseLook.cs",
@@ -115,7 +145,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "MauseLook.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\MauseLook.cs",
               "RelativeDocumentMoniker": "Assets\\MauseLook.cs",
