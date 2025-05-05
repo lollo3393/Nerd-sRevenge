@@ -6,6 +6,7 @@
 [Mm]emoryCaptures/
 obj/
 
+/UserSettings/
 # Visual Studio
 .vscode/
 *.csproj
@@ -19,3 +20,5 @@ obj/
 # OS
 .DS_Store
 Thumbs.db
+
+
