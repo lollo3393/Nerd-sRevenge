@@ -10,6 +10,9 @@ public class FPSInput : MonoBehaviour
     public float runMultiplier = 2f;
     public float crouchMultiplier = 0.5f;
     public float proneMultiplier = 0.25f;
+    public Transform cameraTransform;
+    private Vector3 cameraDefaultPosition;
+
 
     public float gravity = -9.8f;
     public float jumpHeight = 1.5f;
@@ -46,6 +49,8 @@ public class FPSInput : MonoBehaviour
         _charController = GetComponent<CharacterController>();
         _originalHeight = _charController.height;
         currentSpeed = baseSpeed;
+        cameraDefaultPosition = cameraTransform.localPosition;
+
     }
 
     void Update()
@@ -101,18 +106,24 @@ public class FPSInput : MonoBehaviour
         switch (StatoCorrente)
         {
             case PlayerState.InPiedi:
-                _charController.height = _originalHeight;
                 currentSpeed = baseSpeed;
+                if (cameraTransform != null)
+                    cameraTransform.localPosition = cameraDefaultPosition;
                 break;
+
             case PlayerState.Accovacciato:
-                _charController.height = crouchHeight;
                 currentSpeed = baseSpeed * crouchMultiplier;
+                if (cameraTransform != null)
+                    cameraTransform.localPosition = cameraDefaultPosition + new Vector3(0, -crouchHeight, 0);
                 break;
+
             case PlayerState.Sdraiato:
-                _charController.height = proneHeight;
                 currentSpeed = baseSpeed * proneMultiplier;
+                if (cameraTransform != null)
+                    cameraTransform.localPosition = cameraDefaultPosition + new Vector3(0, -proneHeight, 0);
                 break;
         }
+
 
         // Corsa (solo se in piedi)
         if (Input.GetKey(KeyCode.LeftShift) && StatoCorrente == PlayerState.InPiedi)
