@@ -53,7 +53,7 @@ public class laserScript : MonoBehaviour
                 elapsedTime = Time.deltaTime;
             }
             currentY = Mathf.Lerp(minHeight, maxHeight, elapsedTime / maxAnimationDuration);
-            elapsedTime += Time.deltaTime;
+            elapsedTime += Time.deltaTime;  
 
             laserStartingPoint.y = currentY;
             laserEndingPoint.y = currentY;
