@@ -6178,11 +6178,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5622ae6629629bf40bb9499d8a4496eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseSpeed: 3
+  baseSpeed: 6
   runMultiplier: 2
   crouchMultiplier: 0.5
   proneMultiplier: 0.25
-  cameraTransform: {fileID: 0}
+  cameraTransform: {fileID: 736042426}
   gravity: -9.8
   jumpHeight: 1.5
   crouchHeight: 1.2
