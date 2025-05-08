@@ -1,10 +1,11 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Script
 {
     public class ConeVision : MonoBehaviour
     {
-       
+        [SerializeField] private GameObject alarmController;
         [SerializeField] private Material material;
         [SerializeField] private Material allarmMaterial;
         [SerializeField] private float pulseSpeed = 0.5f;
@@ -26,16 +27,26 @@ namespace Script
                 GameObject hitObject = hit.transform.gameObject;
                 if (hitObject.GetComponent<CharacterController>())
                 {
-                    allertSound.Play();
-                    Debug.Log("ALLARME");
-                    mesh.material = allarmMaterial;
-                    playerFound = true;
+
+                    StartCoroutine(PlayerFoundSequence());
+
                 }
                 else
                 {
                     Debug.Log("In range ma coperto ");
                 }
             }
+        }
+
+        IEnumerator PlayerFoundSequence()
+        {
+            allertSound.Play();
+            mesh.material = allarmMaterial;
+                    
+            Debug.Log("ALLARME");
+            playerFound = true;
+            yield return  new WaitForSeconds(0.5f);
+            alarmController.SendMessage("StartAlarm");
         }
         void OnTriggerStay(Collider other) {
             if (!playerFound)
