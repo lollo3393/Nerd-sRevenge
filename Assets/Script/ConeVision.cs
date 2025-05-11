@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.Media;
 using UnityEngine;
 
 namespace Script
@@ -7,13 +8,15 @@ namespace Script
     {
         [SerializeField] private GameObject alarmController;
         [SerializeField] private Material material;
-        [SerializeField] private Material allarmMaterial;
+         private Color luce;
+         private Color allarmColor;
         [SerializeField] private float pulseSpeed = 0.5f;
+        [SerializeField] private bool isCameraVision;
+        private VLight volumLight;
         private bool playerFound = false;
         private float timer;
         public bool pulsingFlag= false;
-        private MeshRenderer mesh ;
-        private Material luce;
+       
         //private LineRenderer lineRenderer;
         private AudioSource allertSound;
         
@@ -41,7 +44,8 @@ namespace Script
         IEnumerator PlayerFoundSequence()
         {
             allertSound.Play();
-            mesh.material = allarmMaterial;
+            
+            volumLight.colorTint= allarmColor;  
                     
             Debug.Log("ALLARME");
             playerFound = true;
@@ -62,7 +66,8 @@ namespace Script
                     {
                         allertSound.Play();
                         Debug.Log("ALLARME");
-                        mesh.material = allarmMaterial;
+                        volumLight.colorTint= allarmColor;
+                        volumLight.slices = 200;
                         playerFound = true;
                     }
                     else
@@ -74,9 +79,17 @@ namespace Script
         }
         void Start()
         {
+            if (isCameraVision)
+            {
+                volumLight = GetComponentInChildren<VLight>();
+                luce = volumLight.colorTint;
+                Debug.Log(luce.r+" "+luce.g+" "+luce.b+" "+luce.a);
+                allarmColor = new Color( 0.7215686f, 0.07843138f,0.06666667f, 0.9607843f);
+
+
+                
+            }
             allertSound = GetComponent<AudioSource>();
-            mesh = gameObject.GetComponent<MeshRenderer>();
-            luce = mesh.material;
             /*
             lineRenderer = gameObject.AddComponent<LineRenderer>();
             lineRenderer.positionCount = 2;
@@ -95,9 +108,9 @@ namespace Script
                 if(timer > pulseSpeed){
                     timer = 0;
                     if (pulsingFlag) {
-                        mesh.material = allarmMaterial;
+                        volumLight.colorTint= allarmColor;
                     }else{
-                        mesh.material = luce;
+                        volumLight.colorTint = luce;
                     }
                     pulsingFlag = !pulsingFlag;
                     timer += Time.deltaTime;
