@@ -4379,7 +4379,7 @@ PrefabInstance:
       objectReference: {fileID: 1214875714}
     - target: {fileID: 243171503354421832, guid: eed54a613be71b543a99e53a8e2914de, type: 3}
       propertyPath: m_VersionIndex
-      value: 698
+      value: 701
       objectReference: {fileID: 0}
     - target: {fileID: 1671298995562007280, guid: eed54a613be71b543a99e53a8e2914de, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -6523,10 +6523,11 @@ MonoBehaviour:
   crouchMultiplier: 0.5
   proneMultiplier: 0.25
   cameraTransform: {fileID: 736042426}
+  animatorMani: {fileID: 0}
+  cameraFollowTarget: {fileID: 0}
+  offsetCamera: {x: 0, y: 0.15, z: 0}
   gravity: -9.8
   jumpHeight: 1.5
-  crouchHeight: 1.2
-  proneHeight: 0.5
   pushForce: 6
 --- !u!114 &1816644979
 MonoBehaviour:
