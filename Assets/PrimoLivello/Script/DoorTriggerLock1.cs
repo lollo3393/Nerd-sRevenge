@@ -1,7 +1,12 @@
+﻿using System.Collections;
 using UnityEngine;
 
 public class DoorTriggerLock : MonoBehaviour
 {
+    // Riferimento all’Animator delle mani
+    [SerializeField] private Animator animatorMani;
+    [SerializeField] private IKManoDestra ikScript;
+
     public GameObject canvasPopup;
     public LockpickingMinigame lockpickingScript;
     public Transform portaDaAprire;
@@ -49,9 +54,19 @@ public class DoorTriggerLock : MonoBehaviour
         if (!portaAperta)
         {
             portaAperta = true;
-            StartCoroutine(RuotaPorta());
 
-            // Disattiva il BoxCollider del trigger
+            // ✋ Attiva animazione mani
+            if (animatorMani != null)
+                animatorMani.SetTrigger("ApriPorta");
+
+            // Avvia coroutine che aspetta 30 frame prima di aprire la porta
+            ikScript.AttivaIK(true);
+            StartCoroutine(AttendiEApriPorta());
+            animatorMani.Rebind();  // Resetta pose e stati
+            animatorMani.Update(0f); // Forza refresh
+
+
+            // Disattiva collider subito, o dopo (a tua scelta)
             Collider triggerCollider = GetComponent<Collider>();
             if (triggerCollider != null)
                 triggerCollider.enabled = false;
@@ -77,4 +92,17 @@ public class DoorTriggerLock : MonoBehaviour
 
         portaDaAprire.rotation = rotazioneFinale;
     }
+    IEnumerator AttendiEApriPorta()
+    {
+        // Aspetta 30 frame (~0.5 secondi a 60 FPS)
+        for (int i = 0; i < 350; i++)
+            yield return null;
+
+        // Oppure: yield return new WaitForSeconds(0.5f);
+        ikScript.AttivaIK(false);
+
+
+        StartCoroutine(RuotaPorta());
+    }
+
 }

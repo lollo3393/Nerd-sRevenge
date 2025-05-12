@@ -1,32 +1,28 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-
 [AddComponentMenu("Control Script/FPS Input")]
-
 public class FPSInput : MonoBehaviour
 {
-
     public float baseSpeed = 7.0f;
     private float currentSpeed;
 
     public float runMultiplier = 2f;
     public float crouchMultiplier = 0.25f;
     public float proneMultiplier = 0.75f;
+
     public Transform cameraTransform;
     [SerializeField] private Animator animatorMani;
+    [SerializeField] private Transform cameraFollowTarget;
+    [SerializeField] private Vector3 offsetCamera = new Vector3(0, 0.15f, 0); // puoi regolarlo
 
 
     private Vector3 cameraDefaultPosition;
-
 
     public float gravity = -9.8f;
     public float jumpHeight = 1.5f;
 
     private CharacterController _charController;
-    private float _originalHeight;
-    public float crouchHeight = 1.2f;
-    public float proneHeight = 0.5f;
 
     private Vector3 velocity;
     private bool isGrounded;
@@ -35,65 +31,73 @@ public class FPSInput : MonoBehaviour
     private enum PlayerState { InPiedi, Accovacciato, Sdraiato }
     private PlayerState StatoCorrente = PlayerState.InPiedi;
 
-    void Awake()
-    {
-       // Messenger<float>.AddListener(GameEvent.Speed_changed, OnSpeedChanged);
-    }
-
-    void OnDestroy()
-    {
-        //Messenger<float>.RemoveListener(GameEvent.Speed_changed, OnSpeedChanged);
-    }
-
-    public void OnSpeedChanged(float value)
-    {
-        baseSpeed = value * 3.0f;
-    }
-
     void Start()
     {
         _charController = GetComponent<CharacterController>();
-        _originalHeight = _charController.height;
         currentSpeed = baseSpeed;
         cameraDefaultPosition = cameraTransform.localPosition;
         animatorMani = GetComponentInChildren<Animator>();
-
-
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()
     {
-       // if (GameEvent.isPaused) return;
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Debug.Log("Provo ad attivare animazione Crouch");
+            animatorMani.SetTrigger("Crouch");
+        }
 
         HandleStateToggles();
         HandleMovement();
+        AggiornaCamera();
+
     }
 
     void HandleStateToggles()
     {
-        // Toggle accovacciato
+        // C premuto mentre sei sdraiato → vai in piedi
+        if (Input.GetKeyDown(KeyCode.C) && StatoCorrente == PlayerState.Sdraiato)
+        {
+            StatoCorrente = PlayerState.InPiedi;
+            animatorMani.SetTrigger("StandUpFromProne");
+            currentSpeed = baseSpeed;
+            return;
+        }
+
+        // Ctrl
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             if (StatoCorrente == PlayerState.InPiedi)
+            {
                 StatoCorrente = PlayerState.Accovacciato;
+                animatorMani.SetTrigger("Crouch");
+                currentSpeed = baseSpeed * crouchMultiplier;
+            }
             else if (StatoCorrente == PlayerState.Accovacciato)
+            {
                 StatoCorrente = PlayerState.InPiedi;
+                animatorMani.SetTrigger("StandUp");
+                currentSpeed = baseSpeed;
+            }
             else if (StatoCorrente == PlayerState.Sdraiato)
+            {
                 StatoCorrente = PlayerState.Accovacciato;
+                animatorMani.SetTrigger("StandUpFromProne");
+                currentSpeed = baseSpeed * crouchMultiplier;
+            }
         }
 
-        // Toggle sdraiato
-        if (Input.GetKeyDown(KeyCode.C))
+        // C premuto mentre NON sei sdraiato → vai sdraiato
+        if (Input.GetKeyDown(KeyCode.C) && StatoCorrente != PlayerState.Sdraiato)
         {
-            if (StatoCorrente == PlayerState.InPiedi)
-                StatoCorrente = PlayerState.Sdraiato;
-            else if (StatoCorrente == PlayerState.Sdraiato)
-                StatoCorrente = PlayerState.InPiedi;
-            else if (StatoCorrente == PlayerState.Accovacciato)
-                StatoCorrente = PlayerState.Sdraiato;
+            StatoCorrente = PlayerState.Sdraiato;
+            animatorMani.SetTrigger("GoProne");
+            currentSpeed = baseSpeed * proneMultiplier;
         }
 
-        // Spazio: salta o alzati
+        // Spazio
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (StatoCorrente == PlayerState.InPiedi && isGrounded)
@@ -103,42 +107,24 @@ public class FPSInput : MonoBehaviour
             else if (StatoCorrente == PlayerState.Accovacciato)
             {
                 StatoCorrente = PlayerState.InPiedi;
+                animatorMani.SetTrigger("StandUp");
+                currentSpeed = baseSpeed;
             }
             else if (StatoCorrente == PlayerState.Sdraiato)
             {
                 StatoCorrente = PlayerState.Accovacciato;
+                animatorMani.SetTrigger("StandUpFromProne");
+                currentSpeed = baseSpeed * crouchMultiplier;
             }
         }
 
-        // Imposta altezza e velocit�
-        switch (StatoCorrente)
-        {
-            case PlayerState.InPiedi:
-                currentSpeed = baseSpeed;
-                if (cameraTransform != null)
-                    cameraTransform.localPosition = cameraDefaultPosition;
-                break;
-
-            case PlayerState.Accovacciato:
-                currentSpeed = baseSpeed * crouchMultiplier;
-                if (cameraTransform != null)
-                    cameraTransform.localPosition = cameraDefaultPosition + new Vector3(0, -crouchHeight, 0);
-                break;
-
-            case PlayerState.Sdraiato:
-                currentSpeed = baseSpeed * proneMultiplier;
-                if (cameraTransform != null)
-                    cameraTransform.localPosition = cameraDefaultPosition + new Vector3(0, -proneHeight, 0);
-                break;
-        }
-
-
-        // Corsa (solo se in piedi)
+        // Corsa
         if (Input.GetKey(KeyCode.LeftShift) && StatoCorrente == PlayerState.InPiedi)
         {
             currentSpeed = baseSpeed * runMultiplier;
         }
     }
+
 
     void HandleMovement()
     {
@@ -158,14 +144,13 @@ public class FPSInput : MonoBehaviour
         movement.y = velocity.y;
 
         _charController.Move(movement * Time.deltaTime);
+
+        // Velocità animazione
         Vector3 horizontalVelocity = new Vector3(_charController.velocity.x, 0, _charController.velocity.z);
         float velocitaAnimazione = horizontalVelocity.magnitude / (baseSpeed * runMultiplier);
-        Debug.Log("Velocita calcolata: " + velocitaAnimazione);
-
         animatorMani.SetFloat("Velocita", velocitaAnimazione);
-
-
     }
+
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         Rigidbody body = hit.collider.attachedRigidbody;
@@ -174,4 +159,18 @@ public class FPSInput : MonoBehaviour
             body.linearVelocity = hit.moveDirection * pushForce;
         }
     }
+    void AggiornaCamera()
+    {
+        if (animatorMani != null)
+        {
+            Transform headBone = animatorMani.GetBoneTransform(HumanBodyBones.Head);
+            if (headBone != null)
+            {
+                cameraTransform.position = headBone.position + offsetCamera;
+                // cameraTransform.rotation = headBone.rotation; // opzionale
+            }
+        }
+    }
+
+
 }

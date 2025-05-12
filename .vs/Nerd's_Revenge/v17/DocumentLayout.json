@@ -3,32 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|c:\\users\\lorenzo\\nerd\u0027s_revenge\\assets\\primolivello\\script\\lockpickingminigame1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\primolivello\\script\\lockpickingminigame1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|c:\\users\\lorenzo\\nerd\u0027s_revenge\\assets\\primolivello\\script\\doortriggerlock1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\primolivello\\script\\doortriggerlock1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|c:\\users\\lorenzo\\nerd\u0027s_revenge\\assets\\primolivello\\script\\aprturaporte.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\assets\\primolivello\\script\\aprturaporte.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\primolivello\\script\\aprturaporte.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\assets\\primolivello\\script\\doortriggerlock1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\primolivello\\script\\doortriggerlock1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\assets\\primolivello\\script\\lockpickingminigame1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\primolivello\\script\\lockpickingminigame1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\assets\\script\\fpsinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\fpsinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85ED9096-BF58-573F-913C-0469BB3EE3D4}|Assembly-CSharp-Editor.csproj|c:\\users\\lorenzo\\nerd\u0027s_revenge\\assets\\vlights\\editor\\volumelightcreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{85ED9096-BF58-573F-913C-0469BB3EE3D4}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\vlights\\editor\\volumelightcreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|c:\\users\\lorenzo\\nerd\u0027s_revenge\\assets\\primolivello\\apartment kit\\common\\scripts \u0026 animation\\closet\\closetopenclosedoor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\primolivello\\apartment kit\\common\\scripts \u0026 animation\\closet\\closetopenclosedoor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|c:\\users\\lorenzo\\nerd\u0027s_revenge\\assets\\primolivello\\script\\ikmanodestra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\primolivello\\script\\ikmanodestra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\assets\\brick project studio\\_bps basic assets\\common\\scripts and animations\\doors\\openclosedoor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\brick project studio\\_bps basic assets\\common\\scripts and animations\\doors\\openclosedoor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85ED9096-BF58-573F-913C-0469BB3EE3D4}|Assembly-CSharp-Editor.csproj|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\assets\\vlights\\editor\\volumelightcreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85ED9096-BF58-573F-913C-0469BB3EE3D4}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\vlights\\editor\\volumelightcreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\assets\\primolivello\\apartment kit\\common\\scripts \u0026 animation\\closet\\closetopenclosedoor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\primolivello\\apartment kit\\common\\scripts \u0026 animation\\closet\\closetopenclosedoor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\assets\\script\\marketmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -78,11 +82,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "MarketManager.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\MarketManager.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\MarketManager.cs",
@@ -101,27 +105,41 @@
               "RelativeDocumentMoniker": "Assets\\PrimoLivello\\Script\\AprturaPorte.cs",
               "ToolTip": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\PrimoLivello\\Script\\AprturaPorte.cs",
               "RelativeToolTip": "Assets\\PrimoLivello\\Script\\AprturaPorte.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAqwEYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAqwEYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-12T20:49:59.848Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
+              "Title": "IKManoDestra.cs",
+              "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\PrimoLivello\\Script\\IKManoDestra.cs",
+              "RelativeDocumentMoniker": "Assets\\PrimoLivello\\Script\\IKManoDestra.cs",
+              "ToolTip": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\PrimoLivello\\Script\\IKManoDestra.cs",
+              "RelativeToolTip": "Assets\\PrimoLivello\\Script\\IKManoDestra.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAqwBUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T21:17:12.628Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "LockpickingMinigame1.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\PrimoLivello\\Script\\LockpickingMinigame1.cs",
               "RelativeDocumentMoniker": "Assets\\PrimoLivello\\Script\\LockpickingMinigame1.cs",
               "ToolTip": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\PrimoLivello\\Script\\LockpickingMinigame1.cs",
               "RelativeToolTip": "Assets\\PrimoLivello\\Script\\LockpickingMinigame1.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAgwEIAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAgwEIAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-12T20:49:34.856Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "VolumeLightCreator.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\VLights\\Editor\\VolumeLightCreator.cs",
               "RelativeDocumentMoniker": "Assets\\VLights\\Editor\\VolumeLightCreator.cs",
@@ -129,12 +147,11 @@
               "RelativeToolTip": "Assets\\VLights\\Editor\\VolumeLightCreator.cs",
               "ViewState": "AgIAAH4AAAAAAAAAAAAuwGcAAABTAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-12T19:26:07.473Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-12T19:26:07.473Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "ClosetopencloseDoor.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\PrimoLivello\\Apartment Kit\\Common\\Scripts \u0026 Animation\\Closet\\ClosetopencloseDoor.cs",
               "RelativeDocumentMoniker": "Assets\\PrimoLivello\\Apartment Kit\\Common\\Scripts \u0026 Animation\\Closet\\ClosetopencloseDoor.cs",
@@ -142,37 +159,50 @@
               "RelativeToolTip": "Assets\\PrimoLivello\\Apartment Kit\\Common\\Scripts \u0026 Animation\\Closet\\ClosetopencloseDoor.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAIBJwD8AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T09:47:55.491Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T09:47:55.491Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "DoorTriggerLock1.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\PrimoLivello\\Script\\DoorTriggerLock1.cs",
               "RelativeDocumentMoniker": "Assets\\PrimoLivello\\Script\\DoorTriggerLock1.cs",
               "ToolTip": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\PrimoLivello\\Script\\DoorTriggerLock1.cs",
               "RelativeToolTip": "Assets\\PrimoLivello\\Script\\DoorTriggerLock1.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAuwFAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD8AAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-07T09:39:03.618Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "opencloseDoor.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Brick Project Studio\\_BPS Basic Assets\\Common\\Scripts and Animations\\Doors\\opencloseDoor.cs",
               "RelativeDocumentMoniker": "Assets\\Brick Project Studio\\_BPS Basic Assets\\Common\\Scripts and Animations\\Doors\\opencloseDoor.cs",
               "ToolTip": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Brick Project Studio\\_BPS Basic Assets\\Common\\Scripts and Animations\\Doors\\opencloseDoor.cs",
               "RelativeToolTip": "Assets\\Brick Project Studio\\_BPS Basic Assets\\Common\\Scripts and Animations\\Doors\\opencloseDoor.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAYwD8AAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAEBhwCkAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T09:37:55.586Z"
+              "WhenOpened": "2025-05-07T09:37:55.586Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 3,
+              "Title": "FPSInput.cs",
+              "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\FPSInput.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\FPSInput.cs",
+              "ToolTip": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\FPSInput.cs",
+              "RelativeToolTip": "Assets\\Script\\FPSInput.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAwDIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T21:41:32.233Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "MissingScriptsScanner.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Editor\\MissingScriptsScanner.cs",
               "RelativeDocumentMoniker": "Assets\\Editor\\MissingScriptsScanner.cs",
@@ -184,7 +214,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "AprturaPorte.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\AprturaPorte.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\AprturaPorte.cs",
@@ -195,20 +225,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FPSInput.cs",
-              "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\FPSInput.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\FPSInput.cs",
-              "ToolTip": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\FPSInput.cs",
-              "RelativeToolTip": "Assets\\Script\\FPSInput.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T21:41:32.233Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "WorldMatURPFree.shader",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\WorldMaterialsFree\\Shaders\\WorldMatURPFree.shader",
               "RelativeDocumentMoniker": "Assets\\WorldMaterialsFree\\Shaders\\WorldMatURPFree.shader",
@@ -219,7 +236,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "FakeMarketLogin.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\FakeMarketLogin.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\FakeMarketLogin.cs",
@@ -231,7 +248,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "ComputerInteraction.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\ComputerInteraction.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\ComputerInteraction.cs",
@@ -243,7 +260,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "VolumetricLineBehavior.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\VolumetricLines\\Scripts\\VolumetricLineBehavior.cs",
               "RelativeDocumentMoniker": "Assets\\VolumetricLines\\Scripts\\VolumetricLineBehavior.cs",
@@ -255,7 +272,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "MouseLook.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Player\\MouseLook.cs",
               "RelativeDocumentMoniker": "Assets\\Player\\MouseLook.cs",
@@ -266,7 +283,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "MauseLook.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Player\\MauseLook.cs",
               "RelativeDocumentMoniker": "Assets\\Player\\MauseLook.cs",
@@ -278,7 +295,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "MauseLook.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\MauseLook.cs",
               "RelativeDocumentMoniker": "Assets\\MauseLook.cs",
