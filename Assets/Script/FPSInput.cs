@@ -1,16 +1,22 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
+
 [AddComponentMenu("Control Script/FPS Input")]
+
 public class FPSInput : MonoBehaviour
 {
-    public float baseSpeed = 3.0f;
+
+    public float baseSpeed = 7.0f;
     private float currentSpeed;
 
     public float runMultiplier = 2f;
-    public float crouchMultiplier = 0.5f;
-    public float proneMultiplier = 0.25f;
+    public float crouchMultiplier = 0.25f;
+    public float proneMultiplier = 0.75f;
     public Transform cameraTransform;
+    [SerializeField] private Animator animatorMani;
+
+
     private Vector3 cameraDefaultPosition;
 
 
@@ -50,6 +56,8 @@ public class FPSInput : MonoBehaviour
         _originalHeight = _charController.height;
         currentSpeed = baseSpeed;
         cameraDefaultPosition = cameraTransform.localPosition;
+        animatorMani = GetComponentInChildren<Animator>();
+
 
     }
 
@@ -150,6 +158,13 @@ public class FPSInput : MonoBehaviour
         movement.y = velocity.y;
 
         _charController.Move(movement * Time.deltaTime);
+        Vector3 horizontalVelocity = new Vector3(_charController.velocity.x, 0, _charController.velocity.z);
+        float velocitaAnimazione = horizontalVelocity.magnitude / (baseSpeed * runMultiplier);
+        Debug.Log("Velocita calcolata: " + velocitaAnimazione);
+
+        animatorMani.SetFloat("Velocita", velocitaAnimazione);
+
+
     }
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
