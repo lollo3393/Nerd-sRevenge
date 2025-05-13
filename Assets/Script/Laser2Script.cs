@@ -8,6 +8,7 @@ public class laser2Script : MonoBehaviour
 {
     
     // posizionare l'oggetto a meta del percorso che dovra' compiere visto che si muove con un comportamento sinusoidale
+    [SerializeField] private bool moving;
     [SerializeField]
     float maxAnimationDuration = 1.0f;
     [SerializeField] float minHeight ;
@@ -25,9 +26,12 @@ public class laser2Script : MonoBehaviour
   
     void Update()
     {
-      
-        float newY = startpos.y + Mathf.Sin(Time.time * maxAnimationDuration) * oscillazione;
-        transform.position = new Vector3(startpos.x, newY, startpos.z);
+
+        if (moving)
+        {
+            float newY = startpos.y + Mathf.Sin(Time.time * maxAnimationDuration) * oscillazione;
+            transform.position = new Vector3(startpos.x, newY, startpos.z);
+        }
     }
 
     void Start()
