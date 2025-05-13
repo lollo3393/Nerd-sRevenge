@@ -358,9 +358,9 @@ namespace VolumetricLines
 			m_meshFilter = GetComponent<MeshFilter>();
 			m_meshFilter.mesh = mesh;
 			SetStartAndEndPoints(m_startPos, m_endPos);
-			//mesh.uv = VolumetricLineVertexData.TexCoords;
-		//	mesh.uv2 = VolumetricLineVertexData.VertexOffsets;
-			//mesh.SetIndices(VolumetricLineVertexData.Indices, MeshTopology.Triangles, 0);
+			mesh.uv = VolumetricLineVertexData.TexCoords;
+			mesh.uv2 = VolumetricLineVertexData.VertexOffsets;
+			mesh.SetIndices(VolumetricLineVertexData.Indices, MeshTopology.Triangles, 0);
 			CreateMaterial();
 			// TODO: Need to set vertices before assigning new Mesh to the MeshFilter's mesh property => Why?
 		}

@@ -132,6 +132,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 122648, guid: 11530f2b0a0cd2442949827ecbb622f2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3650418349603605958}
+    - targetCorrespondingSourceObject: {fileID: 122648, guid: 11530f2b0a0cd2442949827ecbb622f2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1108796654604271807}
   m_SourcePrefab: {fileID: 100100000, guid: 11530f2b0a0cd2442949827ecbb622f2, type: 3}
 --- !u!1 &2706771990709570137 stripped
 GameObject:
@@ -155,6 +158,28 @@ MonoBehaviour:
   maxHeight: 3.82
   laser: {fileID: 2706771990709570137}
   line: {fileID: 576681693097846453}
+  alarmController: {fileID: 0}
+--- !u!65 &1108796654604271807
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2706771990709570137}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.8754277, y: 65.00003, z: 2.0000007}
+  m_Center: {x: -0.43770295, y: 31.5, z: 0}
 --- !u!4 &2706771990710055449 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 436056, guid: 11530f2b0a0cd2442949827ecbb622f2, type: 3}
@@ -168,21 +193,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6124863634443146822}
     m_Modifications:
+    - target: {fileID: 4777979286053159304, guid: d98b3608b8d975a428cb76f28cda17d4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6396327940846684883, guid: d98b3608b8d975a428cb76f28cda17d4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6943690516092588068, guid: d98b3608b8d975a428cb76f28cda17d4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 9.505429
+      value: 1.79
       objectReference: {fileID: 0}
     - target: {fileID: 6943690516092588068, guid: d98b3608b8d975a428cb76f28cda17d4, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4.8260894
+      value: 3.76
       objectReference: {fileID: 0}
     - target: {fileID: 6943690516092588068, guid: d98b3608b8d975a428cb76f28cda17d4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.932988
+      value: -3.24
       objectReference: {fileID: 0}
     - target: {fileID: 6943690516092588068, guid: d98b3608b8d975a428cb76f28cda17d4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5849996
+      value: 1.07
       objectReference: {fileID: 0}
     - target: {fileID: 6943690516092588068, guid: d98b3608b8d975a428cb76f28cda17d4, type: 3}
       propertyPath: m_LocalPosition.z

@@ -7,12 +7,11 @@ public class laserScript : MonoBehaviour
     private bool salita = true;
     private Vector3 startpos;
     private Vector3 endpos;
-    [SerializeField] private Vector3 dPos;
     [SerializeField] private float speed;
     [SerializeField]
     float maxAnimationDuration = 1.0f;
-    [SerializeField]
-    float minHeight = -0.4f;
+
+    private float minHeight;
 
     [SerializeField] private float maxHeight = 0.45f; 
     [SerializeField] private  LineRenderer laser;
@@ -22,8 +21,10 @@ public class laserScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
         startpos = laser.transform.position;
-        endpos = startpos + dPos;
+        minHeight = startpos.y;
+        endpos =  new Vector3(startpos.x , maxHeight, startpos.z);
           
         StartCoroutine(AnimateLaser());
     }
@@ -35,6 +36,7 @@ public class laserScript : MonoBehaviour
         
     }
 
+    
     
     IEnumerator AnimateLaser()
     {
@@ -53,7 +55,7 @@ public class laserScript : MonoBehaviour
                 elapsedTime = Time.deltaTime;
             }
             currentY = Mathf.Lerp(minHeight, maxHeight, elapsedTime / maxAnimationDuration);
-            elapsedTime += Time.deltaTime;  
+            elapsedTime += Time.deltaTime;
 
             laserStartingPoint.y = currentY;
             laserEndingPoint.y = currentY;
