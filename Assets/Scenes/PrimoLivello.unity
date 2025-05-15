@@ -7056,7 +7056,7 @@ MonoBehaviour:
   cameraTransform: {fileID: 417527497}
   animatorMani: {fileID: 1213620047}
   cameraFollowTarget: {fileID: 1998662260}
-  offsetCamera: {x: 0, y: 0.15, z: 0}
+  offsetCamera: {x: 0, y: -0.5, z: 0}
   gravity: -9.8
   jumpHeight: 1.5
   pushForce: 6
