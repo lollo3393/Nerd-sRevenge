@@ -10,6 +10,10 @@ public class DoorTriggerLock : MonoBehaviour
     public GameObject canvasPopup;
     public LockpickingMinigame lockpickingScript;
     public Transform portaDaAprire;
+    public Transform cameraTopView;  // posizione dall’alto
+    [SerializeField] private CameraCutsceneManager cameraCutsceneManager;
+
+
 
     private bool playerVicino = false;
     private bool portaAperta = false;
@@ -55,23 +59,22 @@ public class DoorTriggerLock : MonoBehaviour
         {
             portaAperta = true;
 
-            // ✋ Attiva animazione mani
-            if (animatorMani != null)
-                animatorMani.SetTrigger("ApriPorta");
-
-            // Avvia coroutine che aspetta 30 frame prima di aprire la porta
+            animatorMani?.SetTrigger("ApriPorta");
             ikScript.AttivaIK(true);
+
+            // 🎥 Avvia la visuale dall’alto
+            cameraCutsceneManager?.AvviaVistaDallAlto();
+
             StartCoroutine(AttendiEApriPorta());
-            animatorMani.Rebind();  // Resetta pose e stati
-            animatorMani.Update(0f); // Forza refresh
+            animatorMani.Rebind();
+            animatorMani.Update(0f);
 
-
-            // Disattiva collider subito, o dopo (a tua scelta)
             Collider triggerCollider = GetComponent<Collider>();
             if (triggerCollider != null)
                 triggerCollider.enabled = false;
         }
     }
+
 
 
     System.Collections.IEnumerator RuotaPorta()

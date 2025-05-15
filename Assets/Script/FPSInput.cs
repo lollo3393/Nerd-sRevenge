@@ -10,7 +10,7 @@ public class FPSInput : MonoBehaviour
     public float runMultiplier = 2f;
     public float crouchMultiplier = 0.25f;
     public float proneMultiplier = 0.75f;
-
+    private bool bloccaAggiornamentoCamera = false;
     public Transform cameraTransform;
     [SerializeField] private Animator animatorMani;
     [SerializeField] private Transform cameraFollowTarget;
@@ -140,10 +140,14 @@ public class FPSInput : MonoBehaviour
             velocity.y = -2f;
         }
 
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && StatoCorrente == PlayerState.InPiedi)
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+
         velocity.y += gravity * Time.deltaTime;
         movement.y = velocity.y;
 
         _charController.Move(movement * Time.deltaTime);
+        isGrounded = _charController.isGrounded;
 
         // Velocità animazione
         Vector3 horizontalVelocity = new Vector3(_charController.velocity.x, 0, _charController.velocity.z);
@@ -161,7 +165,7 @@ public class FPSInput : MonoBehaviour
     }
     void AggiornaCamera()
     {
-        if (animatorMani != null)
+        if (animatorMani != null && !bloccaAggiornamentoCamera)
         {
             Transform headBone = animatorMani.GetBoneTransform(HumanBodyBones.Head);
             if (headBone != null)
@@ -171,6 +175,11 @@ public class FPSInput : MonoBehaviour
             }
         }
     }
+    public void BloccaCamera(bool stato)
+    {
+        bloccaAggiornamentoCamera = stato;
+    }
+
 
 
 }
