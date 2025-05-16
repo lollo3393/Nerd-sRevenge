@@ -92,6 +92,8 @@ public class ComputerInteraction : MonoBehaviour
 
     void AccendiSchermo()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         popupText.gameObject.SetActive(false);
         loadingBar.gameObject.SetActive(false);
         desktopCanvas.SetActive(true);
@@ -105,6 +107,20 @@ public class ComputerInteraction : MonoBehaviour
         fakeMarketLoadingBar.value = 0f;
         fakeMarketLoadingTime = 0f;
         isLoadingFakeMarket = true;
+    }
+    
+    public void ChiudiFakeMarket()
+    {
+        fakeMarketCanvas.SetActive(false);
+        desktopCanvas.SetActive(true);
+
+    }
+    public void SpegniTutto()
+    {
+        desktopCanvas.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        
     }
 
 }

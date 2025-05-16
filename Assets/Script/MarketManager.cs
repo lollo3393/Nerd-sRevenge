@@ -44,11 +44,11 @@ public class MarketManager : MonoBehaviour
         {
             var nuovaCarta = Instantiate(cardPrefab, contentPanel);
 
-            // 🔥 MODIFICA: prendi esplicitamente il TMP_Text chiamato "NomeCarta"
+            
             TMP_Text nomeText = nuovaCarta.transform.Find("NomeCarta").GetComponent<TMP_Text>();
             nomeText.text = carta.nome;
 
-            // 🔥 MODIFICA: prendi esplicitamente l'Image chiamato "CardImage"
+            
             Image cardImage = nuovaCarta.transform.Find("CardImage").GetComponent<Image>();
             cardImage.sprite = carta.immagine;
 
@@ -83,5 +83,9 @@ public class MarketManager : MonoBehaviour
     public void ChiudiDettagli()
     {
         panelDettagli.SetActive(false);
+    }
+    public void ChiudiMenu()
+    {
+
     }
 }
