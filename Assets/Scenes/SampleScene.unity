@@ -2829,6 +2829,7 @@ MonoBehaviour:
   passwordErrorText: {fileID: 1957410618}
   fakeMarketCanvas: {fileID: 864772597}
   marketContentCanvas: {fileID: 1618711362}
+  CanvasDesktop: {fileID: 1530920176}
 --- !u!1 &773347252
 GameObject:
   m_ObjectHideFlags: 0
@@ -6029,9 +6030,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 116086843}
-        m_TargetAssemblyTypeName: ComputerInteraction, Assembly-CSharp
-        m_MethodName: ChiudiFakeMarket
+      - m_Target: {fileID: 717433610}
+        m_TargetAssemblyTypeName: FakeMarketLogin, Assembly-CSharp
+        m_MethodName: SpegniPostLogin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\marketmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|c:\\users\\lorenzo\\nerd\u0027s_revenge\\assets\\stanzaplayer\\menulivelliui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\stanzaplayer\\menulivelliui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|c:\\users\\lorenzo\\nerd\u0027s_revenge\\assets\\script\\computerinteraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\computerinteraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|c:\\users\\lorenzo\\nerd\u0027s_revenge\\assets\\stanzaplayer\\portamenutrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\stanzaplayer\\portamenutrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|c:\\users\\lorenzo\\nerd\u0027s_revenge\\assets\\stanzaplayer\\script\\menulivelliui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\stanzaplayer\\script\\menulivelliui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\assets\\primolivello\\script\\cameracutscenemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -37,6 +37,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\assets\\primolivello\\script\\lockpickingminigame1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\primolivello\\script\\lockpickingminigame1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|c:\\users\\lorenzo\\nerd\u0027s_revenge\\assets\\stanzaplayer\\menulivelliui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\stanzaplayer\\menulivelliui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|c:\\users\\lorenzo\\nerd\u0027s_revenge\\assets\\stanzaplayer\\portamenutrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\stanzaplayer\\portamenutrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,8 +54,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ComputerInteraction.cs",
+              "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\ComputerInteraction.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\ComputerInteraction.cs",
+              "ToolTip": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\ComputerInteraction.cs",
+              "RelativeToolTip": "Assets\\Script\\ComputerInteraction.cs",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAqwHoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T08:50:44.063Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MenuLivelliUI.cs",
+              "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\StanzaPlayer\\Script\\MenuLivelliUI.cs",
+              "RelativeDocumentMoniker": "Assets\\StanzaPlayer\\Script\\MenuLivelliUI.cs",
+              "ToolTip": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\StanzaPlayer\\Script\\MenuLivelliUI.cs",
+              "RelativeToolTip": "Assets\\StanzaPlayer\\Script\\MenuLivelliUI.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T08:35:37.113Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -56,14 +90,14 @@
               "RelativeDocumentMoniker": "Assets\\Script\\MarketManager.cs",
               "ToolTip": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\MarketManager.cs",
               "RelativeToolTip": "Assets\\Script\\MarketManager.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAIwDIAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-16T08:15:47.362Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 9,
               "Title": "MenuLivelliUI.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\StanzaPlayer\\MenuLivelliUI.cs",
               "RelativeDocumentMoniker": "Assets\\StanzaPlayer\\MenuLivelliUI.cs",
@@ -71,12 +105,11 @@
               "RelativeToolTip": "Assets\\StanzaPlayer\\MenuLivelliUI.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAIwCIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T08:13:01.862Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-16T08:13:01.862Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
               "Title": "PortaMenuTrigger.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\StanzaPlayer\\PortaMenuTrigger.cs",
               "RelativeDocumentMoniker": "Assets\\StanzaPlayer\\PortaMenuTrigger.cs",
@@ -84,8 +117,7 @@
               "RelativeToolTip": "Assets\\StanzaPlayer\\PortaMenuTrigger.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T08:10:24.047Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-16T08:10:24.047Z"
             },
             {
               "$type": "Document",

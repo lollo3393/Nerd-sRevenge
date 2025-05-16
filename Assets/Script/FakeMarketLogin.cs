@@ -9,6 +9,7 @@ public class FakeMarketLogin : MonoBehaviour
     public TMP_Text passwordErrorText;
     public GameObject fakeMarketCanvas;
     public GameObject marketContentCanvas;
+    public GameObject CanvasDesktop;
 
     private string correctUsername = "ciao";
     private string correctPassword = "1234";
@@ -19,7 +20,12 @@ public class FakeMarketLogin : MonoBehaviour
         usernameErrorText.gameObject.SetActive(false);
         passwordErrorText.gameObject.SetActive(false);
     }
+    public void SpegniPostLogin()
+    {
+        marketContentCanvas.SetActive(false);
+        CanvasDesktop.SetActive(true);
 
+    }
     public void TryLogin()
     {
         bool usernameCorrect = usernameInput.text == correctUsername;
@@ -57,4 +63,5 @@ public class FakeMarketLogin : MonoBehaviour
             passwordErrorText.gameObject.SetActive(true);
         }
     }
+   
 }
