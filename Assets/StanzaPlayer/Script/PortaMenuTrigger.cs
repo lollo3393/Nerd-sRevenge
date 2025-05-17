@@ -3,17 +3,18 @@ using UnityEngine;
 public class PortaMenuTrigger : MonoBehaviour
 {
     public GameObject pannelloUI;
-
     private bool playerVicino = false;
 
     void Update()
     {
+        if (MenuLivelliUI.bloccaControlliPorta) return;
+
         if (playerVicino && Input.GetKeyDown(KeyCode.E))
         {
             pannelloUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            Time.timeScale = 0f; // pausa il gioco
+            MenuLivelliUI.bloccaControlliPorta = true;
         }
     }
 

@@ -50,6 +50,9 @@ public class FPSInput : MonoBehaviour
         }
         if (ComputerInteraction.bloccaControlli)
             return;
+        if (MenuLivelliUI.bloccaControlliPorta)
+            return;
+
 
 
         HandleStateToggles();

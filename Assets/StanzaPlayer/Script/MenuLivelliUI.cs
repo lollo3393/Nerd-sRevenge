@@ -3,8 +3,16 @@ using UnityEngine.SceneManagement;
 
 public class MenuLivelliUI : MonoBehaviour
 {
+    public static bool bloccaControlliPorta = false;
+
     public GameObject pannelloStoria;
     public GameObject pannelloPrincipale;
+
+    void Start()
+    {
+        pannelloPrincipale.SetActive(false);
+        pannelloStoria.SetActive(false);
+    }
 
     public void MostraPannelloStoria()
     {
@@ -20,21 +28,18 @@ public class MenuLivelliUI : MonoBehaviour
 
     public void CaricaLivello(string nomeScena)
     {
-        Time.timeScale = 1f; // riprende il gioco
+        bloccaControlliPorta = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         SceneManager.LoadScene(nomeScena);
     }
 
-
-    void Start()
-    {
-        pannelloPrincipale.SetActive(false);
-        pannelloStoria.SetActive(false);
-    }   
     public void ChiudiTutto()
     {
         pannelloPrincipale.SetActive(false);
-        Time.timeScale = 1f;
-        Cursor.lockState= CursorLockMode.Locked;
+        pannelloStoria.SetActive(false);
+        bloccaControlliPorta = false;
+        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 }

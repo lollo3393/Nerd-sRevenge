@@ -31,6 +31,9 @@ public class MouseLook : MonoBehaviour
     {
         if (ComputerInteraction.bloccaControlli)
             return;
+        if (MenuLivelliUI.bloccaControlliPorta)
+            return;
+
 
         if (axes == RotationAxes.MouseX)
         {
