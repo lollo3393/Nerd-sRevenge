@@ -19,6 +19,7 @@ public class ComputerInteraction : MonoBehaviour
     private bool isScreenOn = false;
     private bool isLoadingFakeMarket = false;
     private float fakeMarketLoadingTime = 0f;
+    public static bool bloccaControlli = false;
 
     void Start()
     {
@@ -92,6 +93,8 @@ public class ComputerInteraction : MonoBehaviour
 
     void AccendiSchermo()
     {
+        bloccaControlli = true;
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         popupText.gameObject.SetActive(false);
@@ -120,7 +123,10 @@ public class ComputerInteraction : MonoBehaviour
         desktopCanvas.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        
+        isScreenOn = false;
+        bloccaControlli = false;
+
     }
+
 
 }

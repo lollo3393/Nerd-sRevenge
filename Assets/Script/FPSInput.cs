@@ -48,6 +48,9 @@ public class FPSInput : MonoBehaviour
             Debug.Log("Provo ad attivare animazione Crouch");
             animatorMani.SetTrigger("Crouch");
         }
+        if (ComputerInteraction.bloccaControlli)
+            return;
+
 
         HandleStateToggles();
         HandleMovement();

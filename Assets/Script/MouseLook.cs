@@ -29,6 +29,9 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (ComputerInteraction.bloccaControlli)
+            return;
+
         if (axes == RotationAxes.MouseX)
         {
             //Rotazione orizzontale qui
