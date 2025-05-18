@@ -12,7 +12,7 @@ public class Rubabile : MonoBehaviour
     {
         // Prendi il nome della carta
         cardComponent card = GetComponent<cardComponent>();
-        var cardField = typeof(cardComponent).GetField("cardName", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+        var cardField = typeof(cardComponent).GetField("cardName", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance); //costrutto per accedere ai campi privati,meotdi e proprietà di un qualsiasi oggetto per poter ottenere il nome della carta e successivamente il path
         cardName = (string)cardField.GetValue(card);
 
         // Carica sprite

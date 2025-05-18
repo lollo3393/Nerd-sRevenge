@@ -158,7 +158,7 @@ public class InventarioUIManager : MonoBehaviour
 
             foreach (var item in oggetti)
             {
-                item.icona = Resources.LoadAll<Sprite>(item.pathIcona)[1];  // usa il secondo sprite
+                item.icona = Resources.LoadAll<Sprite>(item.pathIcona)[1];  // usa il secondo in sprite
             }
 
             AggiornaUI();
