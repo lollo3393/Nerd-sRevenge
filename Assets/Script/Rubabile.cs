@@ -1,6 +1,4 @@
 using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
 
 [RequireComponent(typeof(cardComponent))]
 public class Rubabile : MonoBehaviour
@@ -34,27 +32,11 @@ public class Rubabile : MonoBehaviour
     {
         if (playerVicino && Input.GetKeyDown(KeyCode.E))
         {
-            if (iconaOggetto != null && sfondoSprite != null)
+            if (iconaOggetto != null)
             {
-                // Crea manualmente lo slot
-                GameObject slot = Instantiate(
-                    InventarioUIManager.Instance.prefabSlotOggetto,
-                    InventarioUIManager.Instance.contenitoreSlot
-                );
+                ItemData nuovaCarta = new ItemData(cardName, iconaOggetto, sfondoSprite);
+                InventarioUIManager.Instance.AggiungiOggetto(nuovaCarta);
 
-                // Imposta sfondo nello slot (Image principale del prefab)
-                Image sfondoImage = slot.GetComponent<Image>();
-                if (sfondoImage != null)
-                    sfondoImage.sprite = sfondoSprite;
-
-                // Imposta immagine principale e nome
-                slot.transform.Find("Icona").GetComponent<Image>().sprite = iconaOggetto;
-                slot.transform.Find("Nome").GetComponent<TMP_Text>().text = cardName;
-
-                TMP_Text quantit‡Text = slot.transform.Find("Quantit‡").GetComponent<TMP_Text>();
-                quantit‡Text.text = "";
-
-                // Nasconde oggetto rubato
                 gameObject.SetActive(false);
             }
             else
