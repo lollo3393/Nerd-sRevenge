@@ -47,7 +47,16 @@ public class LockpickingMinigame : MonoBehaviour
 
         timerMinigioco += Time.deltaTime;
 
-        float direzione = versoDestra ? 1 : -1;
+        float direzione;
+        if (versoDestra)
+        {
+            direzione = 1;
+        }
+        else
+        {
+            direzione = -1;
+        }
+
         lockSlider.value += direzione * sliderSpeed * Time.deltaTime / 100;
 
         if (lockSlider.value >= 1) versoDestra = false;
@@ -64,7 +73,11 @@ public class LockpickingMinigame : MonoBehaviour
                 Debug.Log("Scassinamento riuscito");
                 pannelloLockpicking.SetActive(false);
                 minigiocoAttivo = false;
-                onSuccess?.Invoke();
+                if (onSuccess != null)
+                {
+                    onSuccess.Invoke();
+                }
+
             }
             else
             {

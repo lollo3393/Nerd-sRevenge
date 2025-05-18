@@ -92,7 +92,15 @@ public class InventarioUIManager : MonoBehaviour
             {
                 TMP_Text quantit‡Text = quantit‡Transform.GetComponent<TMP_Text>();
                 if (quantit‡Text != null)
-                    quantit‡Text.text = i.quantit‡ > 1 ? i.quantit‡.ToString() : "";
+                    if (i.quantit‡ > 1)
+                    {
+                        quantit‡Text.text = i.quantit‡.ToString();
+                    }
+                    else
+                    {
+                        quantit‡Text.text = "";
+                    }
+
             }
         }
     }
@@ -164,7 +172,8 @@ public class InventarioUIManager : MonoBehaviour
 
 
     [System.Serializable]
-    private class Wrapper
+    private class Wrapper //visto che unity Ë un programma fantastico ma non riesce a serializzare e deserializzare oggetti direttamente da tipi generici tipo List<T>, uso questa classe di appoggio per farlo. infatti nel salvataggio
+        //creo un oggetto Wrapper, gli assegno la lista  e poi converto in JSon questo oggetto, e durante il caricamento faccio lo stesso ma al contrario, ovvero deserializzo il JSON salvato, e lo porto dentro un wrapper, per caricarlo poi da Unity
     {
         public List<ItemData> lista;
     }

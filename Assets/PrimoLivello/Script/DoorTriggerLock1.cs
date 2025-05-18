@@ -58,12 +58,19 @@ public class DoorTriggerLock : MonoBehaviour
         if (!portaAperta)
         {
             portaAperta = true;
+            if (animatorMani != null)
+            {
+                animatorMani.SetTrigger("ApriPorta");
+            }
 
-            animatorMani?.SetTrigger("ApriPorta");
             ikScript.AttivaIK(true);
 
-            // 🎥 Avvia la visuale dall’alto
-            cameraCutsceneManager?.AvviaVistaDallAlto();
+
+            if (cameraCutsceneManager != null)
+            {
+                cameraCutsceneManager.AvviaVistaDallAlto();
+            }
+
 
             StartCoroutine(AttendiEApriPorta());
             animatorMani.Rebind();
