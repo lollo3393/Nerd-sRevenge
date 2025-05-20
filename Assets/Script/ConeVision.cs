@@ -16,8 +16,6 @@ namespace Script
         private bool playerFound = false;
         private float timer;
         public bool pulsingFlag= false;
-       
-        //private LineRenderer lineRenderer;
         private AudioSource allertSound;
         
         void OnTriggerEnter(Collider other) {
@@ -25,8 +23,7 @@ namespace Script
             Vector3 cameraPosition = transform.parent.position;
             if (Physics.Linecast(cameraPosition, other.transform.position, out hit))
             {
-                // lineRenderer.SetPosition(0, cameraPosition);
-                // lineRenderer.SetPosition(1, hit.point);
+                
                 GameObject hitObject = hit.transform.gameObject;
                 if (hitObject.GetComponent<CharacterController>())
                 {
@@ -49,7 +46,7 @@ namespace Script
                     
             Debug.Log("ALLARME");
             playerFound = true;
-            yield return  new WaitForSeconds(0.5f);
+            yield return  new WaitForSeconds(0.2f);
             alarmController.SendMessage("StartAlarm");
         }
         void OnTriggerStay(Collider other) {
@@ -59,16 +56,10 @@ namespace Script
                 Vector3 cameraPosition = transform.parent.position;
                 if (Physics.Linecast(cameraPosition, other.transform.position, out hit))
                 {
-                    // lineRenderer.SetPosition(0, cameraPosition);
-                    // lineRenderer.SetPosition(1, hit.point);
                     GameObject hitObject = hit.transform.gameObject;
                     if (hitObject.GetComponent<CharacterController>())
                     {
-                        allertSound.Play();
-                        Debug.Log("ALLARME");
-                        volumLight.colorTint= allarmColor;
-                        volumLight.slices = 200;
-                        playerFound = true;
+                        StartCoroutine(PlayerFoundSequence());
                     }
                     else
                     {
@@ -90,14 +81,6 @@ namespace Script
                 
             }
             allertSound = GetComponent<AudioSource>();
-            /*
-            lineRenderer = gameObject.AddComponent<LineRenderer>();
-            lineRenderer.positionCount = 2;
-            lineRenderer.material = material;
-            lineRenderer.startColor = Color.red;
-            lineRenderer.endColor = Color.red;
-            lineRenderer.startWidth = 1f;
-            lineRenderer.endWidth = 1f;*/
         }
         
         void Update()

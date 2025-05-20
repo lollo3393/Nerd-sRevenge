@@ -626,6 +626,7 @@ GameObject:
   - component: {fileID: 8137697796555372336}
   - component: {fileID: 4940552986809243955}
   - component: {fileID: 7774325104094058950}
+  - component: {fileID: 4462629722520839013}
   m_Layer: 0
   m_Name: light
   m_TagString: Untagged
@@ -3649,6 +3650,23 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &4462629722520839013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6392615640502520131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e629d500d4ac0a44888545dc1d302619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alarmController: {fileID: 0}
+  material: {fileID: 0}
+  pulseSpeed: 0.5
+  isCameraVision: 0
+  pulsingFlag: 0
 --- !u!1 &7428213431903784499
 GameObject:
   m_ObjectHideFlags: 0
