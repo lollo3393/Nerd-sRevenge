@@ -63,7 +63,7 @@ public class InventarioUIManager : MonoBehaviour
         {
             GameObject slot = Instantiate(prefabSlotOggetto, contenitoreSlot);
 
-            // Sfondo della carta (sprite + materiale in base alla rarità)
+            // Sfondo della carta (sprite + materiale in base alla raritï¿½)
             Image sfondoImage = slot.GetComponent<Image>();
             if (sfondoImage != null && i.sfondo != null)
             {
@@ -105,7 +105,7 @@ public class InventarioUIManager : MonoBehaviour
                     nomeText.text = i.nome;
             }
 
-            // Quantità
+            // Quantitï¿½
             Transform quantitaTransform = slot.transform.Find("Quantita");
             if (quantitaTransform != null)
             {
@@ -193,7 +193,7 @@ public class InventarioUIManager : MonoBehaviour
 
 
     [System.Serializable]
-    private class Wrapper //visto che unity è un programma fantastico ma non riesce a serializzare e deserializzare oggetti direttamente da tipi generici tipo List<T>, uso questa classe di appoggio per farlo. infatti nel salvataggio
+    private class Wrapper //visto che unity ï¿½ un programma fantastico ma non riesce a serializzare e deserializzare oggetti direttamente da tipi generici tipo List<T>, uso questa classe di appoggio per farlo. infatti nel salvataggio
         //creo un oggetto Wrapper, gli assegno la lista  e poi converto in JSon questo oggetto, e durante il caricamento faccio lo stesso ma al contrario, ovvero deserializzo il JSON salvato, e lo porto dentro un wrapper, per caricarlo poi da Unity
     {
         public List<ItemData> lista;
@@ -254,10 +254,10 @@ public class InventarioUIManager : MonoBehaviour
         switch (rarita.ToLower())
         {
             case "rara":
-                return Resources.Load<Material>("Shader/rareHolo");
+                return new Material (Resources.Load<Shader>("Shader/rareHolo"));
             case "epica":
             case "legendaria":
-                return Resources.Load<Material>("Shader/epicHolo");
+                return  new Material (Resources.Load<Shader>("Shader/epicHolo"));
             default:
                 return null;
         }
