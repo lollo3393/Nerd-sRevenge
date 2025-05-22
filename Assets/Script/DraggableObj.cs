@@ -6,6 +6,7 @@ namespace Script
 {
     public class DraggableObj : MonoBehaviour , IDragHandler,IBeginDragHandler,IEndDragHandler
     {
+        public Quaternion targetRotation;
         private GameObject controller;
         [HideInInspector] public Transform parentAfterDrag;
         private Canvas canvas;
@@ -47,6 +48,12 @@ namespace Script
                 Debug.Log("Centro Raggiunto");
                 script.setAlpha0();
             }
+
+            if (targetRotation != null)
+            {
+                transform.rotation = targetRotation;
+            }
+           
         }
     }
 }

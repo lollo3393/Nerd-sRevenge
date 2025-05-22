@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: shader2
+  m_Name: epicHolo
   m_Shader: {fileID: -6465566751694194690, guid: 1456150b2ad8f9a4bb2b28c31b573c67, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -28,14 +28,20 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _holoTexture:
-        m_Texture: {fileID: 2800000, guid: 1987938f91e024c4a9b8bce48e69ff8c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7bc1988f9eb32fb4cb56ef8aa24384ec, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    m_Colors: []
+    - _alphaFactor: 1
+    - _blendOpacity: 0.189
+    - _colorBlendOpacity: 0.167
+    - _distortionAmmount: 17
+    - _offSetAmmount: 0.5
+    m_Colors:
+    - _color: {r: 0.84313726, g: 0.20784315, b: 0.7766313, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &3297427460945600615

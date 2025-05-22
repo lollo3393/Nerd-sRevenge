@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7588221574019454549}
   - component: {fileID: 5038256689622091535}
   m_Layer: 5
-  m_Name: biforcazione
+  m_Name: temp_biforc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ RectTransform:
   m_GameObject: {fileID: 4265653717130712670}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2214885919560787721}

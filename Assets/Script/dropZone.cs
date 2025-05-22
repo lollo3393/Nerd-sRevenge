@@ -8,8 +8,8 @@ namespace Script
     public class dropZone : MonoBehaviour, IDropHandler
     {
         
-        private RectTransform center_rect;
-        private RectTransform wireTransform;
+        private RectTransform rectTransform;
+        public RectTransform wireTransform;
         private Image image;
         void Start()
         {
@@ -19,12 +19,20 @@ namespace Script
 
         public void OnDrop(PointerEventData eventData)
         {
-           
+          
             GameObject dropped = eventData.pointerDrag;
-            dropped.transform.rotation= wireTransform.rotation;
+            
+            DraggableZone scriptZone = dropped.GetComponent<DraggableZone>();
+
+            if (scriptZone != null)
+            {
+                scriptZone.parentAfterDrag = transform;
+                scriptZone.targetRotation= wireTransform.rotation;
+            } 
             DraggableObj script = dropped.GetComponent<DraggableObj>();
             script.parentAfterDrag = transform;
             setAlpha0();
+            script.targetRotation = wireTransform.rotation; 
         }
 
         public void setAlpha0()
@@ -32,7 +40,8 @@ namespace Script
             image.color = new Color(image.color.r, image.color.g, image.color.b, 0);
 
         }
-
+        
+      
         
 
        

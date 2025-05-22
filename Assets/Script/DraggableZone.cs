@@ -7,11 +7,9 @@ namespace Script
     [RequireComponent(typeof(CanvasGroup))]
     public class DraggableZone : MonoBehaviour, IDragHandler,IBeginDragHandler,IEndDragHandler
     {
-        [HideInInspector] public Transform parentAfterDrag;
+        public Quaternion targetRotation;
+         public Transform parentAfterDrag;
         [SerializeField] private GameObject prefab;
-        protected RectTransform rectTransform;
-        protected RectTransform canvasTransform;
-        [SerializeField] protected Canvas canvas;
         protected GameObject DraggedObject;
         protected CanvasGroup canvasGroup;
 
@@ -19,8 +17,6 @@ namespace Script
         public virtual void Start()
         {
             canvasGroup = GetComponent<CanvasGroup>();
-            rectTransform = GetComponent<RectTransform>();
-            canvasTransform = canvas.GetComponent<RectTransform>();
         }
         
 
@@ -36,8 +32,8 @@ namespace Script
 
         public virtual void OnBeginDrag(PointerEventData eventData)
         {       Debug.Log("OnBeginDrag");
-                parentAfterDrag = transform.parent.parent;
-                DraggedObject = Instantiate(prefab,parentAfterDrag) ;
+                parentAfterDrag = transform.root.GetChild(0);
+                DraggedObject = Instantiate(prefab,transform.root) ;
                 DraggedObject.transform.SetAsLastSibling();
                 // Image clonedImage = DraggedObject.GetComponent<Image>();
                 // clonedImage.SetNativeSize();
@@ -48,6 +44,7 @@ namespace Script
         {
             DraggedObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
             DraggedObject.transform.SetParent(parentAfterDrag);
+            transform.rotation = targetRotation;
         }
     }
 }
