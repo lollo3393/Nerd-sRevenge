@@ -1,24 +1,31 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace Script
 {
     public class dropZone : MonoBehaviour, IDropHandler
     {
-        private CanvasGroup canvasGroup;
-
+        private RectTransform wireTransform;
+        private Image image;
         private void Start()
         {
-            canvasGroup = GetComponent<CanvasGroup>();
+            image = GetComponent<Image>();
+            wireTransform = GetComponent<RectTransform>().transform.parent.GetComponentInParent<RectTransform>();
         }
 
         public void OnDrop(PointerEventData eventData)
         {
-            if (eventData.pointerDrag != null)
-            {
-                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
-            }
+           
+            GameObject dropped = eventData.pointerDrag;
+            dropped.transform.rotation= wireTransform.rotation;
+            DraggableObj script = dropped.GetComponent<DraggableObj>();
+            script.parentAfterDrag = transform;
+            image.color = new Color(image.color.r, image.color.g, image.color.b, 0);
+
         }
+
+       
     }
 }

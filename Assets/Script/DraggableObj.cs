@@ -4,32 +4,36 @@ using UnityEngine.EventSystems;
 namespace Script
 {
     public class DraggableObj : MonoBehaviour , IDragHandler,IBeginDragHandler,IEndDragHandler
-    {   private RectTransform rectTransform;
-        private RectTransform canvasTransform;
-        [SerializeField] private Canvas canvas;
+    {
+        [HideInInspector] public Transform parentAfterDrag;
+         private Canvas canvas;
         private CanvasGroup canvasGroup;
+
         public void Start()
         {
+            canvas = transform.root.GetComponent<Canvas>();
             canvasGroup = GetComponent<CanvasGroup>();
-            rectTransform = GetComponent<RectTransform>();
-            canvasTransform = canvas.GetComponent<RectTransform>();
+            
         }
+
         public void OnDrag(PointerEventData eventData)
         {
-            
-            Vector2 pos;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasTransform, eventData.position, eventData.pressEventCamera, out pos);
-            rectTransform.localPosition = pos;
+                transform.position = Input.mousePosition;
         }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
             canvasGroup.blocksRaycasts = false;
+            parentAfterDrag = transform.parent;
+            transform.SetParent(transform.root);
+            transform.SetParent(canvasGroup.transform);
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
             canvasGroup.blocksRaycasts = true;
+            transform.SetParent(parentAfterDrag);
+            
         }
     }
 }
