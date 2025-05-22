@@ -63,10 +63,16 @@ public class InventarioUIManager : MonoBehaviour
         {
             GameObject slot = Instantiate(prefabSlotOggetto, contenitoreSlot);
 
-            // Sfondo del prefab
-            Image sfondo = slot.GetComponent<Image>();
-            if (sfondo != null && i.sfondo != null)
-                sfondo.sprite = i.sfondo;
+            // Sfondo della carta (sprite + materiale in base alla rarit‡)
+            Image sfondoImage = slot.GetComponent<Image>();
+            if (sfondoImage != null && i.sfondo != null)
+            {
+                sfondoImage.sprite = i.sfondo;
+
+                Material materialeRarita = CaricaMaterialeDaRarita(i.rarita);
+                if (materialeRarita != null)
+                    sfondoImage.material = materialeRarita;
+            }
 
             // Icona della carta
             Transform iconaTransform = slot.transform.Find("Icona");
@@ -75,6 +81,19 @@ public class InventarioUIManager : MonoBehaviour
                 Image immagine = iconaTransform.GetComponent<Image>();
                 if (immagine != null && i.icona != null)
                     immagine.sprite = i.icona;
+            }
+
+            // Outlayer opzionale (puoi usare lo stesso materiale olografico)
+            Transform outlayerTransform = slot.transform.Find("Outlayer");
+            if (outlayerTransform != null)
+            {
+                Image outlayerImage = outlayerTransform.GetComponent<Image>();
+                if (outlayerImage != null)
+                {
+                    Material materialeRarita = CaricaMaterialeDaRarita(i.rarita);
+                    if (materialeRarita != null)
+                        outlayerImage.material = materialeRarita;
+                }
             }
 
             // Nome
@@ -86,24 +105,18 @@ public class InventarioUIManager : MonoBehaviour
                     nomeText.text = i.nome;
             }
 
-            // Quantit‡ (opzionale, ma lasciata per completezza)
-            Transform quantit‡Transform = slot.transform.Find("Quantit‡");
-            if (quantit‡Transform != null)
+            // Quantit‡
+            Transform quantitaTransform = slot.transform.Find("Quantita");
+            if (quantitaTransform != null)
             {
-                TMP_Text quantit‡Text = quantit‡Transform.GetComponent<TMP_Text>();
-                if (quantit‡Text != null)
-                    if (i.quantit‡ > 1)
-                    {
-                        quantit‡Text.text = i.quantit‡.ToString();
-                    }
-                    else
-                    {
-                        quantit‡Text.text = "";
-                    }
-
+                TMP_Text quantitaText = quantitaTransform.GetComponent<TMP_Text>();
+                if (quantitaText != null)
+                    quantitaText.text = (i.quantita > 1) ? i.quantita.ToString() : "";
             }
         }
     }
+
+
 
 
     void Start()
@@ -138,14 +151,22 @@ public class InventarioUIManager : MonoBehaviour
     {
         Debug.Log("Oggetti attualmente nell'inventario: " + oggetti.Count);
         foreach (var o in oggetti)
-            Debug.Log("Oggetto: " + o.nome + ", quantit‡: " + o.quantit‡);
+            Debug.Log("Oggetto: " + o.nome + ", quantita: " + o.quantita);
 
         string path = Application.persistentDataPath + "/inventario.json";
         string json = JsonUtility.ToJson(new Wrapper { lista = oggetti }, true);
         File.WriteAllText(path, json);
         Debug.Log("Inventario salvato con successo in " + path);
     }
-
+    public List<ItemData> GetListaOggetti()
+    {
+        return oggetti;
+    }
+    public void RimuoviOggetto(ItemData daRimuovere)
+    {
+        oggetti.Remove(daRimuovere);
+        AggiornaUI();
+    }
 
     public void CaricaDaFile()
     {
@@ -217,6 +238,31 @@ public class InventarioUIManager : MonoBehaviour
             Debug.LogWarning($"Nessun salvataggio trovato nello slot {slot}");
         }
     }
+    private Color RaritaToColor(string rarita)
+    {
+        switch (rarita.ToLower())
+        {
+            case "comune": return new Color(0.7f, 0.7f, 0.7f); // grigio
+            case "rara": return new Color(1f, 0.85f, 0f);       // giallo
+            case "epica": return new Color(0.6f, 0.2f, 0.8f);   // viola
+            case "legendaria": return new Color(0.8f, 0f, 0f);  // rosso
+            default: return Color.white;
+        }
+    }
+    private Material CaricaMaterialeDaRarita(string rarita)
+    {
+        switch (rarita.ToLower())
+        {
+            case "rara":
+                return Resources.Load<Material>("Shader/rareHolo");
+            case "epica":
+            case "legendaria":
+                return Resources.Load<Material>("Shader/epicHolo");
+            default:
+                return null;
+        }
+    }
+
     // Per collegarli nei bottoni dei panel
     public void SalvaSlot1() => SalvaSuSlot(1);
     public void SalvaSlot2() => SalvaSuSlot(2);

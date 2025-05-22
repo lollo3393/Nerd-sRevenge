@@ -37,8 +37,8 @@ public class FPSInput : MonoBehaviour
         currentSpeed = baseSpeed;
         cameraDefaultPosition = cameraTransform.localPosition;
         animatorMani = GetComponentInChildren<Animator>();
-       // Cursor.lockState = CursorLockMode.Locked;
-       // Cursor.visible = false;
+        // Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = true ;
     }
 
     void Update()
