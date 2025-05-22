@@ -7,6 +7,8 @@ namespace Script
     [RequireComponent(typeof(CanvasGroup))]
     public class DraggableZone : MonoBehaviour, IDragHandler,IBeginDragHandler,IEndDragHandler
     {
+        [HideInInspector] public Transform parentAfterDrag;
+        [SerializeField] private GameObject prefab;
         protected RectTransform rectTransform;
         protected RectTransform canvasTransform;
         [SerializeField] protected Canvas canvas;
@@ -26,27 +28,26 @@ namespace Script
         {
             if (DraggedObject != null)
             {
-                RectTransform rt = DraggedObject.GetComponent<RectTransform>();
-                Vector2 pos;
-                RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasTransform, eventData.position, eventData.pressEventCamera, out pos);
-                rt.localPosition = pos;
+                DraggedObject.transform.position = Input.mousePosition;
             }
+            
         }
 
 
         public virtual void OnBeginDrag(PointerEventData eventData)
-        {   
-                DraggedObject = Instantiate(gameObject, canvasTransform);
-                DraggedObject.transform.localScale= gameObject.transform.lossyScale;
+        {       Debug.Log("OnBeginDrag");
+                parentAfterDrag = transform.parent.parent;
+                DraggedObject = Instantiate(prefab,parentAfterDrag) ;
                 DraggedObject.transform.SetAsLastSibling();
-                Image clonedImage = DraggedObject.GetComponent<Image>();
-                clonedImage.SetNativeSize();
-                canvasGroup.blocksRaycasts = false;
+                // Image clonedImage = DraggedObject.GetComponent<Image>();
+                // clonedImage.SetNativeSize();
+                DraggedObject.GetComponent<CanvasGroup>().blocksRaycasts = false;
         }
 
         public virtual void OnEndDrag(PointerEventData eventData)
         {
-            canvasGroup.blocksRaycasts = true;
+            DraggedObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
+            DraggedObject.transform.SetParent(parentAfterDrag);
         }
     }
 }

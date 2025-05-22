@@ -17,21 +17,22 @@ namespace Script
             {
                 switch_count = 2;
             }
+            else
+            {
+                switch_count=-1;
+            }
         }
 
         public override void OnBeginDrag(PointerEventData eventData)
         {
-            if (switch_count > 0 && infiniteZones)
+            if (switch_count > 0 || infiniteZones)
             {
                 base.OnBeginDrag(eventData);
+                switch_count--;
+                TextMeshProUGUI tmp = switch_count_text.GetComponent<TextMeshProUGUI>();
+                tmp.text = switch_count.ToString();
             }
-            foreach (Transform child in DraggedObject.transform)
-            {
-                Destroy(child.gameObject);
-            }
-            switch_count--;
-            TextMeshProUGUI tmp = switch_count_text.GetComponent<TextMeshProUGUI>();
-            tmp.text = switch_count.ToString();
+           
         }
     }
 }

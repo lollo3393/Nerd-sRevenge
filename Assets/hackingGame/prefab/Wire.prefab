@@ -31,7 +31,7 @@ RectTransform:
   m_GameObject: {fileID: 2268021316607303330}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99, y: 1.06, z: 1.0600127}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8367286606211261636}
@@ -72,7 +72,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 07e885e226c8bdf468022d69f5e42d26, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -202,11 +202,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 443070087322720067, guid: 6c19b9d26419d9b41a0124ab61d9a367, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000091552734
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 443070087322720067, guid: 6c19b9d26419d9b41a0124ab61d9a367, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -96
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 443070087322720067, guid: 6c19b9d26419d9b41a0124ab61d9a367, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -223,6 +223,10 @@ PrefabInstance:
     - target: {fileID: 2504616157639877719, guid: 6c19b9d26419d9b41a0124ab61d9a367, type: 3}
       propertyPath: m_Name
       value: dropZone
+      objectReference: {fileID: 0}
+    - target: {fileID: 4061228289879741207, guid: 6c19b9d26419d9b41a0124ab61d9a367, type: 3}
+      propertyPath: Center
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
