@@ -14,7 +14,7 @@ public class Hackingmingaym : MonoBehaviour
     [SerializeField] private TextMeshProUGUI tmp;
     [SerializeField] private difficolta diff;
     [SerializeField] private GameObject gridLayout;
-    [SerializeField] private GameObject switchPrefab;
+    [SerializeField] private GameObject switchZonePrefab;
     
     private void Start()
     {
@@ -35,6 +35,18 @@ public class Hackingmingaym : MonoBehaviour
         tmp.text = "f = "+funzione;
         Debug.Log(funzione);
 
+    }
+
+    private void generaZoneDraggabili()
+    {
+        foreach (GameObject g in gridLayout.transform)
+        {
+            GameObject.Destroy(g);
+        }
+        for (int i = 0; i < nVar; i++)
+        {
+            GameObject dragZone = Instantiate(switchZonePrefab, gridLayout.transform);
+        }
     }
 
     private string generaFunzione()
