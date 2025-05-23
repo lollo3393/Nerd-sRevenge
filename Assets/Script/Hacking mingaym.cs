@@ -1,3 +1,4 @@
+using Script;
 using TMPro;
 using UnityEngine;
 
@@ -39,6 +40,7 @@ public class Hackingmingaym : MonoBehaviour
 
     private void generaZoneDraggabili()
     {
+        char nomeVar = 'a';
         foreach (GameObject g in gridLayout.transform)
         {
             GameObject.Destroy(g);
@@ -46,6 +48,9 @@ public class Hackingmingaym : MonoBehaviour
         for (int i = 0; i < nVar; i++)
         {
             GameObject dragZone = Instantiate(switchZonePrefab, gridLayout.transform);
+            DraggableSwitchZone dsz=   dragZone.GetComponent<DraggableSwitchZone>();
+            dsz.varName = nomeVar.ToString();
+            nomeVar++;
         }
     }
 

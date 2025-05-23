@@ -1,6 +1,8 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace Script
 {
@@ -9,17 +11,19 @@ namespace Script
         [SerializeField] private bool infiniteZones ;
         private  int switch_count { get; set; }
         [SerializeField] GameObject switch_count_text;
-        [SerializeField] GameObject varNametext;
+         [SerializeField] GameObject varNameObj;
  
-        private string varName; 
-        TextMeshProUGUI nSwitchtext ;
-        TextMeshProUGUI varNameTextTmp ;
+        public string varName {get; set;}
+        private TextMeshProUGUI switchCountTmp ;
+        private TextMeshProUGUI varNameTextTmp ;
+        private Button notButton ;
         public override void Start()
         {
             
             base.Start(); 
-            nSwitchtext = switch_count_text.GetComponent<TextMeshProUGUI>();
-            varNameTextTmp = varNametext.GetComponent<TextMeshProUGUI>();
+            switchCountTmp = switch_count_text.GetComponent<TextMeshProUGUI>();
+            varNameTextTmp = varNameObj.GetComponent<TextMeshProUGUI>();
+            notButton = transform.GetChild(2).GetComponent<Button>();
             if(!infiniteZones)
             {
                 switch_count = 2;
@@ -30,11 +34,6 @@ namespace Script
             }
         }
 
-        public void cambiaNomeVar(string varName)
-        {
-            
-        }
-
         public override void OnBeginDrag(PointerEventData eventData)
         {
             if (switch_count > 0 || infiniteZones)
@@ -42,9 +41,23 @@ namespace Script
                 base.OnBeginDrag(eventData);
                 switch_count--;
                 
-                nSwitchtext.text = switch_count.ToString();
+                switchCountTmp.text = switch_count.ToString();
             }
            
+        }
+
+        public void invertiVar()
+        {
+            if (varName.Length == 1)
+            {
+                varName="not("+varName+")";
+            }
+            else
+            {
+                varName = varName.Replace("not(", "");
+                varName = varName.Replace(")", "");
+            }
+            varNameTextTmp.text = varName;
         }
     }
 }
