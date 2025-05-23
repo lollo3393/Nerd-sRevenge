@@ -3,72 +3,80 @@ using UnityEngine;
 
 public class cardComponent : MonoBehaviour
 {
-    
-    [SerializeField] cardDatabase  cardName;
+    [SerializeField] private cardDatabase cardName;
     [SerializeField] private cardRarity rarita;
-    
-    private Transform sfondo ;
-    private Transform corner ;
-    private Transform outlayer ;
-    private Transform back ;
+
+    private SpriteRenderer sfondoSr, cornerSr, outlayerSr, backSr;
+
     void Start()
     {
-         sfondo = gameObject.transform.Find("sfondo");
-         corner = gameObject.transform.Find("corner");
-         outlayer = gameObject.transform.Find("outlayer");
-         back = gameObject.transform.Find("back");
-        
-        
-        Object[] layers = Resources.LoadAll<Sprite>("card/"+cardName) as Sprite[];
-        sfondo.GetComponent<SpriteRenderer>().sprite = (Sprite)layers[0];
-        corner.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("blankCorner") as Sprite;
-        outlayer.GetComponent<SpriteRenderer>().sprite = (Sprite)layers[1];
-        back.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("cardBack") as Sprite;
-        controllaOlografia();
+        // Cache dei SpriteRenderer
+        sfondoSr = transform.Find("sfondo").GetComponent<SpriteRenderer>();
+        cornerSr = transform.Find("corner").GetComponent<SpriteRenderer>();
+        outlayerSr = transform.Find("outlayer").GetComponent<SpriteRenderer>();
+        backSr = transform.Find("back").GetComponent<SpriteRenderer>();
+
+        // Carica texture base
+        Sprite[] layers = Resources.LoadAll<Sprite>($"card/{cardName}");
+        if (layers.Length >= 2)
+        {
+            sfondoSr.sprite = layers[0];
+            outlayerSr.sprite = layers[1];
+        }
+        else
+        {
+            Debug.LogWarning($"Sprites mancanti per card/{cardName}");
+        }
+
+        // Corner e back
+        cornerSr.sprite = Resources.Load<Sprite>("blankCorner");
+        backSr.sprite = Resources.Load<Sprite>("cardBack");
+
+        ApplicaOlografia();
     }
 
-    void controllaOlografia()
+    void ApplicaOlografia()
     {
-        Shader holoSfondo;
-        Shader holoOutlayer;
-        Material sfondoMaterial ;
-        Material outlayerMaterial ;
-        
-       
+        // Carica materiali preconfigurati
+        Material holoBg = Resources.Load<Material>("Shader/sfondoHolo");
+        Material rareHolo = Resources.Load<Material>("Shader/rareHolo");
+        Material epicHolo = Resources.Load<Material>("Shader/epicHolo");
+
         switch (rarita)
         {
             case cardRarity.comune:
-                corner.gameObject.GetComponent<SpriteRenderer>().color = Color.sandyBrown;
+                cornerSr.color = new Color(0.8f, 0.8f, 0.8f); // grigio
                 break;
             case cardRarity.rara:
-                corner.gameObject.GetComponent<SpriteRenderer>().color = Color.softYellow;
-                holoSfondo = Resources.Load<Shader>("Shader/sfondoHolo");
-                holoOutlayer = Resources.Load<Shader>("Shader/rareHolo");
-                sfondoMaterial = new Material(holoSfondo);
-                outlayerMaterial = new Material(holoOutlayer);
-                sfondo.GetComponent<SpriteRenderer>().material = sfondoMaterial;
-                outlayer.GetComponent<SpriteRenderer>().material = outlayerMaterial;
+                cornerSr.color = new Color(1f, 0.85f, 0f); // giallo
+                sfondoSr.material = holoBg;
+                outlayerSr.material = rareHolo;
                 break;
             case cardRarity.epica:
-                corner.gameObject.GetComponent<SpriteRenderer>().color = Color.mediumOrchid;
-                holoSfondo = Resources.Load<Shader>("Shader/sfondoHolo");
-                holoOutlayer = Resources.Load<Shader>("Shader/epicHolo");
-                sfondoMaterial = new Material(holoSfondo);
-                outlayerMaterial = new Material(holoOutlayer);
-                sfondo.GetComponent<SpriteRenderer>().material = sfondoMaterial;
-                outlayer.GetComponent<SpriteRenderer>().material = outlayerMaterial;
+                cornerSr.color = new Color(0.6f, 0.2f, 0.8f); // viola
+                sfondoSr.material = holoBg;
+                outlayerSr.material = epicHolo;
                 break;
             case cardRarity.Legendaria:
-                corner.gameObject.GetComponent<SpriteRenderer>().color = Color.crimson;
-                holoSfondo = Resources.Load<Shader>("Shader/sfondoHolo");
-                holoOutlayer = Resources.Load<Shader>("Shader/epicHolo");
-                sfondoMaterial = new Material(holoSfondo);
-                outlayerMaterial = new Material(holoOutlayer);
-                sfondo.GetComponent<SpriteRenderer>().material = sfondoMaterial;
-                outlayer.GetComponent<SpriteRenderer>().material = outlayerMaterial;
+                cornerSr.color = new Color(0.9f, 0f, 0f); // rosso
+                sfondoSr.material = holoBg;
+                outlayerSr.material = epicHolo;
                 break;
-            default:
-                break;
+        }
+    }
+
+    // Metodi per Rubabile.cs
+    public string GetNome() => cardName.ToString();
+    public string GetRarita() => rarita.ToString();
+    public int GetPrezzo()    // esempio semplice, puoi estendere
+    {
+        switch (rarita)
+        {
+            case cardRarity.comune: return 10;
+            case cardRarity.rara: return 30;
+            case cardRarity.epica: return 80;
+            case cardRarity.Legendaria: return 150;
+            default: return 10;
         }
     }
 }

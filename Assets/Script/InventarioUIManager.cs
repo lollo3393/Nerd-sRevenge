@@ -56,70 +56,75 @@ public class InventarioUIManager : MonoBehaviour
 
     void AggiornaUI()
     {
-        foreach (Transform figlio in contenitoreSlot)
-            Destroy(figlio.gameObject);
+        foreach (Transform child in contenitoreSlot)
+            Destroy(child.gameObject);
 
-        foreach (ItemData i in oggetti)
+        foreach (var i in oggetti)
         {
             GameObject slot = Instantiate(prefabSlotOggetto, contenitoreSlot);
 
-            // Sfondo della carta (sprite + materiale in base alla rarit�)
-            Image sfondoImage = slot.GetComponent<Image>();
-            if (sfondoImage != null && i.sfondo != null)
-            {
-                sfondoImage.sprite = i.sfondo;
+            // — Sfondo base
+            var sf = slot.GetComponent<Image>();
+            if (sf != null && i.sfondo != null)
+                sf.sprite = i.sfondo;
 
-                Material materialeRarita = CaricaMaterialeDaRarita(i.rarita);
-                if (materialeRarita != null)
-                    sfondoImage.material = materialeRarita;
-            }
+            // — Icona
+            var ic = slot.transform.Find("Icona")?.GetComponent<Image>();
+            if (ic != null && i.icona != null)
+                ic.sprite = i.icona;
 
-            // Icona della carta
-            Transform iconaTransform = slot.transform.Find("Icona");
-            if (iconaTransform != null)
+            // — Outlayer ora mostra lo stesso sfondo
+            var ol = slot.transform.Find("Outlayer")?.GetComponent<Image>();
+            if (ol != null && i.sfondo != null)
+                ol.sprite = i.sfondo;
+            // 4) Corner (badge)
+            var cornerTrans = slot.transform.Find("Corner");
+            if (cornerTrans != null)
             {
-                Image immagine = iconaTransform.GetComponent<Image>();
-                if (immagine != null && i.icona != null)
-                    immagine.sprite = i.icona;
-            }
-
-            // Outlayer opzionale (puoi usare lo stesso materiale olografico)
-            Transform outlayerTransform = slot.transform.Find("Outlayer");
-            if (outlayerTransform != null)
-            {
-                Image outlayerImage = outlayerTransform.GetComponent<Image>();
-                if (outlayerImage != null)
+                Image cornerImg = cornerTrans.GetComponent<Image>();
+                if (cornerImg != null)
                 {
-                    Material materialeRarita = CaricaMaterialeDaRarita(i.rarita);
-                    if (materialeRarita != null)
-                        outlayerImage.material = materialeRarita;
+                    // blankCorner
+                    Sprite blank = Resources.Load<Sprite>("blankCorner");
+                    if (blank != null) cornerImg.sprite = blank;
+                    cornerImg.color = RaritaToColor(i.rarita);
                 }
             }
 
-            // Nome
-            Transform nomeTransform = slot.transform.Find("Nome");
-            if (nomeTransform != null)
-            {
-                TMP_Text nomeText = nomeTransform.GetComponent<TMP_Text>();
-                if (nomeText != null)
-                    nomeText.text = i.nome;
-            }
+            // — Nome e Quantità
+            // … dentro AggiornaUI(), dopo Corner …
 
-            // Quantit�
-            Transform quantitaTransform = slot.transform.Find("Quantita");
-            if (quantitaTransform != null)
-            {
-                TMP_Text quantitaText = quantitaTransform.GetComponent<TMP_Text>();
-                if (quantitaText != null)
-                    quantitaText.text = (i.quantita > 1) ? i.quantita.ToString() : "";
-            }
+            // Nome e Rarità
+            var nm = slot.transform.Find("Nome")?.GetComponent<TMP_Text>();
+            if (nm != null)
+                nm.text = i.nome;
+
+            var qt = slot.transform.Find("Quantita")?.GetComponent<TMP_Text>();
+            if (qt != null)
+                qt.text = i.rarita;
+
         }
     }
 
 
 
 
-    void Start()
+    private Color RaritaToColor(string rarita)
+    {
+        switch (rarita.ToLower())
+        {
+            case "comune": return new Color(0.7f, 0.7f, 0.7f);
+            case "rara": return new Color(1f, 0.85f, 0f);
+            case "epica": return new Color(0.6f, 0.2f, 0.8f);
+            case "legendaria": return new Color(0.9f, 0f, 0f);
+            default: return Color.white;
+        }
+    }
+  
+            
+
+
+void Start()
     {
         pannelloZaino.SetActive(false);
     }
@@ -238,26 +243,16 @@ public class InventarioUIManager : MonoBehaviour
             Debug.LogWarning($"Nessun salvataggio trovato nello slot {slot}");
         }
     }
-    private Color RaritaToColor(string rarita)
-    {
-        switch (rarita.ToLower())
-        {
-            case "comune": return new Color(0.7f, 0.7f, 0.7f); // grigio
-            case "rara": return new Color(1f, 0.85f, 0f);       // giallo
-            case "epica": return new Color(0.6f, 0.2f, 0.8f);   // viola
-            case "legendaria": return new Color(0.8f, 0f, 0f);  // rosso
-            default: return Color.white;
-        }
-    }
+   
     private Material CaricaMaterialeDaRarita(string rarita)
     {
         switch (rarita.ToLower())
         {
             case "rara":
-                return new Material (Resources.Load<Shader>("Shader/rareHolo"));
+                return Object.Instantiate(Resources.Load<Material>("Shader/rareHolo"));
             case "epica":
             case "legendaria":
-                return  new Material (Resources.Load<Shader>("Shader/epicHolo"));
+                return Object.Instantiate(Resources.Load<Material>("Shader/epicHolo"));
             default:
                 return null;
         }
