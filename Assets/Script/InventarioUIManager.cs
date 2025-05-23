@@ -244,20 +244,6 @@ void Start()
         }
     }
    
-    private Material CaricaMaterialeDaRarita(string rarita)
-    {
-        switch (rarita.ToLower())
-        {
-            case "rara":
-                return Object.Instantiate(Resources.Load<Material>("Shader/rareHolo"));
-            case "epica":
-            case "legendaria":
-                return Object.Instantiate(Resources.Load<Material>("Shader/epicHolo"));
-            default:
-                return null;
-        }
-    }
-
     // Per collegarli nei bottoni dei panel
     public void SalvaSlot1() => SalvaSuSlot(1);
     public void SalvaSlot2() => SalvaSuSlot(2);

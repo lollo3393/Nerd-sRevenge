@@ -8,6 +8,7 @@ public class MercatoUIManager : MonoBehaviour
     public GameObject pannelloMercato;      // SfondoGlobale
 
     [Header("Selezione Carte")]
+    public GameObject pannelloSelezione;
     public RectTransform contenitoreSlotMercato;  // Content dello ScrollView
     public GameObject prefabSlotMercato;          // SlotMercato prefab
 
@@ -29,6 +30,7 @@ public class MercatoUIManager : MonoBehaviour
         pannelloMercato.SetActive(false);
         vendiButton.onClick.AddListener(VendiCartaSelezionata);
         chiudiMercatoButton.onClick.AddListener(ChiudiMercato);
+        pannelloSelezione.SetActive(false);
     }
 
     public void ApriMercato()
@@ -36,35 +38,94 @@ public class MercatoUIManager : MonoBehaviour
         // reset UI dettagli
         cartaSelezionata = null;
         anteprimaImg.sprite = null;
-        nomeDettaglioText.text = raritaDettaglioText.text = tipoDettaglioText.text = prezzoDettaglioText.text = "";
+        nomeDettaglioText.text = "";
+        raritaDettaglioText.text = "";
+        tipoDettaglioText.text = "";
+        prezzoDettaglioText.text = "";
         vendiButton.interactable = false;
 
-        pannelloMercato.SetActive(true);
+        pannelloSelezione.SetActive(true);
         PopolaSelezioneCarte();
+    }
+    public void MostraMercato()
+    {
+        pannelloMercato.SetActive(true);
+        pannelloSelezione.SetActive(false);
     }
 
     void PopolaSelezioneCarte()
     {
-        // svuota
-        foreach (Transform t in contenitoreSlotMercato) Destroy(t.gameObject);
+        // 1) Pulisci
+        foreach (Transform t in contenitoreSlotMercato)
+            Destroy(t.gameObject);
 
-        // crea uno slot per ogni carta nell'inventario
+        // 2) Istanzia uno slot per ogni carta
         foreach (var item in InventarioUIManager.Instance.GetListaOggetti())
         {
             var slot = Instantiate(prefabSlotMercato, contenitoreSlotMercato);
-            // Icona e nome
-            slot.transform.Find("Icona").GetComponent<Image>().sprite = item.icona;
-            slot.transform.Find("Nome").GetComponent<TMP_Text>().text = item.nome;
-            // Corner
-            slot.transform.Find("Corner").GetComponent<Image>().color = RaritaToColor(item.rarita);
 
-            // click sul bottone
-            slot.GetComponent<Button>().onClick.AddListener(() => OnSlotClick(item));
+            // 3) Carica sprite (sfondo e icona) UNA VOLTA
+            Sprite[] layers = Resources.LoadAll<Sprite>("card/" + item.nome);
+            if (layers == null || layers.Length < 2)
+            {
+                Debug.LogWarning($"[{item.nome}] sprite mancanti in Resources/card/{item.nome}");
+                continue;
+            }
+
+            // — Sfondo base (layer[0])
+            var sf = slot.GetComponent<Image>();
+            if (sf != null)
+            {
+                sf.sprite = layers[0];
+                sf.color = Color.white;
+            }
+
+            // — Icona (layer[1])
+            var ic = slot.transform.Find("Icona")?.GetComponent<Image>();
+            if (ic != null)
+            {
+                ic.sprite = layers[1];
+                ic.color = Color.white;
+            }
+
+            // — Outlayer (stesso sfondo)
+            var ol = slot.transform.Find("Outlayer")?.GetComponent<Image>();
+            if (ol != null)
+            {
+                ol.sprite = layers[0];
+                ol.color = Color.white;
+            }
+
+            // — Corner
+            var cornerImg = slot.transform.Find("Corner")?.GetComponent<Image>();
+            if (cornerImg != null)
+            {
+                var blank = Resources.Load<Sprite>("blankCorner");
+                if (blank != null) cornerImg.sprite = blank;
+                cornerImg.color = RaritaToColor(item.rarita);
+            }
+
+            // — Nome
+            var nm = slot.transform.Find("Nome")?.GetComponent<TMP_Text>();
+            if (nm != null) nm.text = item.nome;
+
+            // — Rarità (al posto di Quantita)
+            var qt = slot.transform.Find("Quantita")?.GetComponent<TMP_Text>();
+            if (qt != null) qt.text = item.rarita;
+
+            // — Click sul Button root
+            var btn = slot.GetComponent<Button>();
+            if (btn != null)
+            {
+                btn.onClick.RemoveAllListeners();
+                btn.onClick.AddListener(() => OnSlotClick(item));
+            }
         }
     }
 
     void OnSlotClick(ItemData item)
     {
+        pannelloSelezione.SetActive(false);
         cartaSelezionata = item;
         anteprimaImg.sprite = item.icona;
         nomeDettaglioText.text = item.nome;
@@ -80,10 +141,14 @@ public class MercatoUIManager : MonoBehaviour
         InventarioUIManager.Instance.RimuoviOggetto(cartaSelezionata);
         GiocatoreValuta.Instance.AggiungiMonete(cartaSelezionata.prezzo);
         PopolaSelezioneCarte();
-        // (opzionale) togli dettagli
+
+        // pulisci
         cartaSelezionata = null;
         anteprimaImg.sprite = null;
-        nomeDettaglioText.text = raritaDettaglioText.text = tipoDettaglioText.text = prezzoDettaglioText.text = "";
+        nomeDettaglioText.text = "";
+        raritaDettaglioText.text = "";
+        tipoDettaglioText.text = "";
+        prezzoDettaglioText.text = "";
         vendiButton.interactable = false;
     }
 
