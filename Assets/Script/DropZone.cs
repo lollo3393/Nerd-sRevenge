@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Script
 {
-    public class dropZone : MonoBehaviour, IDropHandler
+    public class DropZone : MonoBehaviour, IDropHandler
     {
         
         private RectTransform rectTransform;
@@ -27,12 +27,10 @@ namespace Script
             if (scriptZone != null)
             {
                 scriptZone.parentAfterDrag = transform;
-                scriptZone.targetRotation= wireTransform.rotation;
             } 
             DraggableObj script = dropped.GetComponent<DraggableObj>();
             script.parentAfterDrag = transform;
             setAlpha0();
-            script.targetRotation = wireTransform.rotation; 
         }
 
         public void setAlpha0()

@@ -4,10 +4,8 @@ using UnityEngine.UI;
 
 namespace Script
 {
-    [RequireComponent(typeof(CanvasGroup))]
     public class DraggableZone : MonoBehaviour, IDragHandler,IBeginDragHandler,IEndDragHandler
     {
-        public Quaternion targetRotation;
          public Transform parentAfterDrag;
         [SerializeField] private GameObject prefab;
         protected GameObject DraggedObject;
@@ -44,7 +42,6 @@ namespace Script
         {
             DraggedObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
             DraggedObject.transform.SetParent(parentAfterDrag);
-            transform.rotation = targetRotation;
         }
     }
 }

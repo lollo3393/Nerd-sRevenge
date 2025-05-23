@@ -4,6 +4,9 @@
     {
         jelfo,
         jelfred,
+        jelfys,
+        verjion,
+        vajratonto
         
     }
 }

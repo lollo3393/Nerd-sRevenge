@@ -23,17 +23,10 @@ namespace Script
             Vector3 cameraPosition = transform.parent.position;
             if (Physics.Linecast(cameraPosition, other.transform.position, out hit))
             {
-                
                 GameObject hitObject = hit.transform.gameObject;
                 if (hitObject.GetComponent<CharacterController>())
                 {
-
                     StartCoroutine(PlayerFoundSequence());
-
-                }
-                else
-                {
-                    Debug.Log("In range ma coperto ");
                 }
             }
         }
@@ -41,10 +34,7 @@ namespace Script
         IEnumerator PlayerFoundSequence()
         {
             allertSound.Play();
-            
             volumLight.colorTint= allarmColor;  
-                    
-            Debug.Log("ALLARME");
             playerFound = true;
             yield return  new WaitForSeconds(0.2f);
             alarmController.SendMessage("StartAlarm");
@@ -74,10 +64,7 @@ namespace Script
             {
                 volumLight = GetComponentInChildren<VLight>();
                 luce = volumLight.colorTint;
-                Debug.Log(luce.r+" "+luce.g+" "+luce.b+" "+luce.a);
                 allarmColor = new Color( 0.7215686f, 0.07843138f,0.06666667f, 0.9607843f);
-
-
                 
             }
             allertSound = GetComponent<AudioSource>();

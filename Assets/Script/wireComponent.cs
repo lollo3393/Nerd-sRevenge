@@ -37,6 +37,23 @@ namespace Script
                 
             }
         }
+
+        private void Update()
+        {
+            Transform dropZone = transform.parent;
+            if (dropZone != null)
+            {
+                Transform wireParent = dropZone.parent;
+                if (wireParent != null)
+                {
+                    if (gameObject.transform.rotation != wireParent.rotation)
+                    {
+                        gameObject.transform.rotation = wireParent.rotation;
+                    }
+                }
+               
+            }
+        }
     }
 
     

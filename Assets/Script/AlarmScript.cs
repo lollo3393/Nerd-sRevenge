@@ -6,23 +6,17 @@ namespace Script
     {
         private AudioSource alarmSound;
         private bool alarm;
-        private bool isPlaying= false;
         [SerializeField] public float speed= 90f;
         void Start()
         {
             alarmSound = GetComponent<AudioSource>();
-            
         }
-
-        // Update is called once per frame
         void Update()
         {
             if(alarm)
             {
                 transform.Rotate(0f, 0f, speed * Time.deltaTime);
-                
             }
-
         }
 
         void StartAlarm()
