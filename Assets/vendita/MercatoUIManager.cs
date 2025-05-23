@@ -25,6 +25,8 @@ public class MercatoUIManager : MonoBehaviour
 
     private ItemData cartaSelezionata;
 
+    public GameObject CanvasExtra;
+
     void Start()
     {
         pannelloMercato.SetActive(false);
@@ -51,6 +53,7 @@ public class MercatoUIManager : MonoBehaviour
     {
         pannelloMercato.SetActive(true);
         pannelloSelezione.SetActive(false);
+        CanvasExtra.SetActive(false);
     }
 
     void PopolaSelezioneCarte()
@@ -155,6 +158,7 @@ public class MercatoUIManager : MonoBehaviour
     void ChiudiMercato()
     {
         pannelloMercato.SetActive(false);
+        CanvasExtra.SetActive(true);
     }
 
     Color RaritaToColor(string r)
