@@ -1,6 +1,6 @@
 ﻿namespace Script
 {
-    public enum tipoWire
+    public enum TipoWire
     {
         singolo,
         biforcazione

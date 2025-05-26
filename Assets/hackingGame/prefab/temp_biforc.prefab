@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wireSingolo: {fileID: 2268021316607303330, guid: 8e75762c8e7891a44a911bfde39f2567, type: 3}
-  biforcazione: {fileID: 4265653717130712670}
+  biforcazione: {fileID: 3138464115636422954, guid: 7584fdcc4e9b0b94fa5b8f73ee6c5cec, type: 3}
 --- !u!225 &7588221574019454549
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -247,6 +247,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4318313546536392218, guid: 8e75762c8e7891a44a911bfde39f2567, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8515891729175151642, guid: 8e75762c8e7891a44a911bfde39f2567, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -591,6 +595,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4318313546536392218, guid: 8e75762c8e7891a44a911bfde39f2567, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8515891729175151642, guid: 8e75762c8e7891a44a911bfde39f2567, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

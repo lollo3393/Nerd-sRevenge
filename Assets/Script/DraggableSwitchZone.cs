@@ -22,7 +22,6 @@ namespace Script
             varName = "a";
             base.Start();
             switch_count_text = transform.GetChild(1).gameObject;
-            Debug.Log(switch_count_text);
             varNameObj = transform.GetChild(0).transform.GetChild(0).gameObject;
             switchCountTmp = switch_count_text.GetComponent<TextMeshProUGUI>();
             varNameTextTmp = varNameObj.GetComponent<TextMeshProUGUI>();

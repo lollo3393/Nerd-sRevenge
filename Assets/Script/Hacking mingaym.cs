@@ -37,7 +37,6 @@ public class Hackingmingaym : MonoBehaviour
         }
         funzione = generaFunzione();
         tmp.text = "f = "+funzione;
-        Debug.Log(funzione);
         generaZoneDraggabili();
     }
 
