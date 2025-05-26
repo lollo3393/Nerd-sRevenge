@@ -41,14 +41,19 @@ namespace Script
         private void Update()
         {
             Transform dropZone = transform.parent;
-            if (dropZone != null)
+            DropZone dropZoneScript = dropZone.GetComponent<DropZone>();
+            if (dropZoneScript != null)
             {
                 Transform wireParent = dropZone.parent;
-                if (wireParent != null)
+                wireComponent wc = wireParent.GetComponent<wireComponent>();
+                if (wc != null)
                 {
-                    if (gameObject.transform.rotation != wireParent.rotation)
+                    float parentZ = wireParent.eulerAngles.z;
+                    float myZ = transform.eulerAngles.z;
+                    if (Mathf.Abs(Mathf.DeltaAngle(myZ, parentZ)) > 0.1f)
                     {
-                        gameObject.transform.rotation = wireParent.rotation;
+                        gameObject.transform.eulerAngles = new Vector3(0, 0, parentZ);
+                        
                     }
                 }
                

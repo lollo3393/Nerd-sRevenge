@@ -11,10 +11,15 @@ namespace Script
         private RectTransform rectTransform;
         public RectTransform wireTransform;
         private Image image;
+        private GameObject controller;
+        
         void Start()
         {
+            rectTransform = GetComponent<RectTransform>();
+            controller = GameObject.FindWithTag("centerController");
             image = GetComponent<Image>();
             wireTransform = GetComponent<RectTransform>().transform.parent.GetComponentInParent<RectTransform>();
+            
         }
 
         public void OnDrop(PointerEventData eventData)
@@ -37,6 +42,16 @@ namespace Script
         {
             image.color = new Color(image.color.r, image.color.g, image.color.b, 0);
 
+        }
+
+        void Update()
+        {
+            centerManager cmScript = controller.GetComponent<centerManager>();
+            if (cmScript.IsOverlapping(rectTransform))
+            {
+                setAlpha0();
+                Debug.Log("Centro Raggiunto");
+            }
         }
         
       

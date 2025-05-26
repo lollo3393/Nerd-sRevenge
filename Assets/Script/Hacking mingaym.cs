@@ -1,6 +1,7 @@
 using Script;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum difficolta
 {
@@ -17,8 +18,10 @@ public class Hackingmingaym : MonoBehaviour
     [SerializeField] private GameObject gridLayout;
     [SerializeField] private GameObject switchZonePrefab;
     
+    
     private void Start()
     {
+        
         switch (diff)
         {
             case difficolta.facile:
@@ -35,21 +38,21 @@ public class Hackingmingaym : MonoBehaviour
         funzione = generaFunzione();
         tmp.text = "f = "+funzione;
         Debug.Log(funzione);
-
+        generaZoneDraggabili();
     }
 
     private void generaZoneDraggabili()
     {
         char nomeVar = 'a';
-        foreach (GameObject g in gridLayout.transform)
+        foreach (Transform g in gridLayout.transform)
         {
-            GameObject.Destroy(g);
+            Destroy(g.gameObject);
         }
         for (int i = 0; i < nVar; i++)
         {
             GameObject dragZone = Instantiate(switchZonePrefab, gridLayout.transform);
             DraggableSwitchZone dsz=   dragZone.GetComponent<DraggableSwitchZone>();
-            dsz.varName = nomeVar.ToString();
+            dsz.cambiaNomeVar(nomeVar);
             nomeVar++;
         }
     }

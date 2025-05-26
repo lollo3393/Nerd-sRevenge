@@ -8,19 +8,22 @@ namespace Script
 {
     public class DraggableSwitchZone :  DraggableZone
     {
-        [SerializeField] private bool infiniteZones ;
+        [SerializeField] private bool infiniteZones = false;
         private  int switch_count { get; set; }
-        [SerializeField] GameObject switch_count_text;
-         [SerializeField] GameObject varNameObj;
- 
+        private GameObject switch_count_text;
+        private  GameObject varNameObj;
         public string varName {get; set;}
         private TextMeshProUGUI switchCountTmp ;
         private TextMeshProUGUI varNameTextTmp ;
         private Button notButton ;
-        public override void Start()
+        
+        public void Awake()
         {
-            
-            base.Start(); 
+            varName = "a";
+            base.Start();
+            switch_count_text = transform.GetChild(1).gameObject;
+            Debug.Log(switch_count_text);
+            varNameObj = transform.GetChild(0).transform.GetChild(0).gameObject;
             switchCountTmp = switch_count_text.GetComponent<TextMeshProUGUI>();
             varNameTextTmp = varNameObj.GetComponent<TextMeshProUGUI>();
             notButton = transform.GetChild(2).GetComponent<Button>();
@@ -44,6 +47,11 @@ namespace Script
                 switchCountTmp.text = switch_count.ToString();
             }
            
+        }
+
+        public void cambiaNomeVar(char var)
+        {
+            varNameTextTmp.text = var.ToString();
         }
 
         public void invertiVar()

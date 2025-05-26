@@ -29,7 +29,7 @@ namespace Script
 
 
         public virtual void OnBeginDrag(PointerEventData eventData)
-        {       Debug.Log("OnBeginDrag");
+        {   
                 parentAfterDrag = transform.root.GetChild(0);
                 DraggedObject = Instantiate(prefab,transform.root) ;
                 DraggedObject.transform.SetAsLastSibling();
