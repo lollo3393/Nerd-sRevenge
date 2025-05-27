@@ -15,9 +15,9 @@ namespace Script
         private  CenterManager cmScript ;
         public  GameObject childWire;
         public  GameObject parentWire;
-
+        [SerializeField] public bool isVisible = true; 
         
-        void Start()
+        public void Start()
         {
             if (transform.GetComponentInParent<WireComponent>() != null)
             {
@@ -41,19 +41,28 @@ namespace Script
 
         public void OnDrop(PointerEventData eventData)
         {
+            if (transform.childCount > 0)
+            {
+                return;
+            }
           
             childWire = eventData.pointerDrag;
             
-            DraggableZone scriptZone = childWire.GetComponent<DraggableZone>();
-            
-            if (scriptZone != null)
+            DraggableZone draggabaleZoneComp = childWire.GetComponent<DraggableZone>();
+            if (draggabaleZoneComp != null)
             {
-                scriptZone.parentAfterDrag = transform;
+                draggabaleZoneComp.parentAfterDrag = transform;
             } 
-            DraggableObj script = childWire.GetComponent<DraggableObj>();
-           if(script != null)
+            
+            DraggableObj draggableObjComp = childWire.GetComponent<DraggableObj>();
+           if(draggableObjComp != null)
            {
-               script.parentAfterDrag = transform;
+               draggableObjComp.parentAfterDrag = transform;
+           }
+           
+           WireComponent wireComponent = childWire.GetComponent<WireComponent>();
+           if(wireComponent != null){
+               wireComponent.InizializzaParent();
            }
             setAlpha0();
         }
@@ -63,6 +72,12 @@ namespace Script
             image.color = new Color(image.color.r, image.color.g, image.color.b, 0);
 
         }
+        
+        public void setAlpha1()
+        {
+            image.color = new Color(image.color.r, image.color.g, image.color.b, 0.5f);
+
+        }
 
         void Update()
         {
@@ -70,6 +85,11 @@ namespace Script
             {
                 setAlpha0();
                 Debug.Log("Centro Raggiunto");
+            }
+
+            if (transform.childCount == 0 && isVisible)
+            {
+                setAlpha1();
             }
         }
         

@@ -34,6 +34,7 @@ namespace Script
                 DraggedObject = Instantiate(prefab,transform.root) ;
                 DraggedObject.transform.SetAsLastSibling();
                 DraggedObject.GetComponent<CanvasGroup>().blocksRaycasts = false;
+                eventData.pointerDrag = DraggedObject;
         }
 
         public virtual void OnEndDrag(PointerEventData eventData)

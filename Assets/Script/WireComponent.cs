@@ -7,18 +7,18 @@ namespace Script
 {
     public class WireComponent : MonoBehaviour, IPointerClickHandler
     {
-        private Transform dropZone;
+        protected Transform dropZone;
         [SerializeField]  public TipoWire tipoWire;
         [SerializeField]  public bool disableButton ;
-        private Image image;
-        private bool buttonVisibility = false;
-        private GameObject typeChangerButton;
-        private GameObject redButton;
+        protected Image image;
+        protected bool buttonVisibility = false;
+        protected GameObject typeChangerButton;
+        protected GameObject redButton;
         [SerializeField] NetworkType networkType;
-        private Transform dropZoneParent;
-        private Transform wireParent;
+        protected Transform dropZoneParent;
+        protected Transform wireParent;
         
-        private void Start()
+        public virtual void Start()
         {
             image = GetComponent<Image>();
             dropZone = transform.GetChild(0);
@@ -32,14 +32,28 @@ namespace Script
             {
                 
             }
+
+           
         }
 
-        public void destroyButton()
+        public virtual void InizializzaParent()
         {
+            if (transform.parent.GetComponent<DropZone>() != null)
+            {
+                dropZoneParent = transform.parent;
+                if(dropZoneParent.parent.GetComponent<WireComponent>() != null){
+                    wireParent = dropZoneParent.parent;
+                }
+            }
+        }
+
+        public virtual void destroyButton()
+        {
+            dropZone.gameObject.GetComponent<DropZone>().setAlpha1();
             Destroy(gameObject);
         }
 
-        private void coloraWire(Color wireColor)
+        public virtual void coloraWire(Color wireColor)
         {
             image.color = wireColor;
             Transform wireChildren = dropZone.transform.GetChild(0);
@@ -51,13 +65,13 @@ namespace Script
         }
         
 
-        public void Update()
+        public  virtual void Update()
         {
-            dropZoneParent = transform.parent;
+            
             DropZone dropZoneScript = dropZoneParent.GetComponent<DropZone>();
             if (dropZoneScript != null)
             {
-                 wireParent = dropZoneParent.parent;
+                 
                 WireComponent wc = wireParent.GetComponent<WireComponent>();
                 if (wc != null)
                 {
@@ -73,7 +87,19 @@ namespace Script
             }
         }
 
-        public void OnPointerClick(PointerEventData eventData)
+        private void controllaRami()
+        {
+            if (tipoWire != TipoWire.biforcazione)
+            {
+               return;
+            }
+
+            GameObject dropZone_right;
+
+
+        }
+
+        public virtual  void OnPointerClick(PointerEventData eventData)
         {
             if (!disableButton)
             {
