@@ -10,7 +10,7 @@ namespace Script
         [HideInInspector] public Transform parentAfterDrag;
         private Canvas canvas;
         private CanvasGroup canvasGroup;
-        private centerManager cm;
+        private CenterManager cm;
         private GameObject dropZone_child;
         
 
@@ -18,7 +18,7 @@ namespace Script
         {
             controller= GameObject.FindWithTag("centerController");
             dropZone_child = transform.GetChild(0).gameObject;
-             cm = controller.GetComponent<centerManager>();
+             cm = controller.GetComponent<CenterManager>();
             canvas = transform.root.GetComponent<Canvas>();
             canvasGroup = GetComponent<CanvasGroup>();
             

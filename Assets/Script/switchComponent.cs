@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Script
 {
@@ -6,6 +7,12 @@ namespace Script
     {
         private int tipo;
         public bool state;
-        
+        public string var;
+
+
+        private void Start()
+        {
+            
+        }
     }
 }

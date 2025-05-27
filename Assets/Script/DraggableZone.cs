@@ -33,8 +33,6 @@ namespace Script
                 parentAfterDrag = transform.root.GetChild(0);
                 DraggedObject = Instantiate(prefab,transform.root) ;
                 DraggedObject.transform.SetAsLastSibling();
-                // Image clonedImage = DraggedObject.GetComponent<Image>();
-                // clonedImage.SetNativeSize();
                 DraggedObject.GetComponent<CanvasGroup>().blocksRaycasts = false;
         }
 

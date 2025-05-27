@@ -14,6 +14,9 @@ namespace Script
         private bool buttonVisibility = false;
         private GameObject typeChangerButton;
         private GameObject redButton;
+        [SerializeField] NetworkType networkType;
+        private Transform dropZoneParent;
+        private Transform wireParent;
         
         private void Start()
         {
@@ -23,6 +26,11 @@ namespace Script
             {
                 typeChangerButton = transform.GetChild(1).gameObject;
                 redButton = transform.GetChild(2).gameObject;
+            }
+
+            if (networkType == NetworkType.notInitialized)
+            {
+                
             }
         }
 
@@ -45,11 +53,11 @@ namespace Script
 
         public void Update()
         {
-            Transform dropZone = transform.parent;
-            DropZone dropZoneScript = dropZone.GetComponent<DropZone>();
+            dropZoneParent = transform.parent;
+            DropZone dropZoneScript = dropZoneParent.GetComponent<DropZone>();
             if (dropZoneScript != null)
             {
-                Transform wireParent = dropZone.parent;
+                 wireParent = dropZoneParent.parent;
                 WireComponent wc = wireParent.GetComponent<WireComponent>();
                 if (wc != null)
                 {
