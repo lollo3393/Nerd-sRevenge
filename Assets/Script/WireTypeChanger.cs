@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Script
 {
-    public class wireTypeChanger : MonoBehaviour
+    public class WireTypeChanger : MonoBehaviour
     {
         [SerializeField] private GameObject wireSingolo;
         [SerializeField] private GameObject biforcazione;

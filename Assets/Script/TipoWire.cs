@@ -3,6 +3,7 @@
     public enum TipoWire
     {
         singolo,
-        biforcazione
+        biforcazione,
+        Switch
     }
 }

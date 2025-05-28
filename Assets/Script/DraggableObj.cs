@@ -6,15 +6,15 @@ namespace Script
 {
     public class DraggableObj : MonoBehaviour , IDragHandler,IBeginDragHandler,IEndDragHandler
     {
-        private GameObject controller;
+        protected GameObject controller;
         [HideInInspector] public Transform parentAfterDrag;
-        private Canvas canvas;
-        private CanvasGroup canvasGroup;
-        private CenterManager cm;
-        private GameObject dropZone_child;
+        protected Canvas canvas;
+        protected CanvasGroup canvasGroup;
+        protected CenterManager cm;
+        protected GameObject dropZone_child;
         
 
-        public void Start()
+        public virtual void Start()
         {
             controller= GameObject.FindWithTag("centerController");
             dropZone_child = transform.GetChild(0).gameObject;
@@ -24,33 +24,23 @@ namespace Script
             
         }
 
-        public void OnDrag(PointerEventData eventData)
+        public virtual void OnDrag(PointerEventData eventData)
         {
                 transform.position = Input.mousePosition;
-                Debug.Log("dragqueen");
         }
 
-        public void OnBeginDrag(PointerEventData eventData)
+        public virtual void OnBeginDrag(PointerEventData eventData)
         {
             canvasGroup.blocksRaycasts = false;
             parentAfterDrag = transform.parent;
             transform.SetParent(transform.root);    
             transform.SetAsLastSibling();
-            Debug.Log("OnBeginDrag");
         }
 
-        public void OnEndDrag(PointerEventData eventData)
+        public virtual void OnEndDrag(PointerEventData eventData)
         {
             canvasGroup.blocksRaycasts = true;
             transform.SetParent(parentAfterDrag);
-            Debug.Log("mi piace il cazzo");
-            if (cm.IsOverlapping(dropZone_child.GetComponent<RectTransform>()))
-            {
-                DropZone script = dropZone_child.GetComponent<DropZone>();
-                WireComponent wc = transform.GetComponentInParent<WireComponent>();
-                Debug.Log("Centro Raggiunto"+wc.networkType);
-                script.setAlpha0();
-            }
         }
     }
 }

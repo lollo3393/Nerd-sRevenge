@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Script;
 using TMPro;
 using UnityEngine;
@@ -17,7 +18,7 @@ public class Hackingmingaym : MonoBehaviour
     [SerializeField] private difficolta diff;
     [SerializeField] private GameObject gridLayout;
     [SerializeField] private GameObject switchZonePrefab;
-    
+    public Dictionary<string, bool> varState = new Dictionary<string, bool>();
     
     private void Start()
     {
@@ -84,7 +85,7 @@ public class Hackingmingaym : MonoBehaviour
             {
                 function = function + " * " ;
             }
-
+            varState.Add(var.ToString(),false);
             var++;
         }
         return function;

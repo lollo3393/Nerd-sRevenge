@@ -48,12 +48,6 @@ namespace Script
           
             childWire = eventData.pointerDrag;
             
-            DraggableZone draggabaleZoneComp = childWire.GetComponent<DraggableZone>();
-            if (draggabaleZoneComp != null)
-            {
-                draggabaleZoneComp.parentAfterDrag = transform;
-            } 
-            
             DraggableObj draggableObjComp = childWire.GetComponent<DraggableObj>();
            if(draggableObjComp != null)
            {
@@ -82,7 +76,12 @@ namespace Script
             if (cmScript.IsOverlapping(rectTransform))
             {
                 setAlpha0();
-                Debug.Log("Centro Raggiunto");
+                WireComponent wc = transform.GetComponentInParent<WireComponent>();
+                if (wc.networkType != NetworkType.notInitialized)
+                {
+                    Debug.Log("Centro Raggiunto"+wc.networkType);
+                }
+                
             }
 
             if (transform.childCount == 0 && isVisible)

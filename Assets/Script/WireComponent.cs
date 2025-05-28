@@ -11,6 +11,8 @@ namespace Script
         [SerializeField]  public TipoWire tipoWire;
         [SerializeField]  public bool disableButton ;
         [SerializeField]  public bool disableDetroyButton;
+        [SerializeField]  public bool disableChangeButton;
+        
         protected Image image;
         protected bool buttonVisibility = false;
         protected GameObject typeChangerButton;
@@ -25,7 +27,10 @@ namespace Script
             dropZone = transform.GetChild(0);
             if (!disableButton)
             {
-                typeChangerButton = transform.GetChild(1).gameObject;
+                if(!disableChangeButton){
+                    typeChangerButton = transform.GetChild(1).gameObject;
+                }
+                
                 if (!disableDetroyButton)
                 {
                     redButton = transform.GetChild(2).gameObject;
@@ -126,7 +131,10 @@ namespace Script
                     if(!disableDetroyButton){
                         redButton.SetActive(false);
                     }
-                    typeChangerButton.SetActive(false);
+                    
+                    if(!disableChangeButton){
+                        typeChangerButton.SetActive(false);
+                    }
                 }
                 else
                 {
@@ -134,7 +142,9 @@ namespace Script
                     if(!disableDetroyButton){
                         redButton.SetActive(true);
                     }
-                    typeChangerButton.SetActive(true);
+                    if(!disableChangeButton){
+                        typeChangerButton.SetActive(true);
+                    }
                 }
             }
         }

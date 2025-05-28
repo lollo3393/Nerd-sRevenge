@@ -9,7 +9,7 @@ namespace Script
     public class DraggableSwitchZone :  DraggableZone
     {
         [SerializeField] private bool infiniteZones = false;
-        private  int switch_count { get; set; }
+        public  int switch_count { get; set; }
         private GameObject switch_count_text;
         private  GameObject varNameObj;
         public string varName {get; set;}
@@ -19,7 +19,6 @@ namespace Script
         
         public void Awake()
         {
-            varName = "a";
             base.Start();
             switch_count_text = transform.GetChild(1).gameObject;
             varNameObj = transform.GetChild(0).transform.GetChild(0).gameObject;
@@ -42,7 +41,9 @@ namespace Script
             {
                 base.OnBeginDrag(eventData);
                 switch_count--;
-                
+                SwitchComponent swComp = DraggedObject.GetComponent<SwitchComponent>();
+                swComp.var =varName;
+                swComp.zonaDiOrigine = gameObject;
                 switchCountTmp.text = switch_count.ToString();
             }
            
@@ -50,6 +51,7 @@ namespace Script
 
         public void cambiaNomeVar(char var)
         {
+            varName = var.ToString();
             varNameTextTmp.text = var.ToString();
         }
 
@@ -65,6 +67,13 @@ namespace Script
                 varName = varName.Replace(")", "");
             }
             varNameTextTmp.text = varName;
+        }
+
+
+        public void aggiornaSwitchCount(int value)
+        {
+            switch_count += value;
+            switchCountTmp.text = switch_count.ToString();
         }
     }
 }
