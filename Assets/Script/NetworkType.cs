@@ -4,7 +4,8 @@
     {
         notInitialized,
         PDN,
-        PUN
+        PUN,
+        center
         
     }
 }

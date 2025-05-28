@@ -61,9 +61,7 @@ namespace Script
            }
            
            WireComponent wireComponent = childWire.GetComponent<WireComponent>();
-           if(wireComponent != null){
-               wireComponent.InizializzaParent();
-           }
+           
             setAlpha0();
         }
 

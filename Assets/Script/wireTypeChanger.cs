@@ -48,11 +48,13 @@ namespace Script
             
             Destroy(gameObject);
             GameObject nuovo;
+            NetworkType oldnNetworkType = GetComponent<WireComponent>().networkType;
             if (tipoWire == TipoWire.biforcazione)
-            {
+            {    
                  nuovo = Instantiate(wireSingolo, posizione, rotazione, parent);
                  WireComponent wireComponent = nuovo.GetComponent<WireComponent>();
                  wireComponent.tipoWire =  TipoWire.singolo;
+                 wireComponent.networkType = oldnNetworkType;
                  molt = isChild ? 2 : 1;
                  nuovo.transform.localScale*= molt;
             }
@@ -61,7 +63,7 @@ namespace Script
                  nuovo = Instantiate(biforcazione, posizione, rotazione, parent);
                  WireComponent wireComponent = nuovo.GetComponent<WireComponent>();
                  wireComponent.tipoWire =TipoWire.biforcazione;
-                 Debug.Log(nuovo.name+" "+TipoWire.singolo);
+                 wireComponent.networkType = oldnNetworkType;
                  molt = isChild ? 1 : 0.5f;
                 nuovo.transform.localScale*= 1.99999f*molt; 
             }

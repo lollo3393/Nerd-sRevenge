@@ -19,6 +19,8 @@ namespace Script
             dropZone_left = transform.GetChild(1);
             dropZoneAggiuntiva = transform.GetChild(2);
             enablDropZoneAggiuntivaButton = transform.GetChild(3).gameObject;
+            disablDropZoneAggiuntivaButton = transform.GetChild(4).gameObject;
+            
         }
 
         public override void coloraWire(Color wireColor)
@@ -35,11 +37,12 @@ namespace Script
 
         public void abilitaDropZoneAggiuntiva()
         {
+            Debug.Log("abilitaDropZoneAggiuntiva");
             enablDropZoneAggiuntivaButton.SetActive(false);
             dropZoneAggiuntiva.gameObject.SetActive(true);
             disablDropZoneAggiuntivaButton.SetActive(true);
             flagZonaAggiuntiva = true;
-            Debug.Log("abilitaDropZoneAggiuntiva");
+            
 
         }
 

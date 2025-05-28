@@ -10,13 +10,14 @@ namespace Script
         protected Transform dropZone;
         [SerializeField]  public TipoWire tipoWire;
         [SerializeField]  public bool disableButton ;
+        [SerializeField]  public bool disableDetroyButton;
         protected Image image;
         protected bool buttonVisibility = false;
         protected GameObject typeChangerButton;
         protected GameObject redButton;
-        [SerializeField] NetworkType networkType;
+        [SerializeField] public NetworkType networkType;
         protected Transform dropZoneParent;
-        protected Transform wireParent;
+        public  Transform wireParent;
         
         public virtual void Start()
         {
@@ -25,19 +26,37 @@ namespace Script
             if (!disableButton)
             {
                 typeChangerButton = transform.GetChild(1).gameObject;
-                redButton = transform.GetChild(2).gameObject;
-            }
-
-            if (networkType == NetworkType.notInitialized)
-            {
-                
+                if (!disableDetroyButton)
+                {
+                    redButton = transform.GetChild(2).gameObject;
+                }
+               
             }
 
            
+            
+           
+        }
+        
+
+        public void inizializzaNetwork()
+        {
+            InizializzaParent();
+            if (wireParent != null)
+            {
+                WireComponent wireParentComp = wireParent.GetComponent<WireComponent>();
+                if (wireParentComp != null)
+                {
+                    if (wireParentComp.networkType != NetworkType.notInitialized)
+                    {
+                        networkType = wireParentComp.networkType;
+                    }
+                }
+            }
         }
 
         public virtual void InizializzaParent()
-        {
+        { 
             if (transform.parent.GetComponent<DropZone>() != null)
             {
                 dropZoneParent = transform.parent;
@@ -67,24 +86,22 @@ namespace Script
 
         public  virtual void Update()
         {
-            
+            inizializzaNetwork();
+            if (!dropZoneParent) return;
             DropZone dropZoneScript = dropZoneParent.GetComponent<DropZone>();
-            if (dropZoneScript != null)
+            if (dropZoneScript == null) return;
+            if (wireParent == null) return;
+            WireComponent wc = wireParent.GetComponent<WireComponent>();
+            if (wc == null) return;
+            
+            float parentZ = wireParent.eulerAngles.z;
+            float myZ = transform.eulerAngles.z;
+            if (Mathf.Abs(Mathf.DeltaAngle(myZ, parentZ)) > 0.1f)
             {
-                 
-                WireComponent wc = wireParent.GetComponent<WireComponent>();
-                if (wc != null)
-                {
-                    float parentZ = wireParent.eulerAngles.z;
-                    float myZ = transform.eulerAngles.z;
-                    if (Mathf.Abs(Mathf.DeltaAngle(myZ, parentZ)) > 0.1f)
-                    {
-                        gameObject.transform.eulerAngles = new Vector3(0, 0, parentZ);
+                    gameObject.transform.eulerAngles = new Vector3(0, 0, parentZ);
                         
-                    }
-                }
-               
             }
+            
         }
 
         private void controllaRami()
@@ -106,13 +123,17 @@ namespace Script
                 if (buttonVisibility)
                 {
                     buttonVisibility = false;
-                    redButton.SetActive(false);
+                    if(!disableDetroyButton){
+                        redButton.SetActive(false);
+                    }
                     typeChangerButton.SetActive(false);
                 }
                 else
                 {
                     buttonVisibility = true;
-                    redButton.SetActive(true);
+                    if(!disableDetroyButton){
+                        redButton.SetActive(true);
+                    }
                     typeChangerButton.SetActive(true);
                 }
             }

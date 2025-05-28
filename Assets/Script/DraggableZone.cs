@@ -23,6 +23,7 @@ namespace Script
             if (DraggedObject != null)
             {
                 DraggedObject.transform.position = Input.mousePosition;
+                Debug.Log("LE mie pa le mie pa");
             }
             
         }
@@ -31,7 +32,8 @@ namespace Script
         public virtual void OnBeginDrag(PointerEventData eventData)
         {   
                 parentAfterDrag = transform.root.GetChild(0);
-                DraggedObject = Instantiate(prefab,transform.root) ;
+                DraggedObject = Instantiate(prefab,parentAfterDrag) ;
+                
                 DraggedObject.transform.SetAsLastSibling();
                 DraggedObject.GetComponent<CanvasGroup>().blocksRaycasts = false;
                 eventData.pointerDrag = DraggedObject;
@@ -41,6 +43,7 @@ namespace Script
         {
             DraggedObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
             DraggedObject.transform.SetParent(parentAfterDrag);
+            DraggableObj draggableScript = DraggedObject.GetComponent<DraggableObj>();
         }
     }
 }
