@@ -7,7 +7,7 @@ namespace Script
     public class DraggableObj : MonoBehaviour , IDragHandler,IBeginDragHandler,IEndDragHandler
     {
         protected GameObject controller;
-        [HideInInspector] public Transform parentAfterDrag;
+        public Transform parentAfterDrag;
         protected Canvas canvas;
         protected CanvasGroup canvasGroup;
         protected CenterManager cm;
@@ -32,14 +32,18 @@ namespace Script
         public virtual void OnBeginDrag(PointerEventData eventData)
         {
             canvasGroup.blocksRaycasts = false;
-            parentAfterDrag = transform.parent;
-            transform.SetParent(transform.root);    
+            parentAfterDrag =  transform.root.GetChild(0);
+            transform.SetParent( transform.root.GetChild(0));    
             transform.SetAsLastSibling();
         }
 
         public virtual void OnEndDrag(PointerEventData eventData)
         {
             canvasGroup.blocksRaycasts = true;
+            if (parentAfterDrag == null)
+            {
+                parentAfterDrag =  transform.root.GetChild(0);
+            }
             transform.SetParent(parentAfterDrag);
         }
     }

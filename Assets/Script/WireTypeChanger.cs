@@ -28,12 +28,16 @@ namespace Script
 
             bool hasFigli = false;
             Transform wireFiglio = null;
-            if(tipoWire != TipoWire.singolo)
+            if(tipoWire == TipoWire.singolo)
             {
                 if (transform.GetChild(0).childCount > 0)
                 {
                     wireFiglio = transform.GetChild(0).GetChild(0);
-                    hasFigli = wireFiglio != null;
+                    WireComponent wc = wireFiglio.GetComponent<WireComponent>();
+                    if (wc != null)
+                    {
+                        hasFigli = true;
+                    }
                 }
             }
             
@@ -56,7 +60,7 @@ namespace Script
                  WireComponent wireComponent = nuovo.GetComponent<WireComponent>();
                  wireComponent.tipoWire =  TipoWire.singolo;
                  wireComponent.networkType = oldnNetworkType;
-                 wireComponent.disableButton = DestroyButtonVisibility;
+                 wireComponent.disableDetroyButton = DestroyButtonVisibility;
                  molt = isChild ? 2 : 1;
                  nuovo.transform.localScale*= molt;
             }
@@ -66,6 +70,7 @@ namespace Script
                  WireComponent wireComponent = nuovo.GetComponent<WireComponent>();
                  wireComponent.tipoWire =TipoWire.biforcazione;
                  wireComponent.networkType = oldnNetworkType;
+                 wireComponent.disableDetroyButton = DestroyButtonVisibility;
                  molt = isChild ? 1 : 0.5f;
                 nuovo.transform.localScale*= 1.99999f*molt; 
             }
@@ -73,13 +78,12 @@ namespace Script
             if (hasFigli)
             {
                 // Trova il ramo sinistro nella biforcazione
-                Transform ramoSinistro = nuovo.transform.Find("dropZone_left");
+                Transform ramoSinistro = nuovo.GetComponentInChildren<BiforcazioneComponent>().dropZone_left;
                 if (ramoSinistro != null)
                 {
                     wireFiglio.SetParent(ramoSinistro, true);
-                }
-                else
-                {
+                    
+                }else {
                     Debug.LogWarning("RamoSinistro non trovato nella biforcazione.");
                 }
             }

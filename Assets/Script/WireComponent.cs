@@ -8,7 +8,7 @@ namespace Script
     public class WireComponent : MonoBehaviour, IPointerClickHandler
     {
         protected Transform dropZone;
-        [SerializeField]  public TipoWire tipoWire;
+        
         [SerializeField]  public bool disableButton ;
         [SerializeField]  public bool disableDetroyButton;
         [SerializeField]  public bool disableChangeButton;
@@ -18,9 +18,10 @@ namespace Script
         protected GameObject typeChangerButton;
         protected GameObject redButton;
         [SerializeField] public NetworkType networkType;
+        [SerializeField]  public TipoWire tipoWire;
         protected Transform dropZoneParent;
         public  Transform wireParent;
-        
+        public Transform wireChildren;
         public virtual void Start()
         {
             image = GetComponent<Image>();
@@ -75,15 +76,17 @@ namespace Script
         public virtual void coloraWire(Color wireColor)
         {
             image.color = wireColor;
-            Transform wireChildren = dropZone.transform.GetChild(0);
-            if (wireChildren != null)
+
+            if (wireChildren == null)
             {
+                wireChildren = dropZone.transform.GetChild(0);
+            }else{
                 WireComponent wc = wireChildren.GetComponent<WireComponent>();
                 wc.coloraWire(wireColor);
             }
         }
         
-
+        
         public  virtual void Update()
         {
             inizializzaNetwork();

@@ -405,6 +405,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6988258710022387999, guid: 8e75762c8e7891a44a911bfde39f2567, type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 6988258710022387999, guid: 8e75762c8e7891a44a911bfde39f2567, type: 3}
       propertyPath: m_RaycastPadding.x
       value: 100
       objectReference: {fileID: 0}
@@ -414,7 +418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6988258710022387999, guid: 8e75762c8e7891a44a911bfde39f2567, type: 3}
       propertyPath: m_RaycastPadding.z
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8367286606211261636, guid: 8e75762c8e7891a44a911bfde39f2567, type: 3}
       propertyPath: m_SizeDelta.y
@@ -481,6 +485,7 @@ MonoBehaviour:
   disableChangeButton: 0
   networkType: 0
   wireParent: {fileID: 0}
+  tipoSwitch: 0
   var: 0
   zonaDiOrigine: {fileID: 0}
 --- !u!224 &8148598404973252252 stripped
@@ -504,6 +509,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6153771838304714660, guid: c90d4e25871d7b64aa312d57a635dc46, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6153771838304714660, guid: c90d4e25871d7b64aa312d57a635dc46, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7450024584156408162, guid: c90d4e25871d7b64aa312d57a635dc46, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -519,6 +532,10 @@ PrefabInstance:
     - target: {fileID: 7450024584156408162, guid: c90d4e25871d7b64aa312d57a635dc46, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -255
+      objectReference: {fileID: 0}
+    - target: {fileID: 9096527727480227532, guid: c90d4e25871d7b64aa312d57a635dc46, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9096527727480227532, guid: c90d4e25871d7b64aa312d57a635dc46, type: 3}
       propertyPath: m_PreserveAspect

@@ -49,6 +49,14 @@ namespace Script
            
         }
 
+        public override void OnDrag(PointerEventData eventData)
+        {
+            if (switch_count > 0 || infiniteZones)
+            {
+                base.OnDrag(eventData);
+            }
+        }
+
         public void cambiaNomeVar(char var)
         {
             varName = var.ToString();
@@ -60,9 +68,7 @@ namespace Script
             if (varName.Length == 1)
             {
                 varName="not("+varName+")";
-            }
-            else
-            {
+            }else {
                 varName = varName.Replace("not(", "");
                 varName = varName.Replace(")", "");
             }
