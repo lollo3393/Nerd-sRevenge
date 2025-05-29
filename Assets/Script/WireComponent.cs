@@ -35,16 +35,11 @@ namespace Script
                 {
                     redButton = transform.GetChild(2).gameObject;
                 }
-               
             }
-
-           
-            
-           
         }
         
 
-        public void inizializzaNetwork()
+        public virtual void inizializzaNetwork()
         {
             InizializzaParent();
             if (wireParent != null)
@@ -104,7 +99,6 @@ namespace Script
             if (Mathf.Abs(Mathf.DeltaAngle(myZ, parentZ)) > 0.1f)
             {
                     gameObject.transform.eulerAngles = new Vector3(0, 0, parentZ);
-                        
             }
             
         }

@@ -6,7 +6,7 @@ namespace Script
 {
     public class SwitchComponent :  WireComponent
     {
-        private int tipoSwitch;
+        public int tipoSwitch;
         public String var;
         private GameObject controller;
         private Hackingmingaym gameScript;
@@ -25,15 +25,20 @@ namespace Script
             varNametextObj = transform.GetChild(2).gameObject;
             varNametextObj.GetComponentInChildren<TextMeshProUGUI>().text = var; 
             
+        }
+
+        public override void inizializzaNetwork()
+        {
+            base.inizializzaNetwork();
             if(networkType == NetworkType.PDN){tipoSwitch = 1;}
             if(networkType == NetworkType.PUN){tipoSwitch = 0;}
-            
         }
 
         public override void coloraWire(Color wireColor)
         {
-            if(State())
+            if(State()){
                 base.coloraWire(wireColor);
+            }
         }
 
         private bool State()
@@ -42,23 +47,14 @@ namespace Script
             if (var.Length == 1)
             {
                 ret = gameScript.varState[var];
-            }
-            else
-            {
+            }else{
                 string tempName = var;
                 tempName = tempName.Replace("not(", "");
                 tempName = tempName.Replace(")", "");
                 ret = !gameScript.varState[tempName];
             }
             
-            if(tipoSwitch == 1){
-                return ret;
-            }
-            else
-            {
-                return !ret;
-            }
-            
+            if(tipoSwitch == 1){return ret;} else {return !ret;}
         }
 
         public override void destroyButton()

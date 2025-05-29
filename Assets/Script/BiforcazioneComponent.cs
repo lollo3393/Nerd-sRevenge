@@ -26,10 +26,14 @@ namespace Script
         public override void coloraWire(Color wireColor)
         {
             image.color = wireColor;
-            Transform wireChildren = dropZone.transform.GetChild(0);
-            if (wireChildren != null)
+            int dropZoneCount = flagZonaAggiuntiva ? 3 : 2;
+            Transform[] wireChildren = new Transform[dropZoneCount];
+            wireChildren[0] = dropZone_right.GetChild(0);
+            wireChildren[1] = dropZone_left.GetChild(0);
+            if (flagZonaAggiuntiva){wireChildren[2] = dropZoneAggiuntiva.GetChild(0);}
+            foreach (Transform wireChild in wireChildren)
             {
-                WireComponent wc = wireChildren.GetComponent<WireComponent>();
+                WireComponent wc = wireChild.GetComponent<WireComponent>();
                 wc.coloraWire(wireColor);
             }
             
@@ -37,7 +41,6 @@ namespace Script
 
         public void abilitaDropZoneAggiuntiva()
         {
-            Debug.Log("abilitaDropZoneAggiuntiva");
             enablDropZoneAggiuntivaButton.SetActive(false);
             dropZoneAggiuntiva.gameObject.SetActive(true);
             disablDropZoneAggiuntivaButton.SetActive(true);

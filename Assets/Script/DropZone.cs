@@ -41,10 +41,7 @@ namespace Script
 
         public void OnDrop(PointerEventData eventData)
         {
-            if (transform.childCount > 0)
-            {
-                return;
-            }
+            if (transform.childCount > 0) { return; }
           
             childWire = eventData.pointerDrag;
             
@@ -76,6 +73,7 @@ namespace Script
             if (cmScript.IsOverlapping(rectTransform))
             {
                 setAlpha0();
+                isVisible = false;
                 WireComponent wc = transform.GetComponentInParent<WireComponent>();
                 if (wc.networkType != NetworkType.notInitialized)
                 {

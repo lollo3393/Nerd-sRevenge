@@ -28,7 +28,7 @@ namespace Script
 
             bool hasFigli = false;
             Transform wireFiglio = null;
-            if(tipoWire != TipoWire.biforcazione)
+            if(tipoWire != TipoWire.singolo)
             {
                 if (transform.GetChild(0).childCount > 0)
                 {
@@ -49,12 +49,14 @@ namespace Script
             Destroy(gameObject);
             GameObject nuovo;
             NetworkType oldnNetworkType = GetComponent<WireComponent>().networkType;
+            bool DestroyButtonVisibility = GetComponent<WireComponent>().disableDetroyButton;
             if (tipoWire == TipoWire.biforcazione)
             {    
                  nuovo = Instantiate(wireSingolo, posizione, rotazione, parent);
                  WireComponent wireComponent = nuovo.GetComponent<WireComponent>();
                  wireComponent.tipoWire =  TipoWire.singolo;
                  wireComponent.networkType = oldnNetworkType;
+                 wireComponent.disableButton = DestroyButtonVisibility;
                  molt = isChild ? 2 : 1;
                  nuovo.transform.localScale*= molt;
             }
