@@ -6,7 +6,16 @@
         jelfred,
         jelfys,
         verjion,
-        vajratonto
+        vajratonto,
+        annilante,
+        gemthing,
+        gyassato,
+        jirgio,
+        kirara,
+        malestrom,
+        triunderm,
+        torega,
+        mikionos
         
     }
 }
