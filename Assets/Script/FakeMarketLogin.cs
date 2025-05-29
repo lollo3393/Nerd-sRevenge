@@ -63,5 +63,10 @@ public class FakeMarketLogin : MonoBehaviour
             passwordErrorText.gameObject.SetActive(true);
         }
     }
+    public void chiudiFM()
+    {
+        fakeMarketCanvas.SetActive(false);
+
+    }
    
 }

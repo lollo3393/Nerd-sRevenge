@@ -121,6 +121,7 @@ public class ComputerInteraction : MonoBehaviour
     public void SpegniTutto()
     {
         desktopCanvas.SetActive(false);
+        fakeMarketCanvas.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         isScreenOn = false;
