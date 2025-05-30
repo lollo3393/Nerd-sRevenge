@@ -90,7 +90,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: slider rail (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1516014142807241609, guid: 90c27543309420c44921a94abdabbbaf, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -408,7 +409,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: slider rail
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1516014142807241609, guid: 90c27543309420c44921a94abdabbbaf, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
