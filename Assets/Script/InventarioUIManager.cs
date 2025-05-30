@@ -6,6 +6,21 @@ using System.IO;
 
 public class InventarioUIManager : MonoBehaviour
 {
+    /// <summary>
+    /// Restituisce il percorso <GameFolder>/Saves e lo crea al bisogno.
+    /// </summary>
+    private string SaveDirectory
+    {
+        get
+        {
+            // Application.dataPath in build punta alla cartella <nomeGioco>_Data
+            var dir = Path.Combine(Application.dataPath, "Saves");
+            if (!Directory.Exists(dir))
+                Directory.CreateDirectory(dir);
+            return dir;
+        }
+    }
+
     public static InventarioUIManager Instance;
 
     public GameObject prefabSlotOggetto;
@@ -54,7 +69,7 @@ public class InventarioUIManager : MonoBehaviour
         AggiornaUI();
     }
 
-    void AggiornaUI()
+    public void AggiornaUI()
     {
         foreach (Transform child in contenitoreSlot)
             Destroy(child.gameObject);
@@ -154,17 +169,15 @@ void Start()
     }
     public void SalvaSuFile()
     {
-        // Prepara il contenuto
+        // Prepara i dati
         var data = new SaveData
         {
-            monete = GiocatoreValuta.Instance != null
-                        ? GiocatoreValuta.Instance.monete
-                        : 0,
+            monete = GiocatoreValuta.Instance != null ? GiocatoreValuta.Instance.monete : 0,
             lista = oggetti
         };
 
-        // Serializza
-        string path = Application.persistentDataPath + "/inventario.json";
+        // Percorso: <GameFolder>/Saves/inventario.json
+        string path = Path.Combine(SaveDirectory, "inventario.json");
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(path, json);
         Debug.Log("Inventario e monete salvati in " + path);
@@ -182,29 +195,23 @@ void Start()
 
     public void CaricaDaFile()
     {
-        string path = Application.persistentDataPath + "/inventario.json";
+        string path = Path.Combine(SaveDirectory, "inventario.json");
         if (!File.Exists(path))
         {
-            Debug.LogWarning("Nessun file di salvataggio trovato.");
+            Debug.LogWarning("Nessun file di salvataggio trovato in " + path);
             return;
         }
 
-        // Legge e deserializza
+        // Leggi e deserializza
         string json = File.ReadAllText(path);
         SaveData data = JsonUtility.FromJson<SaveData>(json);
 
-        // Ripristina le monete
+        // Ripristina le monete con il metodo ImpostaMonete()
         if (GiocatoreValuta.Instance != null)
-        {
-            GiocatoreValuta.Instance.monete = data.monete;
-            // opzionale: Notifica UI subito
-            if (GiocatoreValuta.Instance != null)
-                GiocatoreValuta.Instance.ImpostaMonete(data.monete);
-        }
+            GiocatoreValuta.Instance.ImpostaMonete(data.monete);
 
         // Ripristina l’inventario
         oggetti = data.lista ?? new List<ItemData>();
-        // Ricostruisci icona e sfondo da pathIcona
         foreach (var item in oggetti)
         {
             Sprite[] sprites = Resources.LoadAll<Sprite>(item.pathIcona);
@@ -224,7 +231,6 @@ void Start()
     }
 
 
-
     [System.Serializable]
     private class SaveData //visto che unity � un programma fantastico ma non riesce a serializzare e deserializzare oggetti direttamente da tipi generici tipo List<T>, uso questa classe di appoggio per farlo. infatti nel salvataggio
                            //creo un oggetto Wrapper, gli assegno la lista  e poi converto in JSon questo oggetto, e durante il caricamento faccio lo stesso ma al contrario, ovvero deserializzo il JSON salvato, e lo porto dentro un wrapper, per caricarlo poi da Unity
@@ -235,44 +241,35 @@ void Start()
 
     public void SalvaSuSlot(int slot)
     {
-        // Prepara i dati da salvare
         var data = new SaveData
         {
-            monete = GiocatoreValuta.Instance != null
-                        ? GiocatoreValuta.Instance.monete
-                        : 0,
+            monete = GiocatoreValuta.Instance != null ? GiocatoreValuta.Instance.monete : 0,
             lista = oggetti
         };
 
-        // Scrive il JSON nello slot specificato
-        string path = Application.persistentDataPath + $"/slot{slot}_inventario.json";
+        string fileName = $"slot{slot}_inventario.json";
+        string path = Path.Combine(SaveDirectory, fileName);
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(path, json);
-        Debug.Log($"Inventario e monete salvati nello slot {slot}");
+        Debug.Log($"Inventario e monete salvati nello slot {slot} in {path}");
     }
 
     public void CaricaDaSlot(int slot)
     {
-        string path = Application.persistentDataPath + $"/slot{slot}_inventario.json";
+        string fileName = $"slot{slot}_inventario.json";
+        string path = Path.Combine(SaveDirectory, fileName);
         if (!File.Exists(path))
         {
-            Debug.LogWarning($"Nessun salvataggio trovato nello slot {slot}");
+            Debug.LogWarning($"Nessun salvataggio trovato nello slot {slot} ({path})");
             return;
         }
 
-        // Legge e deserializza
         string json = File.ReadAllText(path);
         SaveData data = JsonUtility.FromJson<SaveData>(json);
 
-        // Ripristina le monete
         if (GiocatoreValuta.Instance != null)
-        {
-            GiocatoreValuta.Instance.monete = data.monete;
-            if (GiocatoreValuta.Instance != null)
-                GiocatoreValuta.Instance.ImpostaMonete(data.monete);
-        }
+            GiocatoreValuta.Instance.ImpostaMonete(data.monete);
 
-        // Ripristina l’inventario
         oggetti = data.lista ?? new List<ItemData>();
         foreach (var item in oggetti)
         {
@@ -289,7 +286,7 @@ void Start()
         }
 
         AggiornaUI();
-        Debug.Log($"Inventario e monete caricati dallo slot {slot}");
+        Debug.Log($"Inventario e monete caricati dallo slot {slot} da {path}");
     }
 
     // Per collegarli nei bottoni dei panel

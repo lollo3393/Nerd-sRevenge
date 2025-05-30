@@ -1,0 +1,45 @@
+{
+    "monete": 150,
+    "lista": [
+        {
+            "nome": "jelfo",
+            "icona": {
+                "instanceID": 50908
+            },
+            "sfondo": {
+                "instanceID": 50944
+            },
+            "quantita": 1,
+            "pathIcona": "card/jelfo",
+            "rarita": "rara",
+            "materialeSfondo": {
+                "instanceID": 44166
+            },
+            "materialeOutlayer": {
+                "instanceID": 45100
+            },
+            "tipo": "Generico",
+            "prezzo": 30
+        },
+        {
+            "nome": "jelfo",
+            "icona": {
+                "instanceID": 50908
+            },
+            "sfondo": {
+                "instanceID": 50944
+            },
+            "quantita": 1,
+            "pathIcona": "card/jelfo",
+            "rarita": "Legendaria",
+            "materialeSfondo": {
+                "instanceID": 44166
+            },
+            "materialeOutlayer": {
+                "instanceID": 44378
+            },
+            "tipo": "Generico",
+            "prezzo": 150
+        }
+    ]
+}
