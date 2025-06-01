@@ -1,18 +1,18 @@
-using System;
 using System.IO;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
+    private static bool _menuGi‡Mostrato = false;
+
     [Header("Main Menu UI")]
-    public GameObject mainMenuPanel;    // Panel con i bottoni
+    public GameObject mainMenuPanel;
     public Button newGameButton;
-    public Button[] slotButtons;        // 3 bottoni, uno per ciascuno slot
+    public Button[] slotButtons;
 
-
-    // Percorso alla cartella di salvataggio dentro la directory del gioco
     private string SaveDirectory
     {
         get
@@ -26,14 +26,24 @@ public class MainMenuManager : MonoBehaviour
 
     void Start()
     {
-        // Mostra solo il menu e nasconde la UI di gioco
+        if (!_menuGi‡Mostrato)
+        {
+            _menuGi‡Mostrato = true;
+            ShowMainMenu();
+        }
+        else
+        {
+            HideMainMenu();
+        }
+    }
+
+    private void ShowMainMenu()
+    {
         mainMenuPanel.SetActive(true);
 
-        // Reset New Game
         newGameButton.onClick.RemoveAllListeners();
         newGameButton.onClick.AddListener(AvviaNuovaPartita);
 
-        // Popola i 3 slot
         for (int i = 0; i < slotButtons.Length; i++)
         {
             int slotIndex = i + 1;
@@ -44,12 +54,10 @@ public class MainMenuManager : MonoBehaviour
             btn.onClick.RemoveAllListeners();
             if (File.Exists(path))
             {
-                // Leggi solo il timestamp
                 string json = File.ReadAllText(path);
-                // deserializza minimalmente
                 var data = JsonUtility.FromJson<SlotMetadata>(json);
                 DateTime dt = new DateTime(data.timestamp, DateTimeKind.Utc).ToLocalTime();
-                label.text = dt.ToString("g");      // "24/06/2025 18:30"
+                label.text = dt.ToString("g");
 
                 btn.interactable = true;
                 btn.onClick.AddListener(() => CaricaSlot(slotIndex));
@@ -62,29 +70,27 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
+    private void HideMainMenu()
+    {
+        mainMenuPanel.SetActive(false);
+    }
+
     private void AvviaNuovaPartita()
     {
-        // Reset inventario e UI
         InventarioUIManager.Instance.GetListaOggetti().Clear();
         InventarioUIManager.Instance.AggiornaUI();
 
-        // Reset valuta
         GiocatoreValuta.Instance.ImpostaMonete(0);
 
-        // Vai in gioco
         mainMenuPanel.SetActive(false);
     }
 
     private void CaricaSlot(int slot)
     {
-        // Carica quello slot (inventario + monete)
         InventarioUIManager.Instance.CaricaDaSlot(slot);
-
-        // Apri UI di gioco
         mainMenuPanel.SetActive(false);
     }
 
-    // Questa classe serve solo per deserializzare il timestamp
     [Serializable]
     private class SlotMetadata
     {

@@ -1,22 +1,22 @@
 {
-    "monete": 0,
+    "monete": 50,
     "lista": [
         {
             "nome": "jelfo",
             "icona": {
-                "instanceID": 50226
+                "instanceID": 51280
             },
             "sfondo": {
-                "instanceID": 50262
+                "instanceID": 51316
             },
             "quantita": 1,
             "pathIcona": "card/jelfo",
             "rarita": "rara",
             "materialeSfondo": {
-                "instanceID": 43490
+                "instanceID": 27686
             },
             "materialeOutlayer": {
-                "instanceID": 44418
+                "instanceID": 45284
             },
             "tipo": "Generico",
             "prezzo": 30
@@ -24,19 +24,19 @@
         {
             "nome": "jelfo",
             "icona": {
-                "instanceID": 50226
+                "instanceID": 51280
             },
             "sfondo": {
-                "instanceID": 50262
+                "instanceID": 51316
             },
             "quantita": 1,
             "pathIcona": "card/jelfo",
             "rarita": "Legendaria",
             "materialeSfondo": {
-                "instanceID": 43490
+                "instanceID": 27686
             },
             "materialeOutlayer": {
-                "instanceID": 43700
+                "instanceID": 27694
             },
             "tipo": "Generico",
             "prezzo": 150
@@ -44,23 +44,23 @@
         {
             "nome": "jelfo",
             "icona": {
-                "instanceID": 50226
+                "instanceID": 51280
             },
             "sfondo": {
-                "instanceID": 50262
+                "instanceID": 51316
             },
             "quantita": 1,
             "pathIcona": "card/jelfo",
             "rarita": "Legendaria",
             "materialeSfondo": {
-                "instanceID": 43490
+                "instanceID": 27686
             },
             "materialeOutlayer": {
-                "instanceID": 43700
+                "instanceID": 27694
             },
             "tipo": "Generico",
             "prezzo": 150
         }
     ],
-    "timestamp": 638843665637149255
+    "timestamp": 638843995329285404
 }
