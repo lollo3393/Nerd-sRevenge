@@ -17,6 +17,7 @@ namespace Script
         protected bool buttonVisibility = false;
         protected GameObject typeChangerButton;
         protected GameObject redButton;
+        protected GameObject curvaButton;
         [SerializeField] public NetworkType networkType;
         [SerializeField]  public TipoWire tipoWire;
         protected Transform dropZoneParent;
@@ -30,12 +31,15 @@ namespace Script
             {
                 if(!disableChangeButton){
                     typeChangerButton = transform.GetChild(1).gameObject;
+                    CambiaSpriteChangeButton();
                 }
                 
                 if (!disableDetroyButton)
                 {
                     redButton = transform.GetChild(2).gameObject;
                 }
+                
+                curvaButton = transform.GetChild(3).gameObject;
             }
         }
         
@@ -85,11 +89,27 @@ namespace Script
                 wc.coloraWire(wireColor);
             }
         }
+
+        public void CambiaSpriteChangeButton()
+        {
+            Sprite[] buttonSprites = Resources.LoadAll<Sprite>($"minigame/Buttons");
+            Button uiButton = typeChangerButton.GetComponent<Button>();
+            if (tipoWire == TipoWire.singolo )
+            {
+                typeChangerButton.GetComponent<Image>().sprite = buttonSprites[0];
+            }else if (tipoWire == TipoWire.biforcazione|| tipoWire == TipoWire.curva)
+            {
+                typeChangerButton.GetComponent<Image>().sprite = buttonSprites[1];
+            }
+        }
         
         
         public  virtual void Update()
         {
-            inizializzaNetwork();
+            if (networkType == NetworkType.notInitialized)
+            {
+                inizializzaNetwork();
+            }
             if (!dropZoneParent) return;
             DropZone dropZoneScript = dropZoneParent.GetComponent<DropZone>();
             if (dropZoneScript == null) return;
@@ -132,6 +152,7 @@ namespace Script
                     if(!disableChangeButton){
                         typeChangerButton.SetActive(false);
                     }
+                    curvaButton.gameObject.SetActive(false);
                 }
                 else
                 {
@@ -142,6 +163,7 @@ namespace Script
                     if(!disableChangeButton){
                         typeChangerButton.SetActive(true);
                     }
+                    curvaButton.gameObject.SetActive(true);
                 }
             }
         }

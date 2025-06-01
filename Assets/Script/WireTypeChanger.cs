@@ -8,6 +8,7 @@ namespace Script
     {
         [SerializeField] private GameObject wireSingolo;
         [SerializeField] private GameObject biforcazione;
+        [SerializeField] private GameObject curva;
         private WireComponent wirecomponent;
         private TipoWire tipoWire;
         private Vector3 wireSingoloScale = new Vector3(0.5f, 0.5f, 0.5f);
@@ -17,6 +18,34 @@ namespace Script
         {
             wirecomponent = GetComponent<WireComponent>();
             tipoWire = wirecomponent.tipoWire;
+        }
+
+        public void sostituisciConCurva()
+        {
+            Vector3 posizione = transform.position;
+            Quaternion rotazione = transform.rotation;
+            Transform parent = transform.parent;
+            bool isChild = false;
+            float molt = 1;
+            {
+                if (transform.parent.gameObject != GameObject.Find("background"))
+                {
+                    isChild = true;
+                }
+            }
+            
+            Destroy(gameObject);
+            GameObject nuovo;
+            NetworkType oldnNetworkType = GetComponent<WireComponent>().networkType;
+            bool DestroyButtonVisibility = GetComponent<WireComponent>().disableDetroyButton;
+            nuovo = Instantiate(curva, posizione, rotazione, parent);
+            CurvaScript script = nuovo.GetComponent<CurvaScript>();
+            script.tipoWire =  TipoWire.curva;
+            script.networkType = oldnNetworkType;
+            script.disableDetroyButton = DestroyButtonVisibility;
+            molt = isChild ? 2 : 1;
+            nuovo.transform.localScale*= molt;
+            
         }
 
         public void SostituisciConNuovoPrefab()
@@ -54,7 +83,7 @@ namespace Script
             GameObject nuovo;
             NetworkType oldnNetworkType = GetComponent<WireComponent>().networkType;
             bool DestroyButtonVisibility = GetComponent<WireComponent>().disableDetroyButton;
-            if (tipoWire == TipoWire.biforcazione)
+            if (tipoWire is TipoWire.biforcazione || tipoWire == TipoWire.curva)
             {    
                  nuovo = Instantiate(wireSingolo, posizione, rotazione, parent);
                  WireComponent wireComponent = nuovo.GetComponent<WireComponent>();

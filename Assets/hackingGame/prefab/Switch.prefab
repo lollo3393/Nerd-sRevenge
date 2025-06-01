@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 180.515, y: -79.358}
+  m_AnchoredPosition: {x: 180.5, y: -80}
   m_SizeDelta: {x: 16, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8266933806863756703
@@ -232,6 +232,14 @@ PrefabInstance:
       propertyPath: m_CellSize.y
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 1102905394696891160, guid: 8e75762c8e7891a44a911bfde39f2567, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1102905394696891160, guid: 8e75762c8e7891a44a911bfde39f2567, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1259332224177231879, guid: 8e75762c8e7891a44a911bfde39f2567, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.15
@@ -406,7 +414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6988258710022387999, guid: 8e75762c8e7891a44a911bfde39f2567, type: 3}
       propertyPath: m_RaycastPadding.w
-      value: 250
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 6988258710022387999, guid: 8e75762c8e7891a44a911bfde39f2567, type: 3}
       propertyPath: m_RaycastPadding.x
@@ -479,12 +487,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82745dd3630b464c9a3414b01bcff2c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoWire: 2
   disableButton: 0
   disableDetroyButton: 0
   disableChangeButton: 0
   networkType: 0
+  tipoWire: 2
   wireParent: {fileID: 0}
+  wireChildren: {fileID: 0}
   tipoSwitch: 0
   var: 0
   zonaDiOrigine: {fileID: 0}
@@ -663,12 +672,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bf993c8249d4d5cace86166bbd04da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoWire: 0
   disableButton: 1
   disableDetroyButton: 0
   disableChangeButton: 0
   networkType: 0
+  tipoWire: 0
   wireParent: {fileID: 0}
+  wireChildren: {fileID: 0}
 --- !u!224 &8366101737594098831 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9119079994662872993, guid: c90d4e25871d7b64aa312d57a635dc46, type: 3}
@@ -765,6 +775,10 @@ PrefabInstance:
     - target: {fileID: 2504616157639877719, guid: 6c19b9d26419d9b41a0124ab61d9a367, type: 3}
       propertyPath: m_Name
       value: dropZone
+      objectReference: {fileID: 0}
+    - target: {fileID: 9040630658940459167, guid: 6c19b9d26419d9b41a0124ab61d9a367, type: 3}
+      propertyPath: m_IgnoreParentGroups
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

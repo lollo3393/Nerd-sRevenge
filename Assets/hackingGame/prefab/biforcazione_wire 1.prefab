@@ -401,12 +401,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bf993c8249d4d5cace86166bbd04da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoWire: 1
   disableButton: 0
   disableDetroyButton: 0
   disableChangeButton: 0
   networkType: 0
+  tipoWire: 1
   wireParent: {fileID: 0}
+  wireChildren: {fileID: 0}
 --- !u!114 &4098267454451165912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,6 +422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wireSingolo: {fileID: 2268021316607303330, guid: 8e75762c8e7891a44a911bfde39f2567, type: 3}
   biforcazione: {fileID: 3683356453359787296}
+  curva: {fileID: 2268021316607303330, guid: 0997027be65326f4a97d78fe4da3e3a7, type: 3}
 --- !u!1 &3900524529284352591
 GameObject:
   m_ObjectHideFlags: 0
@@ -1208,6 +1210,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -100
       objectReference: {fileID: 0}
+    - target: {fileID: 8529737472044071554, guid: 0997027be65326f4a97d78fe4da3e3a7, type: 3}
+      propertyPath: biforcazione
+      value: 
+      objectReference: {fileID: 3683356453359787296}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1548,12 +1554,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3f1dc6f7434e8b9419862599c40f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoWire: 1
   disableButton: 1
   disableDetroyButton: 0
   disableChangeButton: 0
   networkType: 0
+  tipoWire: 1
   wireParent: {fileID: 0}
+  wireChildren: {fileID: 0}
   dropZone_right: {fileID: 0}
   dropZone_left: {fileID: 0}
   dropZoneAggiuntiva: {fileID: 0}

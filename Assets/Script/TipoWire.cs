@@ -4,6 +4,8 @@
     {
         singolo,
         biforcazione,
-        Switch
+        Switch,
+        Tpiece,
+        curva
     }
 }

@@ -1,7 +1,7 @@
 using Script;
 using UnityEngine;
 
-public class cardComponent : MonoBehaviour
+public class CardComponent : MonoBehaviour
 {
     [SerializeField] private cardDatabase cardName;
     [SerializeField] private cardRarity rarita;

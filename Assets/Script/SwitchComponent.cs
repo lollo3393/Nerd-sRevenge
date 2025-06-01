@@ -27,6 +27,11 @@ namespace Script
             
         }
 
+        public void spostaTarghetta()
+        {
+            varNametextObj.transform.localPosition = new Vector3(-varNametextObj.transform.localPosition.x, varNametextObj.transform.localPosition.y, 0);
+        }
+
         public override void inizializzaNetwork()
         {
             base.inizializzaNetwork();

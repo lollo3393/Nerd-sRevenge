@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(cardComponent))]
+[RequireComponent(typeof(CardComponent))]
 public class Rubabile : MonoBehaviour
 {
     private bool playerVicino;
@@ -9,12 +9,12 @@ public class Rubabile : MonoBehaviour
     {
         if (playerVicino && Input.GetKeyDown(KeyCode.E))
         {
-            var card = GetComponent<cardComponent>();
+            var card = GetComponent<CardComponent>();
             string nome = card.GetNome();
             string rarita = card.GetRarita();
             int prezzo = card.GetPrezzo();
 
-            // Carica sprite da Resources/card/…
+            // Carica sprite da Resources/card/ï¿½
             Sprite[] sprites = Resources.LoadAll<Sprite>($"card/{nome}");
             if (sprites.Length < 2)
             {

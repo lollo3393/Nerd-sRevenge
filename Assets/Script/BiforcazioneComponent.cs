@@ -12,6 +12,7 @@ namespace Script
         private bool flagZonaAggiuntiva = false;
         private GameObject enablDropZoneAggiuntivaButton;
         private GameObject disablDropZoneAggiuntivaButton;
+        private bool swapFlag = false;
         public override void Start()
         {
             base.Start();
@@ -20,7 +21,7 @@ namespace Script
             dropZoneAggiuntiva = transform.GetChild(2);
             enablDropZoneAggiuntivaButton = transform.GetChild(3).gameObject;
             disablDropZoneAggiuntivaButton = transform.GetChild(4).gameObject;
-            
+            inizializzaNetwork();
         }
 
         public override void coloraWire(Color wireColor)
@@ -36,6 +37,7 @@ namespace Script
                 WireComponent wc = wireChild.GetComponent<WireComponent>();
                 wc.coloraWire(wireColor);
             }
+            
             
         }
 
@@ -55,6 +57,26 @@ namespace Script
             dropZoneAggiuntiva.gameObject.SetActive(false);
             enablDropZoneAggiuntivaButton.SetActive(true);
             flagZonaAggiuntiva = false;
+        }
+
+        public void Update()
+        {
+            if (swapFlag) return;
+            if (dropZone_left.childCount > 0 && dropZone_right.childCount > 0)
+            {
+                SwitchComponent swCompLeft = dropZone_left.GetComponentInChildren<SwitchComponent>();
+                if (swCompLeft != null)
+                {
+                    SwitchComponent swCompRight= dropZone_right.GetComponentInChildren<SwitchComponent>();
+                    if (swCompRight != null)
+                    {
+                        swCompLeft.spostaTarghetta();
+                        swapFlag = true;
+                    }
+                }
+            }
+            
+            
         }
     }
 }
