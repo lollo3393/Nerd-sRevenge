@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class MenuLivelliUI : MonoBehaviour
 {
     public static bool bloccaControlliPorta = false;
@@ -76,6 +77,10 @@ public class MenuLivelliUI : MonoBehaviour
         //pannelloCarica.SetActive(false);
         pannelloPrincipale.SetActive(true);
     }
+    public void tornaIndietroDalLivello()
+    {
+        pannelloStoria.gameObject.SetActive(false);
 
+    }
 
 }

@@ -27,7 +27,7 @@ public class InventarioUIManager : MonoBehaviour
     public GameObject prefabSlotOggetto;
     public Transform contenitoreSlot;
     public GameObject pannelloZaino;
-
+    public bool livello2Sbloccato = false;
     private List<ItemData> oggetti = new List<ItemData>();
 
     void Awake()
@@ -244,37 +244,46 @@ void Start()
         public int monete;
         public List<ItemData> lista;
         public long timestamp;
+        public bool livello2Sbloccato;
     }
 
     public void SalvaSuSlot(int slot)
     {
         var data = new SaveData
         {
-            monete = GiocatoreValuta.Instance.monete,
+            monete = (GiocatoreValuta.Instance != null) ? GiocatoreValuta.Instance.monete : 0,
             lista = oggetti,
-            timestamp = DateTime.UtcNow.Ticks  
+            timestamp = DateTime.UtcNow.Ticks,
+            livello2Sbloccato = this.livello2Sbloccato
         };
+
         string path = Path.Combine(SaveDirectory, $"slot{slot}_inventario.json");
-        File.WriteAllText(path, JsonUtility.ToJson(data, true));
-        Debug.Log($"Slot {slot} salvato con timestamp {(new DateTime(data.timestamp)).ToString("G")}");
+        string json = JsonUtility.ToJson(data, true);
+        File.WriteAllText(path, json);
+
+        Debug.Log($"Slot {slot} salvato con timestamp {(new DateTime(data.timestamp)).ToString("G")}. Livello2Sbloccato={data.livello2Sbloccato}");
     }
 
     public void CaricaDaSlot(int slot)
     {
         string fileName = $"slot{slot}_inventario.json";
         string path = Path.Combine(SaveDirectory, fileName);
+
         if (!File.Exists(path))
         {
             Debug.LogWarning($"Nessun salvataggio trovato nello slot {slot} ({path})");
             return;
         }
 
+        // Legge e deserializza
         string json = File.ReadAllText(path);
         SaveData data = JsonUtility.FromJson<SaveData>(json);
 
+        // Ripristina le monete
         if (GiocatoreValuta.Instance != null)
             GiocatoreValuta.Instance.ImpostaMonete(data.monete);
 
+        // Ripristina l’inventario
         oggetti = data.lista ?? new List<ItemData>();
         foreach (var item in oggetti)
         {
@@ -290,8 +299,11 @@ void Start()
             }
         }
 
+        // **NUOVO**: ripristina il flag di Livello2
+        livello2Sbloccato = data.livello2Sbloccato;
+
         AggiornaUI();
-        Debug.Log($"Inventario e monete caricati dallo slot {slot} da {path}");
+        Debug.Log($"Inventario e monete caricati dallo slot {slot}. Livello2Sbloccato={livello2Sbloccato}");
     }
 
     // Per collegarli nei bottoni dei panel

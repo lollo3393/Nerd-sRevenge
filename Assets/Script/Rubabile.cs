@@ -28,7 +28,7 @@ public class Rubabile : MonoBehaviour
                 sprites[1],         // icona
                 sprites[0],         // sfondo
                 rarita,
-                "Generico",         // tipo di default
+                "Carta collezionabile",         // tipo di default
                 prezzo,
                 1
             );
