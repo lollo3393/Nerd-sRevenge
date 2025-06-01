@@ -1,23 +1,22 @@
+using System;
 using System.IO;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
     [Header("Main Menu UI")]
-    public GameObject mainMenuPanel;    // Panel con i bottoni Nuova/Continua
+    public GameObject mainMenuPanel;    // Panel con i bottoni
     public Button newGameButton;
-    public Button continueButton;
+    public Button[] slotButtons;        // 3 bottoni, uno per ciascuno slot
 
-    [Header("Game UI")]
-    public GameObject gameUIPanel;      // Panel principale del gioco
 
     // Percorso alla cartella di salvataggio dentro la directory del gioco
     private string SaveDirectory
     {
         get
         {
-            // In build Application.dataPath punta a "<nomeGioco>_Data"
             var dir = Path.Combine(Application.dataPath, "Saves");
             if (!Directory.Exists(dir))
                 Directory.CreateDirectory(dir);
@@ -25,45 +24,70 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
-    private string SaveFilePath => Path.Combine(SaveDirectory, "inventario.json");
-
     void Start()
     {
-        // 1. Mostra solo il menu principale
+        // Mostra solo il menu e nasconde la UI di gioco
         mainMenuPanel.SetActive(true);
-        gameUIPanel.SetActive(false);
 
-        // 2. Abilita o meno il bottone Continua
-        bool hasSave = File.Exists(SaveFilePath);
-        continueButton.interactable = hasSave;
-
-        // 3. Collego i listener
+        // Reset New Game
+        newGameButton.onClick.RemoveAllListeners();
         newGameButton.onClick.AddListener(AvviaNuovaPartita);
-        continueButton.onClick.AddListener(ContinuaPartita);
+
+        // Popola i 3 slot
+        for (int i = 0; i < slotButtons.Length; i++)
+        {
+            int slotIndex = i + 1;
+            var btn = slotButtons[i];
+            var label = btn.GetComponentInChildren<TMP_Text>();
+            string path = Path.Combine(SaveDirectory, $"slot{slotIndex}_inventario.json");
+
+            btn.onClick.RemoveAllListeners();
+            if (File.Exists(path))
+            {
+                // Leggi solo il timestamp
+                string json = File.ReadAllText(path);
+                // deserializza minimalmente
+                var data = JsonUtility.FromJson<SlotMetadata>(json);
+                DateTime dt = new DateTime(data.timestamp, DateTimeKind.Utc).ToLocalTime();
+                label.text = dt.ToString("g");      // "24/06/2025 18:30"
+
+                btn.interactable = true;
+                btn.onClick.AddListener(() => CaricaSlot(slotIndex));
+            }
+            else
+            {
+                label.text = "— Vuoto —";
+                btn.interactable = false;
+            }
+        }
     }
 
     private void AvviaNuovaPartita()
     {
-        // 1) Reset inventario e UI
+        // Reset inventario e UI
         InventarioUIManager.Instance.GetListaOggetti().Clear();
         InventarioUIManager.Instance.AggiornaUI();
 
-        // 2) Reset valuta
+        // Reset valuta
         GiocatoreValuta.Instance.ImpostaMonete(0);
 
-        // 3) Nasconde menu e mostra UI di gioco
+        // Vai in gioco
         mainMenuPanel.SetActive(false);
-        gameUIPanel.SetActive(true);
     }
 
-    private void ContinuaPartita()
+    private void CaricaSlot(int slot)
     {
-        // 1) Carica inventario + monete dal file
-        InventarioUIManager.Instance.CaricaDaFile();  // usa il SaveDirectory internamente
-        // CaricaDaFile fa già ImpostaMonete() dentro GiocatoreValuta
+        // Carica quello slot (inventario + monete)
+        InventarioUIManager.Instance.CaricaDaSlot(slot);
 
-        // 2) Nasconde menu e mostra UI di gioco
+        // Apri UI di gioco
         mainMenuPanel.SetActive(false);
-        gameUIPanel.SetActive(true);
+    }
+
+    // Questa classe serve solo per deserializzare il timestamp
+    [Serializable]
+    private class SlotMetadata
+    {
+        public long timestamp;
     }
 }

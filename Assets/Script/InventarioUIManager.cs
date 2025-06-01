@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.IO;
+using System;
 
 public class InventarioUIManager : MonoBehaviour
 {
@@ -237,21 +238,20 @@ void Start()
     {
         public int monete;
         public List<ItemData> lista;
+        public long timestamp;
     }
 
     public void SalvaSuSlot(int slot)
     {
         var data = new SaveData
         {
-            monete = GiocatoreValuta.Instance != null ? GiocatoreValuta.Instance.monete : 0,
-            lista = oggetti
+            monete = GiocatoreValuta.Instance.monete,
+            lista = oggetti,
+            timestamp = DateTime.UtcNow.Ticks  
         };
-
-        string fileName = $"slot{slot}_inventario.json";
-        string path = Path.Combine(SaveDirectory, fileName);
-        string json = JsonUtility.ToJson(data, true);
-        File.WriteAllText(path, json);
-        Debug.Log($"Inventario e monete salvati nello slot {slot} in {path}");
+        string path = Path.Combine(SaveDirectory, $"slot{slot}_inventario.json");
+        File.WriteAllText(path, JsonUtility.ToJson(data, true));
+        Debug.Log($"Slot {slot} salvato con timestamp {(new DateTime(data.timestamp)).ToString("G")}");
     }
 
     public void CaricaDaSlot(int slot)
