@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PrimoLivello.unity
     guid: db0da31fbaa24ea44a2fda56bd23ded1
+  - enabled: 1
+    path: Assets/Scenes/SecondoLivello.unity
+    guid: adc66070c42391a4f8cb3fe8626e349e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 289c1b55c9541489481df5cc06664110, type: 3}
   m_UseUCBPForAssetBundles: 0
