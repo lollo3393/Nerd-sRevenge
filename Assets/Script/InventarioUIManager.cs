@@ -35,12 +35,17 @@ public class InventarioUIManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
+            return;
         }
     }
+
+
 
     void Update()
     {
