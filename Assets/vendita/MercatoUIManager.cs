@@ -41,6 +41,7 @@ public class MercatoUIManager : MonoBehaviour
         pannelloSelezione.SetActive(false);
         usernameErrorText.gameObject.SetActive(false);
         passwordErrorText.gameObject.SetActive(false);
+        anteprimaImg.gameObject.SetActive(false);
 
     }
 
@@ -171,6 +172,7 @@ public class MercatoUIManager : MonoBehaviour
     void OnSlotClick(ItemData item)
     {
         pannelloSelezione.SetActive(false);
+        anteprimaImg.gameObject.SetActive(true);
         cartaSelezionata = item;
         anteprimaImg.sprite = item.icona;
         nomeDettaglioText.text = item.nome;
@@ -188,6 +190,7 @@ public class MercatoUIManager : MonoBehaviour
         PopolaSelezioneCarte();
 
         // pulisci
+        anteprimaImg.gameObject.SetActive(false);
         cartaSelezionata = null;
         anteprimaImg.sprite = null;
         nomeDettaglioText.text = "";

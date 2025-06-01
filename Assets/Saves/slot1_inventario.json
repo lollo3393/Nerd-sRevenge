@@ -11,6 +11,66 @@
             },
             "quantita": 1,
             "pathIcona": "card/jelfo",
+            "rarita": "rara",
+            "materialeSfondo": {
+                "instanceID": 43490
+            },
+            "materialeOutlayer": {
+                "instanceID": 44418
+            },
+            "tipo": "Generico",
+            "prezzo": 30
+        },
+        {
+            "nome": "jelfo",
+            "icona": {
+                "instanceID": 50226
+            },
+            "sfondo": {
+                "instanceID": 50262
+            },
+            "quantita": 1,
+            "pathIcona": "card/jelfo",
+            "rarita": "Legendaria",
+            "materialeSfondo": {
+                "instanceID": 43490
+            },
+            "materialeOutlayer": {
+                "instanceID": 43700
+            },
+            "tipo": "Generico",
+            "prezzo": 150
+        },
+        {
+            "nome": "jelfo",
+            "icona": {
+                "instanceID": 50226
+            },
+            "sfondo": {
+                "instanceID": 50262
+            },
+            "quantita": 1,
+            "pathIcona": "card/jelfo",
+            "rarita": "Legendaria",
+            "materialeSfondo": {
+                "instanceID": 43490
+            },
+            "materialeOutlayer": {
+                "instanceID": 43700
+            },
+            "tipo": "Generico",
+            "prezzo": 150
+        },
+        {
+            "nome": "jelfo",
+            "icona": {
+                "instanceID": 50226
+            },
+            "sfondo": {
+                "instanceID": 50262
+            },
+            "quantita": 1,
+            "pathIcona": "card/jelfo",
             "rarita": "Legendaria",
             "materialeSfondo": {
                 "instanceID": 43490
@@ -42,5 +102,5 @@
             "prezzo": 150
         }
     ],
-    "timestamp": 638843593537500179
+    "timestamp": 638843639726315246
 }
