@@ -217,4 +217,9 @@ public class MercatoUIManager : MonoBehaviour
             default: return Color.white;
         }
     }
+    public void esciDaDettagli()
+    {
+        pannelloSelezione.SetActive(false);
+        pannelloMercato.SetActive(true);
+    }
 }
