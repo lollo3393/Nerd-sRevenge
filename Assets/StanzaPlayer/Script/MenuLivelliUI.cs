@@ -8,13 +8,13 @@ public class MenuLivelliUI : MonoBehaviour
     public GameObject pannelloStoria;
     public GameObject pannelloPrincipale;
     public GameObject panelloSalva;
-    public GameObject pannelloCarica;
+    //public GameObject pannelloCarica;
 
     void Start()
     {
         pannelloPrincipale.SetActive(false);
         pannelloStoria.SetActive(false);
-        pannelloCarica.SetActive(false);
+        //pannelloCarica.SetActive(false);
         panelloSalva.SetActive(false);
     }
 
@@ -58,7 +58,7 @@ public class MenuLivelliUI : MonoBehaviour
     public void mostraPannelloCarica()
     {
         pannelloPrincipale.SetActive(false);
-        pannelloCarica.SetActive(true);
+       // pannelloCarica.SetActive(true);
     }
     public void mostraPannelloSalva()
     {
@@ -73,7 +73,7 @@ public class MenuLivelliUI : MonoBehaviour
     }
     public void TornaIndietroDaCarica()
     {
-        pannelloCarica.SetActive(false);
+        //pannelloCarica.SetActive(false);
         pannelloPrincipale.SetActive(true);
     }
 
