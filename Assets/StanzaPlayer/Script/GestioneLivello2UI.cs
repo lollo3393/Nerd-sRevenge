@@ -1,3 +1,4 @@
+using Script;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -44,11 +45,11 @@ public class GestioneLivello2UI : MonoBehaviour
        
         if (InventarioUIManager.Instance == null)
         {
-            Debug.LogWarning("GestioneLivello2UI: InventarioUIManager.Instance è null! " +
+            Debug.LogWarning("GestioneLivello2UI: InventarioUIManager.Instance ï¿½ null! " +
                              "Verifica che ci sia un InventarioUIManager in scena e che non sia stato distrutto.");
             
             _btn.interactable = false;
-            costoLivello2Text.text = "…";
+            costoLivello2Text.text = "ï¿½";
             return;
         }
 
@@ -78,7 +79,7 @@ public class GestioneLivello2UI : MonoBehaviour
 
         if (sbloccato)
         {
-            // Già acquistato in questo slot , carica la scena
+            // Giï¿½ acquistato in questo slot , carica la scena
             CaricaLivello();
         }
         else if (moneteAttuali >= costo)
@@ -101,7 +102,7 @@ public class GestioneLivello2UI : MonoBehaviour
 
     private void CaricaLivello()
     {
-        // Cerco un’istanza di MenuLivelliUI e uso il suo metodo CaricaLivello
+        // Cerco unï¿½istanza di MenuLivelliUI e uso il suo metodo CaricaLivello
         var menu = Object.FindAnyObjectByType<MenuLivelliUI>();
         if (menu != null)
         {

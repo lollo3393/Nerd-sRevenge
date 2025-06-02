@@ -1,3 +1,4 @@
+using Script;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -118,7 +119,7 @@ public class MercatoUIManager : MonoBehaviour
                 continue;
             }
 
-            // — Sfondo base (layer[0])
+            // ï¿½ Sfondo base (layer[0])
             var sf = slot.GetComponent<Image>();
             if (sf != null)
             {
@@ -126,7 +127,7 @@ public class MercatoUIManager : MonoBehaviour
                 sf.color = Color.white;
             }
 
-            // — Icona (layer[1])
+            // ï¿½ Icona (layer[1])
             var ic = slot.transform.Find("Icona")?.GetComponent<Image>();
             if (ic != null)
             {
@@ -134,7 +135,7 @@ public class MercatoUIManager : MonoBehaviour
                 ic.color = Color.white;
             }
 
-            // — Outlayer (stesso sfondo)
+            // ï¿½ Outlayer (stesso sfondo)
             var ol = slot.transform.Find("Outlayer")?.GetComponent<Image>();
             if (ol != null)
             {
@@ -142,7 +143,7 @@ public class MercatoUIManager : MonoBehaviour
                 ol.color = Color.white;
             }
 
-            // — Corner
+            // ï¿½ Corner
             var cornerImg = slot.transform.Find("Corner")?.GetComponent<Image>();
             if (cornerImg != null)
             {
@@ -151,15 +152,15 @@ public class MercatoUIManager : MonoBehaviour
                 cornerImg.color = RaritaToColor(item.rarita);
             }
 
-            // — Nome
+            // ï¿½ Nome
             var nm = slot.transform.Find("Nome")?.GetComponent<TMP_Text>();
             if (nm != null) nm.text = item.nome;
 
-            // — Rarità (al posto di Quantita)
+            // ï¿½ Raritï¿½ (al posto di Quantita)
             var qt = slot.transform.Find("Quantita")?.GetComponent<TMP_Text>();
             if (qt != null) qt.text = item.rarita;
 
-            // — Click sul Button root
+            // ï¿½ Click sul Button root
             var btn = slot.GetComponent<Button>();
             if (btn != null)
             {

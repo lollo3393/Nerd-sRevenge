@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+namespace Script
+{
 public class SalvaButtonsHook : MonoBehaviour
 {
 
@@ -17,7 +19,7 @@ public class SalvaButtonsHook : MonoBehaviour
             return;
         }
 
-        // Rimuoviamo eventuali listener già collegati in Inspector
+        // Rimuoviamo eventuali listener giï¿½ collegati in Inspector
         salvaSlot1Button.onClick.RemoveAllListeners();
         salvaSlot2Button.onClick.RemoveAllListeners();
         salvaSlot3Button.onClick.RemoveAllListeners();
@@ -28,3 +30,4 @@ public class SalvaButtonsHook : MonoBehaviour
         salvaSlot3Button.onClick.AddListener(() => InventarioUIManager.Instance.SalvaSuSlot(3));
     }
 }
+}//namepsace
