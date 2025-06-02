@@ -40,6 +40,7 @@ public class Rubabile : MonoBehaviour
                 : Resources.Load<Material>("Shader/epicHolo");
 
             InventarioUIManager.Instance.AggiungiOggetto(nuovaCarta);
+            InventarioUIManager.Instance.AggiungiAllaCollezione(nome, rarita);
 
             gameObject.SetActive(false);
         }

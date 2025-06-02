@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Button))]
 public class GestioneLivello2UI : MonoBehaviour
 {
-    [Header("Configurazione Livello 2")]
+ 
     public string nomeScenaLivello2 = "Livello2";
     public TMP_Text costoLivello2Text;
     public int costo = 2000;
@@ -18,7 +18,7 @@ public class GestioneLivello2UI : MonoBehaviour
         _btn = GetComponent<Button>();
         if (_btn == null || costoLivello2Text == null)
         {
-            Debug.LogError("GestioneLivello2UI: manca Button o Text!");
+
             enabled = false;
             return;
         }
@@ -26,28 +26,27 @@ public class GestioneLivello2UI : MonoBehaviour
 
     void Start()
     {
-        // Assicuriamoci di aggiornare fin da subito l’interfaccia
+     
         AggiornaUI();
 
-        // Colleghiamo il click
+      
         _btn.onClick.RemoveAllListeners();
         _btn.onClick.AddListener(OnButtonClick);
     }
 
     void OnEnable()
     {
-        // Se riattivi il pannello, aggiorno ancora
         AggiornaUI();
     }
 
     private void AggiornaUI()
     {
-        // Se Instance è null, non posso recuperare dati—esco subito.
+       
         if (InventarioUIManager.Instance == null)
         {
             Debug.LogWarning("GestioneLivello2UI: InventarioUIManager.Instance è null! " +
                              "Verifica che ci sia un InventarioUIManager in scena e che non sia stato distrutto.");
-            // Disabilito temporaneamente il pulsante fino a quando non arriva il manager
+            
             _btn.interactable = false;
             costoLivello2Text.text = "…";
             return;

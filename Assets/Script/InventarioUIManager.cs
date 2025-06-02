@@ -7,9 +7,7 @@ using System;
 
 public class InventarioUIManager : MonoBehaviour
 {
-    /// <summary>
-    /// Restituisce il percorso <GameFolder>/Saves e lo crea al bisogno.
-    /// </summary>
+//restituisce il percorso in cui c'è saves oppure lo crea al bisogno
     private string SaveDirectory
     {
         get
@@ -29,6 +27,7 @@ public class InventarioUIManager : MonoBehaviour
     public GameObject pannelloZaino;
     public bool livello2Sbloccato = false;
     private List<ItemData> oggetti = new List<ItemData>();
+    public List<AlbumEntry> album = new List<AlbumEntry>();
 
     void Awake()
     {
@@ -112,10 +111,10 @@ public class InventarioUIManager : MonoBehaviour
                 }
             }
 
-            // — Nome e Quantità
+            // — Nome e Quantita
             // … dentro AggiornaUI(), dopo Corner …
 
-            // Nome e Rarità
+            // Nome e Rarita
             var nm = slot.transform.Find("Nome")?.GetComponent<TMP_Text>();
             if (nm != null)
                 nm.text = i.nome;
@@ -245,6 +244,7 @@ void Start()
         public List<ItemData> lista;
         public long timestamp;
         public bool livello2Sbloccato;
+        public List<AlbumEntry> album;
     }
 
     public void SalvaSuSlot(int slot)
@@ -254,7 +254,10 @@ void Start()
             monete = (GiocatoreValuta.Instance != null) ? GiocatoreValuta.Instance.monete : 0,
             lista = oggetti,
             timestamp = DateTime.UtcNow.Ticks,
-            livello2Sbloccato = this.livello2Sbloccato
+            livello2Sbloccato = this.livello2Sbloccato,
+            album = this.album
+
+
         };
 
         string path = Path.Combine(SaveDirectory, $"slot{slot}_inventario.json");
@@ -299,11 +302,24 @@ void Start()
             }
         }
 
-        // **NUOVO**: ripristina il flag di Livello2
+        //  ripristina il flag di Livello2
         livello2Sbloccato = data.livello2Sbloccato;
 
+
+        album = data.album != null ? data.album : new List<AlbumEntry>();
+
         AggiornaUI();
-        Debug.Log($"Inventario e monete caricati dallo slot {slot}. Livello2Sbloccato={livello2Sbloccato}");
+        Debug.Log($"Caricato slot {slot}: monete={data.monete}, inventario={oggetti.Count} oggetti, album={album.Count} carte, livello2={livello2Sbloccato}");
+    
+}
+    public void AggiungiAllaCollezione(string nomeCarta, string raritaCarta)
+    {
+        AlbumEntry e = new AlbumEntry(nomeCarta, raritaCarta);
+        if (!album.Contains(e))
+        {
+            album.Add(e);
+            Debug.Log($"Carta aggiunta all’album: {nomeCarta} [{raritaCarta}]");
+        }
     }
 
     // Per collegarli nei bottoni dei panel

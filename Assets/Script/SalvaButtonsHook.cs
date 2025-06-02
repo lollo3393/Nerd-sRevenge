@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class SalvaButtonsHook : MonoBehaviour
 {
-    [Header("Trascina qui i tuoi Bottoni 'Salva Slot' dalla UI")]
+
     public Button salvaSlot1Button;
     public Button salvaSlot2Button;
     public Button salvaSlot3Button;
@@ -13,8 +13,7 @@ public class SalvaButtonsHook : MonoBehaviour
         // Selezioniamo l'istanza persistente di InventarioUIManager
         if (InventarioUIManager.Instance == null)
         {
-            Debug.LogError("SalvaButtonsHook: non ho trovato InventarioUIManager.Instance. " +
-                           "Assicurati che il prefab con InventarioUIManager esista e abbia 'DontDestroyOnLoad'.");
+            Debug.LogError("Non si trova inventario manager");
             return;
         }
 
