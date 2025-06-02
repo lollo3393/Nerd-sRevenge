@@ -77,10 +77,10 @@ public class CardComponent : MonoBehaviour
         }
     }
 
-    // Metodi per Rubabile.cs
+    // Metodi per script rubabile
     public string GetNome() => cardName.ToString();
     public string GetRarita() => rarita.ToString();
-    public int GetPrezzo()    // esempio semplice, puoi estendere
+    public int GetPrezzo()    
     {
         switch (rarita)
         {

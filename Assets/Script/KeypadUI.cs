@@ -1,40 +1,47 @@
-// KeypadUI.cs
-using System;
+
+
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
 public class KeypadUI : MonoBehaviour
 {
-
+    [Header("Display principale (trattini e cifre colorate)")]
     public TMP_Text displayText;
 
-  
+    [Header("Visualizza tentativi: \"rimasti / totali\"")]
+    public TMP_Text attemptsText;
+
+    [Header("Pulsanti")]
     public Button submitButton;
-
-   
     public Button cancelButton;
+    public Button[] digitButtons; // bottoni 0–9
 
-//bottoni che vanno da 0 a 9
-    public Button[] digitButtons; 
-
-    private string codiceSegreto;   
-    private string inputAttuale;    
+    private SafeController safeController;
+    private string codiceSegreto;
+    private string inputAttuale;
     private bool sbloccato = false;
 
     private void OnEnable()
     {
+        // recupero il safecontroller della scena 
+        safeController = FindFirstObjectByType<SafeController>();
+        if (safeController == null)
+            Debug.LogWarning("[KeypadUI] Non ho trovato alcun SafeController in scena!");
+
         GeneraNuovoCodice();
         ResetInput();
         AggiornaDisplay();
+        AggiornaAttemptsText(); 
 
-
+        // Imposto i listener sui pulsanti cifre
         for (int d = 0; d < digitButtons.Length; d++)
         {
-            int cifra = d; 
+            int cifra = d;
             digitButtons[d].onClick.RemoveAllListeners();
             digitButtons[d].onClick.AddListener(() => OnDigitPressed(cifra));
         }
+
         submitButton.onClick.RemoveAllListeners();
         submitButton.onClick.AddListener(OnSubmitPressed);
 
@@ -55,16 +62,14 @@ public class KeypadUI : MonoBehaviour
         sbloccato = false;
     }
 
-
     private void ResetInput()
     {
         inputAttuale = "";
     }
 
-
     public void OnDigitPressed(int digit)
     {
-        if (sbloccato) return;   
+        if (sbloccato) return;
 
         if (inputAttuale.Length < 4)
         {
@@ -75,7 +80,7 @@ public class KeypadUI : MonoBehaviour
 
     public void OnSubmitPressed()
     {
-        if (sbloccato) return;   
+        if (sbloccato) return;
 
         if (inputAttuale.Length < 4)
         {
@@ -84,7 +89,6 @@ public class KeypadUI : MonoBehaviour
         }
 
         // Controllo carattere per carattere
-        
         string displayColorato = "";
         bool tuttiCorretti = true;
 
@@ -94,18 +98,17 @@ public class KeypadUI : MonoBehaviour
             char cCodice = codiceSegreto[i];
             if (cInput == cCodice)
             {
-                // cifra giusta nella posizione giusta :coloro di verde
+                // corretta
                 displayColorato += $"<color=green>{cInput}</color>";
             }
             else
             {
-                // sbagliata : colore neutro (bianco)
+                // sbagliata
                 displayColorato += $"<color=red>{cInput}</color>";
                 tuttiCorretti = false;
             }
         }
 
-      
         displayText.text = displayColorato;
 
         if (tuttiCorretti)
@@ -113,27 +116,35 @@ public class KeypadUI : MonoBehaviour
             // Sblocca la cassaforte
             sbloccato = true;
             Debug.Log("Cassaforte sbloccata!");
-            // Aggiungo 100 monete
             if (GiocatoreValuta.Instance != null)
                 GiocatoreValuta.Instance.AggiungiMonete(100);
 
-            // (opzionale) Chiudi la UI dopo 1 secondo
+            // Chiudo la UI dopo 1 secondo
             Invoke(nameof(OnCancelPressed), 1f);
+
+            if (safeController != null)
+                safeController.OnSafeUnlocked();
         }
         else
         {
-            // Se sbagliato, resetta l'input dopo breve delay per permettere di vedere i colori
-            Invoke(nameof(ResetAfterWrong), 1f);
+            //se sbagli la combinazione da un tentativo errato
+            if (safeController != null)
+            {
+                safeController.RegisterWrongAttempt();
+                AggiornaAttemptsText();
+            }
+           
+
+            // ripristino i trattini dopo un secondo
+            Invoke(nameof(ShowUnderscores), 1f);
         }
     }
 
-  
-    private void ResetAfterWrong()
+    private void ShowUnderscores()
     {
         ResetInput();
         AggiornaDisplay();
     }
-
 
     public void OnCancelPressed()
     {
@@ -141,11 +152,10 @@ public class KeypadUI : MonoBehaviour
         AggiornaDisplay();
         gameObject.SetActive(false);
 
-
         GameObject player = GameObject.FindWithTag("Player");
         if (player != null)
         {
-             var fpsInput = player.GetComponent<FPSInput>();
+            var fpsInput = player.GetComponent<FPSInput>();
             fpsInput.enabled = true;
             var MouseLook = player.GetComponent<MouseLook>();
             MouseLook.enabled = true;
@@ -156,7 +166,7 @@ public class KeypadUI : MonoBehaviour
 
     private void AggiornaDisplay()
     {
-        // formato con underscore: se inputAttuale="12", mostro "1 2 _ _"
+        // “_ _ _ _” se inputAttuale è vuoto, oppure mostro i numeri inseriti
         string testo = "";
         for (int i = 0; i < 4; i++)
         {
@@ -168,5 +178,20 @@ public class KeypadUI : MonoBehaviour
             if (i < 3) testo += " ";
         }
         displayText.text = testo;
+    }
+
+    private void AggiornaAttemptsText()
+    {
+        if (safeController != null)
+        {
+            int rimasti = safeController.attemptsLeft;
+            int totali = safeController.maxAttempts; 
+            attemptsText.text = $"{rimasti} / {totali}";
+            attemptsText.color = Color.green;
+        }
+        else
+        {
+            attemptsText.text = "- / -";
+        }
     }
 }

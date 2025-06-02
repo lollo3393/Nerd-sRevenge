@@ -85,21 +85,21 @@ namespace Script
             {
                 GameObject slot = Instantiate(prefabSlotOggetto, contenitoreSlot);
 
-                // — Sfondo base
+                // Sfondo base
                 var sf = slot.GetComponent<Image>();
                 if (sf != null && i.sfondo != null)
                     sf.sprite = i.sfondo;
 
-                // — Icona
+                // Icona
                 var ic = slot.transform.Find("Icona")?.GetComponent<Image>();
                 if (ic != null && i.icona != null)
                     ic.sprite = i.icona;
 
-                // — Outlayer ora mostra lo stesso sfondo
+                // Outlayer 
                 var ol = slot.transform.Find("Outlayer")?.GetComponent<Image>();
                 if (ol != null && i.sfondo != null)
                     ol.sprite = i.sfondo;
-                // 4) Corner (badge)
+                //  Corner (badge)
                 var cornerTrans = slot.transform.Find("Corner");
                 if (cornerTrans != null)
                 {
@@ -113,8 +113,8 @@ namespace Script
                     }
                 }
 
-                // — Nome e Quantita
-                // … dentro AggiornaUI(), dopo Corner …
+                //  Nome e Quantita
+                // dentro AggiornaUI(), dopo Corner 
 
                 // Nome e Rarita
                 var nm = slot.transform.Find("Nome")?.GetComponent<TMP_Text>();

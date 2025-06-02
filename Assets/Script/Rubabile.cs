@@ -16,7 +16,7 @@ namespace Script
                 string rarita = card.GetRarita();
                 int prezzo = card.GetPrezzo();
 
-                // Carica sprite da Resources/card/�
+                // Carica sprite da Resources/card/
                 Sprite[] sprites = Resources.LoadAll<Sprite>($"card/{nome}");
                 if (sprites.Length < 2)
                 {
@@ -60,4 +60,4 @@ namespace Script
                 playerVicino = false;
         }
     }
-}//namespace
+}
