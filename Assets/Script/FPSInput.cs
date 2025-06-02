@@ -15,7 +15,7 @@ public class FPSInput : MonoBehaviour
     [SerializeField] private Animator animatorMani;
     [SerializeField] private Transform cameraFollowTarget;
     [SerializeField] private Vector3 offsetCamera = new Vector3(0, 0.15f, 0); // puoi regolarlo
-    [SerializeField]  public BoxCollider playerCollider;
+    public BoxCollider playerCollider;
     
     private Vector3 standingSize;
     private Vector3 crouchingSize;
@@ -40,6 +40,7 @@ public class FPSInput : MonoBehaviour
 
     void Start()
     {
+        playerCollider = gameObject.GetComponent<BoxCollider>();
         _charController = GetComponent<CharacterController>();
         currentSpeed = baseSpeed;
         cameraDefaultPosition = cameraTransform.localPosition;
