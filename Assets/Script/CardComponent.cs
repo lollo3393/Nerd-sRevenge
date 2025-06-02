@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class CardComponent : MonoBehaviour
 {
-    [SerializeField] private cardDatabase cardName;
-    [SerializeField] private cardRarity rarita;
+     private cardDatabase cardName;
+     private cardRarity rarita;
 
     private SpriteRenderer sfondoSr, cornerSr, outlayerSr, backSr;
 

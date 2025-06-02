@@ -15,7 +15,14 @@ public class FPSInput : MonoBehaviour
     [SerializeField] private Animator animatorMani;
     [SerializeField] private Transform cameraFollowTarget;
     [SerializeField] private Vector3 offsetCamera = new Vector3(0, 0.15f, 0); // puoi regolarlo
-
+    [SerializeField]  public BoxCollider playerCollider;
+    
+    private Vector3 standingSize;
+    private Vector3 crouchingSize;
+    private Vector3 standingCenter;
+    private Vector3 crouchingCenter;
+    private Vector3 sdraiatoSize;
+    private Vector3 sdraiatoCenter;
 
     private Vector3 cameraDefaultPosition;
 
@@ -39,6 +46,15 @@ public class FPSInput : MonoBehaviour
         animatorMani = GetComponentInChildren<Animator>();
         // Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = true ;
+        standingSize = playerCollider.size;
+        crouchingSize = new Vector3(standingSize.x, standingSize.y * 0.5f, standingSize.z);
+
+        standingCenter = playerCollider.center;
+        crouchingCenter = new Vector3(standingCenter.x, standingCenter.y - standingSize.y * 0.25f, standingCenter.z);
+        
+        
+        sdraiatoSize = new Vector3(3.0459f, 1.175821f, 1.309923f); 
+        sdraiatoCenter = new Vector3(-0.385978f, 0.4426304f, 0.1404551f);
     }
 
     void Update()
@@ -53,7 +69,22 @@ public class FPSInput : MonoBehaviour
         if (MenuLivelliUI.bloccaControlliPorta)
             return;
 
-
+        switch (StatoCorrente)
+        {
+            case PlayerState.InPiedi:
+                playerCollider.size = standingSize;
+                playerCollider.center = standingCenter;
+                break;
+            case PlayerState.Accovacciato: 
+                playerCollider.size = crouchingSize;
+                playerCollider.center = crouchingCenter;
+                break;
+            case PlayerState.Sdraiato:
+                playerCollider.size = sdraiatoSize;
+                playerCollider.center = sdraiatoCenter;
+                break;
+                        
+        }
 
         HandleStateToggles();
         HandleMovement();
@@ -80,18 +111,21 @@ public class FPSInput : MonoBehaviour
                 StatoCorrente = PlayerState.Accovacciato;
                 animatorMani.SetTrigger("Crouch");
                 currentSpeed = baseSpeed * crouchMultiplier;
+                
             }
             else if (StatoCorrente == PlayerState.Accovacciato)
             {
                 StatoCorrente = PlayerState.InPiedi;
                 animatorMani.SetTrigger("StandUp");
                 currentSpeed = baseSpeed;
+               
             }
             else if (StatoCorrente == PlayerState.Sdraiato)
             {
                 StatoCorrente = PlayerState.Accovacciato;
                 animatorMani.SetTrigger("StandUpFromProne");
                 currentSpeed = baseSpeed * crouchMultiplier;
+                
             }
         }
 

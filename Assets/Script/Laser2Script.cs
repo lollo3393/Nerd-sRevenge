@@ -3,18 +3,16 @@ using System.Collections;
 using Script;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class laser2Script : MonoBehaviour
 {
     
     // posizionare l'oggetto a meta del percorso che dovra' compiere visto che si muove con un comportamento sinusoidale
-    private bool moving;
-    [SerializeField]
-    float maxAnimationDuration = 1.0f;
-    [SerializeField] float minHeight ;
-    [SerializeField] private float maxHeight ;
+    [SerializeField] private bool moving; 
+    [SerializeField] float speed = 2.0f;
     private alarmController alarmController;
-    [SerializeField] float oscillazione;
+    public float oscillazione = 3.75f;
     private Vector3 startpos;
     void OnTriggerEnter(Collider other)
     {
@@ -29,7 +27,7 @@ public class laser2Script : MonoBehaviour
 
         if (moving)
         {
-            float newY = startpos.y + Mathf.Sin(Time.time * maxAnimationDuration) * oscillazione;
+            float newY = startpos.y + Mathf.Sin(Time.time * speed) * oscillazione;
             transform.position = new Vector3(startpos.x, newY, startpos.z);
         }
     }
@@ -37,7 +35,6 @@ public class laser2Script : MonoBehaviour
     void Start()
     {
         startpos = transform.position;
-        oscillazione = (Mathf.Abs(minHeight)+maxHeight)/2;
         alarmController = GameObject.FindWithTag("alarmController").GetComponent<alarmController>();
         
     }

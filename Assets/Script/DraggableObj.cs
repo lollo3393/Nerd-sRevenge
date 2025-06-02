@@ -12,13 +12,20 @@ namespace Script
         protected CanvasGroup canvasGroup;
         protected CenterManager cm;
         protected GameObject dropZone_child;
-        
+        private DropZone dzScript;
 
         public virtual void Start()
         {
             controller= GameObject.FindWithTag("centerController");
-            dropZone_child = transform.GetChild(0).gameObject;
-             cm = controller.GetComponent<CenterManager>();
+            if (transform.childCount > 0)
+            {
+                if (transform.GetChild(0).GetComponent<DropZone>())
+                {
+                    dropZone_child = transform.GetChild(0).gameObject;
+                    dzScript = dropZone_child.GetComponent<DropZone>();
+                }
+            }
+            cm = controller.GetComponent<CenterManager>();
             canvas = transform.root.GetComponent<Canvas>();
             canvasGroup = GetComponent<CanvasGroup>();
             
@@ -27,6 +34,9 @@ namespace Script
         public virtual void OnDrag(PointerEventData eventData)
         {
                 transform.position = Input.mousePosition;
+                if(dropZone_child != null){
+                    dzScript.isDragged = true;
+                }
         }
 
         public virtual void OnBeginDrag(PointerEventData eventData)
@@ -35,6 +45,10 @@ namespace Script
             parentAfterDrag =  transform.root.GetChild(0);
             transform.SetParent( transform.root.GetChild(0));    
             transform.SetAsLastSibling();
+            if(dropZone_child != null){
+                dzScript.isDragged = true;
+            }
+            
         }
 
         public virtual void OnEndDrag(PointerEventData eventData)
@@ -45,6 +59,9 @@ namespace Script
                 parentAfterDrag =  transform.root.GetChild(0);
             }
             transform.SetParent(parentAfterDrag);
+            if(dropZone_child != null){
+                dzScript.isDragged = false;
+            }
         }
     }
 }

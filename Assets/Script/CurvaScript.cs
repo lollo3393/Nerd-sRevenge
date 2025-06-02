@@ -27,9 +27,14 @@ namespace Script
 
         public void rotateButton()
         {
+          
             Quaternion originalRotButtonRotation = rotationButton.transform.rotation;
             Quaternion originalChangeButtonRotation = typeChangerButton.transform.rotation;
-            Quaternion originalDestroyButtonRotation = redButton.transform.rotation;
+            Quaternion originalDestroyButtonRotation = Quaternion.identity ;
+            if (!disableRotationButton)
+            {
+                originalDestroyButtonRotation = rotationButton.transform.rotation;
+            }
             
             if (rotazioniavvenute >= 4 && transform.rotation.eulerAngles.z == 0)
             {
