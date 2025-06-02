@@ -10,7 +10,7 @@ namespace Script
     public class AlbumUIManager : MonoBehaviour
     {
 
-
+        public TMP_Text nomeDettaglioText;
         public RectTransform contenitoreGriglia;
 
         public GameObject prefabSlotAlbum;
@@ -46,12 +46,20 @@ namespace Script
 
         public void PopolaAlbum()
         {
-
+            if (InventarioUIManager.Instance == null)
+            {
+          
+                return;
+            }
+            if (InventarioUIManager.Instance.album == null)
+            {
+        
+                return;
+            }
 
 
             foreach (Transform t in contenitoreGriglia)
                 Destroy(t.gameObject);
-
             List<AlbumEntry> raccolte = InventarioUIManager.Instance.album;
             string[] tutteLeCartelle = Directory.GetDirectories(pathCartelleCard);
 
@@ -137,7 +145,7 @@ namespace Script
 
                     if (quantitaTxt != null)
                     {
-                        quantitaTxt.text = $"Possedute: {raritaPossedute.Count}";
+                        quantitaTxt.text = $"Rarita' possedute: {raritaPossedute.Count}";
                         quantitaTxt.color = Color.white;
                     }
 
@@ -187,11 +195,16 @@ namespace Script
             }
         }
 
-//questo pannello serve a mostrare le rarita possedute
+        //questo pannello serve a mostrare le rarita possedute
         private void ApriDettagli(string nomeCarta, List<string> raritaPossedute)
         {
-            if (pannelloDettaglio == null || raritaListText == null) return;
+            if (pannelloDettaglio == null || nomeDettaglioText == null || raritaListText == null)
+                return;
 
+         
+            nomeDettaglioText.text = $"<b><color=#FFFFFF>Carta:</color></b> <b><color=#FFFFFF>{nomeCarta}</color></b>";
+
+            
             raritaPossedute.Sort((a, b) =>
             {
                 string[] ordine = { "comune", "rara", "epica", "legendaria" };
@@ -199,16 +212,21 @@ namespace Script
                 int ib = Array.IndexOf(ordine, b.ToLower());
                 return ia.CompareTo(ib);
             });
-            string testo = $"Carta: <b>{nomeCarta}</b>\n hai trovato fin'ora:\n";
+
+          
+            string testo = "Posseduta in rarità:\n";
             foreach (string r in raritaPossedute)
             {
-                testo += $"  -{r}\n";
+                Color c = RaritaToColor(r);
+                
+                string hex = ColorUtility.ToHtmlStringRGB(c);
+                testo += $"<color=#{hex}>  • {r}</color>\n";
             }
 
-
+            raritaListText.richText = true;
             raritaListText.text = testo;
 
-
+           
             pannelloDettaglio.SetActive(true);
         }
 

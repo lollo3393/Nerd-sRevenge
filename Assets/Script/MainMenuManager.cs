@@ -65,7 +65,7 @@ namespace Script
                 }
                 else
                 {
-                    label.text = "� Vuoto �";
+                    label.text = "Vuoto ";
                     btn.interactable = false;
                 }
             }

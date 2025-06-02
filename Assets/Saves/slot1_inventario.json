@@ -1,0 +1,77 @@
+{
+    "monete": 0,
+    "lista": [
+        {
+            "nome": "jelfo",
+            "icona": {
+                "instanceID": 51014
+            },
+            "sfondo": {
+                "instanceID": 51054
+            },
+            "quantita": 1,
+            "pathIcona": "card/jelfo",
+            "rarita": "rara",
+            "materialeSfondo": {
+                "instanceID": 26910
+            },
+            "materialeOutlayer": {
+                "instanceID": 44798
+            },
+            "tipo": "Carta collezionabile",
+            "prezzo": 30
+        },
+        {
+            "nome": "jelfo",
+            "icona": {
+                "instanceID": 51014
+            },
+            "sfondo": {
+                "instanceID": 51054
+            },
+            "quantita": 1,
+            "pathIcona": "card/jelfo",
+            "rarita": "Legendaria",
+            "materialeSfondo": {
+                "instanceID": 26910
+            },
+            "materialeOutlayer": {
+                "instanceID": 26918
+            },
+            "tipo": "Carta collezionabile",
+            "prezzo": 150
+        },
+        {
+            "nome": "jelfo",
+            "icona": {
+                "instanceID": 51014
+            },
+            "sfondo": {
+                "instanceID": 51054
+            },
+            "quantita": 1,
+            "pathIcona": "card/jelfo",
+            "rarita": "Legendaria",
+            "materialeSfondo": {
+                "instanceID": 26910
+            },
+            "materialeOutlayer": {
+                "instanceID": 26918
+            },
+            "tipo": "Carta collezionabile",
+            "prezzo": 150
+        }
+    ],
+    "timestamp": 638844629866262520,
+    "livello2Sbloccato": false,
+    "album": [
+        {
+            "nome": "jelfo",
+            "rarita": "rara"
+        },
+        {
+            "nome": "jelfo",
+            "rarita": "Legendaria"
+        }
+    ]
+}
