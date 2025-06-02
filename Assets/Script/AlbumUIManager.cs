@@ -83,7 +83,7 @@ public class AlbumUIManager : MonoBehaviour
             }
 
             bool hoQuestaCarta = (raritaPossedute.Count > 0);
-            Debug.Log("'{nomeCarta}'  | rarita possedute: {raritaPossedute.Count}");
+       
 
             // 6) Instanzio lo slot dal prefab
             GameObject slot = Instantiate(prefabSlotAlbum, contenitoreGriglia);
