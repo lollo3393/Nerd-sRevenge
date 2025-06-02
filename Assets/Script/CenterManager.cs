@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Script
 {
@@ -8,6 +9,8 @@ namespace Script
         private RectTransform center_rect;
         private RectTransform dropZone_rect;
         public  Canvas canvas;
+        public static List<GameObject> dropZoneList = new List<GameObject>();
+        public float minOverlapRatio = 0.5f;
 
         void Start()
         {
@@ -15,15 +18,23 @@ namespace Script
             center_rect = center_obj.GetComponent<RectTransform>();
         }
         
+        bool AreOverlapping(RectTransform a, RectTransform b)
+        {
+            Rect rectA = GetScreenRect(a);
+            Rect rectB = GetScreenRect(b);
+            if (!rectA.Overlaps(rectB)) return false;
+            
+            Rect overlapRect = GetOverlapRect(rectA, rectB);
+            float overlapArea = overlapRect.width * overlapRect.height;
+            float referenceArea = rectA.width * rectA.height;
+
+            return (overlapArea / referenceArea) >= minOverlapRatio;
+        }
        
         
-        public bool IsOverlapping( RectTransform b)
+        public bool IsOverlappingWithCenter( RectTransform b)
         {
-            // Ottieni i rettangoli nel mondo
-            Rect rectA =  GetScreenRect(center_rect);
-            Rect rectB =  GetScreenRect(b); 
-            bool cond = rectA.Overlaps(rectB);
-            return cond;
+            return AreOverlapping(center_rect, b);
         }
 
         Rect GetWorldRect(RectTransform rt)
@@ -49,6 +60,17 @@ namespace Script
             return NormalizeRect(ret);
         }
         
+        Rect GetOverlapRect(Rect a, Rect b)
+        {
+            float xMin = Mathf.Max(a.xMin, b.xMin);
+            float yMin = Mathf.Max(a.yMin, b.yMin);
+            float xMax = Mathf.Min(a.xMax, b.xMax);
+            float yMax = Mathf.Min(a.yMax, b.yMax);
+
+            if (xMax <= xMin || yMax <= yMin) return Rect.zero; // nessuna intersezione
+            return new Rect(xMin, yMin, xMax - xMin, yMax - yMin);
+        }
+        
         Rect NormalizeRect(Rect r)
         {
             if (r.width < 0)
@@ -64,6 +86,22 @@ namespace Script
             }
 
             return r;
+        }
+
+         public void controllaOverlap(GameObject dropzone)
+        {
+            if(dropzone.transform.childCount > 0){return;}
+            if(dropzone.transform.parent.GetComponent<CurvaScript>() == null ){return;}
+            foreach (GameObject other in dropZoneList)
+            {
+                if(other.transform.childCount > 0 || other == dropzone){continue;}
+                if(other.transform.parent.GetComponent<CurvaScript>() == null ){continue;}
+                bool cond = AreOverlapping(dropzone.GetComponent<RectTransform>(), other.GetComponent<RectTransform>());
+                if (cond)
+                {
+                    Debug.Log("pallaallaal"+ dropzone.transform.position+" "+other.transform.position);
+                }
+            }
         }
     }
 }

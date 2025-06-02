@@ -18,12 +18,29 @@ namespace Script
                 DraggedObject.transform.SetAsLastSibling();
                 DraggedObject.GetComponent<CanvasGroup>().blocksRaycasts = false;
                 eventData.pointerDrag = DraggedObject;
+                if (DraggedObject.transform.childCount > 0)
+                {
+                    if (DraggedObject.transform.GetChild(0).GetComponent<DropZone>())
+                    {
+                        GameObject Dragged_dropZone_child = DraggedObject.transform.GetChild(0).gameObject;
+                         dropZone_child.GetComponent<DropZone>().isDragged = true;
+                    }
+                }
+                
         }
 
         public override void OnEndDrag(PointerEventData eventData)
         {
             DraggedObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
             DraggedObject.transform.SetParent(parentAfterDrag);
+            if (DraggedObject.transform.childCount > 0)
+            {
+                if (DraggedObject.transform.GetChild(0).GetComponent<DropZone>())
+                {
+                    GameObject Dragged_dropZone_child = DraggedObject.transform.GetChild(0).gameObject;
+                    dropZone_child.GetComponent<DropZone>().isDragged = false;
+                }
+            }
         }
     }
 }

@@ -19,7 +19,7 @@ public class Hackingmingaym : MonoBehaviour
     [SerializeField] private GameObject gridLayout;
     [SerializeField] private GameObject switchZonePrefab;
     public Dictionary<string, bool> varState = new Dictionary<string, bool>();
-    
+   
     private void Start()
     {
         

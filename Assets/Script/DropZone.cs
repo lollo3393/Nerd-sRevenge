@@ -14,14 +14,18 @@ namespace Script
         private GameObject controller;
         private  CenterManager cmScript ;
         public  GameObject childWire;
-        public  GameObject parentWire;
-        [SerializeField] public bool isVisible = true; 
+        public GameObject parentWire;
+        private bool isChildOfWire = false;
+        [SerializeField] public bool isVisible = true;
+        public bool isDragged;
         
         public void Start()
         {
+            isDragged = false;
             if (transform.GetComponentInParent<WireComponent>() != null)
             {
                 parentWire = transform.parent.gameObject;
+                isChildOfWire = true;
             }
 
             if (transform.childCount > 0)
@@ -33,10 +37,16 @@ namespace Script
             }
             rectTransform = GetComponent<RectTransform>();
             controller = GameObject.FindWithTag("centerController");
+            CenterManager.dropZoneList.Add(gameObject);
             image = GetComponent<Image>();
             wireTransform = GetComponent<RectTransform>().transform.parent.GetComponentInParent<RectTransform>();
             cmScript = controller.GetComponent<CenterManager>();
             
+        }
+
+        private void OnDestroy()
+        {
+            CenterManager.dropZoneList.Remove(gameObject);
         }
 
         public void OnDrop(PointerEventData eventData)
@@ -52,6 +62,7 @@ namespace Script
            }
            
            WireComponent wireComponent = childWire.GetComponent<WireComponent>();
+           wireComponent.inizializzaNetwork();
            
             setAlpha0();
         }
@@ -70,22 +81,40 @@ namespace Script
 
         void Update()
         {
-            if (cmScript.IsOverlapping(rectTransform))
+            if (transform.childCount == 0)
             {
-                setAlpha0();
-                isVisible = false;
-                WireComponent wc = transform.GetComponentInParent<WireComponent>();
-                if (wc.networkType != NetworkType.notInitialized)
+                if (isVisible)
                 {
-                    Debug.Log("Centro Raggiunto"+wc.networkType);
+                    setAlpha1();
                 }
-                
+            }else
+            {
+                return;
             }
 
-            if (transform.childCount == 0 && isVisible)
+            if (!isDragged)
             {
-                setAlpha1();
+                
+                if (cmScript.IsOverlappingWithCenter(rectTransform))
+                {
+                    setAlpha0();
+                    isVisible = false;
+                    WireComponent wc = transform.GetComponentInParent<WireComponent>();
+                    if (wc.networkType != NetworkType.notInitialized)
+                    {
+                        Debug.Log("Centro Raggiunto" + wc.networkType);
+                    }
+
+                }
+                if(!isChildOfWire){return;}
+                if (parentWire.GetComponent<CurvaScript>() == null) { return; }
+                
+                cmScript.controllaOverlap(gameObject);
+
+               
             }
+
+
         }
         
       

@@ -106,6 +106,10 @@ namespace Script
         
         public  virtual void Update()
         {
+            if (wireParent == null)
+            {
+                InizializzaParent();
+            }
             if (networkType == NetworkType.notInitialized)
             {
                 inizializzaNetwork();
