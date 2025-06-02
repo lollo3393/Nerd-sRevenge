@@ -16,7 +16,7 @@ public class laser2Script : MonoBehaviour
     private Vector3 startpos;
     void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<CharacterController>())
+        if (other.GetComponent<BoxCollider>())
         {
             alarmController.SendMessage("StartAlarm");
         }
