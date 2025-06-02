@@ -11,6 +11,7 @@ namespace Script
         public  Canvas canvas;
         public static List<GameObject> dropZoneList = new List<GameObject>();
         public float minOverlapRatio = 0.5f;
+        [SerializeField]private GameObject TpiecesPrefab;
 
         void Start()
         {
@@ -37,15 +38,7 @@ namespace Script
             return AreOverlapping(center_rect, b);
         }
 
-        Rect GetWorldRect(RectTransform rt)
-        {
-            Vector3[] corners = new Vector3[4];
-            rt.GetWorldCorners(corners);
-            Vector3 bottomLeft = corners[0];
-            Vector3 topRight = corners[2];
-
-            return new Rect(bottomLeft, topRight - bottomLeft);
-        }
+        
         
         Rect GetScreenRect(RectTransform rt)
         {
@@ -99,9 +92,59 @@ namespace Script
                 bool cond = AreOverlapping(dropzone.GetComponent<RectTransform>(), other.GetComponent<RectTransform>());
                 if (cond)
                 {
-                    Debug.Log("pallaallaal"+ dropzone.transform.position+" "+other.transform.position);
+                    Debug.Log( dropzone.transform.position+" "+other.transform.position);
                 }
             }
+        }
+         
+        void CheckAllDropZoneOverlaps()
+        {
+            for (int i = 0; i < dropZoneList.Count; i++)
+            {
+                GameObject a = dropZoneList[i];
+                if (!IsValid(a)) continue;
+
+                for (int j = i + 1; j < dropZoneList.Count; j++)
+                {
+                    GameObject b = dropZoneList[j];
+                    if (!IsValid(b)) continue;
+
+                    bool overlap = AreOverlapping(
+                        a.GetComponent<RectTransform>(),
+                        b.GetComponent<RectTransform>()
+                    );
+
+                    if (overlap)
+                    {
+                        dropZoneList.Remove(a);
+                        dropZoneList.Remove(b);
+                        Debug.Log("evvai");
+                        GameObject pezzoT = Instantiate(TpiecesPrefab, b.transform.position, b.transform.rotation , b.transform); ;
+                        pezzoT.transform.Rotate(new Vector3(0, 0, -90));
+                        DropZone ScriptA = a.GetComponent<DropZone>();
+                        DropZone ScriptB = b.GetComponent<DropZone>();
+                       ScriptA.setAlpha0();
+                       ScriptA.childWire = pezzoT;
+                       ScriptB.childWire = pezzoT;
+                       CurvaScript CurvaA = a.GetComponentInParent<CurvaScript>();
+                       CurvaScript CurvaB = b.GetComponentInParent<CurvaScript>();
+                       CurvaA.wireChildren = pezzoT.transform;
+                       CurvaB.wireChildren = pezzoT.transform;
+                    }
+                }
+            }
+        }
+
+        bool IsValid(GameObject dz)
+        {
+            return dz != null
+                   && dz.transform.childCount == 0
+                   && dz.transform.parent.GetComponent<CurvaScript>() != null;
+        }
+        
+        void Update()
+        {
+            CheckAllDropZoneOverlaps();
         }
     }
 }

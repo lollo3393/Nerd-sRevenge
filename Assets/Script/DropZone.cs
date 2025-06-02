@@ -87,8 +87,8 @@ namespace Script
                 {
                     setAlpha1();
                 }
-            }else
-            {
+            }else {
+                setAlpha0();
                 return;
             }
 
@@ -109,7 +109,6 @@ namespace Script
                 if(!isChildOfWire){return;}
                 if (parentWire.GetComponent<CurvaScript>() == null) { return; }
                 
-                cmScript.controllaOverlap(gameObject);
 
                
             }
