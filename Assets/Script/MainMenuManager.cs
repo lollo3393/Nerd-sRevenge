@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
-    private static bool _menuGi‡Mostrato = false;
+    private static bool _menuGiaMostrato = false;
 
     [Header("Main Menu UI")]
     public GameObject mainMenuPanel;
@@ -26,9 +26,9 @@ public class MainMenuManager : MonoBehaviour
 
     void Start()
     {
-        if (!_menuGi‡Mostrato)
+        if (!_menuGiaMostrato)
         {
-            _menuGi‡Mostrato = true;
+            _menuGiaMostrato = true;
             ShowMainMenu();
         }
         else
@@ -64,7 +64,7 @@ public class MainMenuManager : MonoBehaviour
             }
             else
             {
-                label.text = "ó Vuoto ó";
+                label.text = "ÔøΩ Vuoto ÔøΩ";
                 btn.interactable = false;
             }
         }
