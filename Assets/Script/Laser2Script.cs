@@ -8,12 +8,12 @@ public class laser2Script : MonoBehaviour
 {
     
     // posizionare l'oggetto a meta del percorso che dovra' compiere visto che si muove con un comportamento sinusoidale
-    [SerializeField] private bool moving;
+    private bool moving;
     [SerializeField]
     float maxAnimationDuration = 1.0f;
     [SerializeField] float minHeight ;
-    [SerializeField] private float maxHeight ; 
-    [SerializeField] private alarmController alarmController;
+    [SerializeField] private float maxHeight ;
+    private alarmController alarmController;
     [SerializeField] float oscillazione;
     private Vector3 startpos;
     void OnTriggerEnter(Collider other)
@@ -38,6 +38,7 @@ public class laser2Script : MonoBehaviour
     {
         startpos = transform.position;
         oscillazione = (Mathf.Abs(minHeight)+maxHeight)/2;
+        alarmController = GameObject.FindWithTag("alarmController").GetComponent<alarmController>();
         
     }
     

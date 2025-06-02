@@ -6,7 +6,7 @@ namespace Script
 {
     public class ConeVision : MonoBehaviour
     {
-        [SerializeField] private GameObject alarmController;
+        private GameObject alarmController;
         [SerializeField] private Material material;
          private Color luce;
          private Color allarmColor;
@@ -60,6 +60,7 @@ namespace Script
         }
         void Start()
         {
+            alarmController = GameObject.FindWithTag("alarmController");
             if (isCameraVision)
             {
                 volumLight = GetComponentInChildren<VLight>();
