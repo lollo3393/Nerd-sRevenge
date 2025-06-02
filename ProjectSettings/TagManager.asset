@@ -6,6 +6,7 @@ TagManager:
   tags:
   - center
   - centerController
+  - alarmController
   layers:
   - Default
   - TransparentFX

@@ -8,6 +8,8 @@ public class CardComponent : MonoBehaviour
 
     private SpriteRenderer sfondoSr, cornerSr, outlayerSr, backSr;
 
+    private GameObject controller;
+
     void Start()
     {
         // Cache dei SpriteRenderer
@@ -15,7 +17,17 @@ public class CardComponent : MonoBehaviour
         cornerSr = transform.Find("corner").GetComponent<SpriteRenderer>();
         outlayerSr = transform.Find("outlayer").GetComponent<SpriteRenderer>();
         backSr = transform.Find("back").GetComponent<SpriteRenderer>();
+        controller = GameObject.FindWithTag("alarmController");
+        CardGenerator generator = controller.GetComponent<CardGenerator>();
+        (cardDatabase,cardRarity) tupla = generator.randomCard();
+        cardName = tupla.Item1;
+        rarita = tupla.Item2;
+        caricaCarta();
 
+    }
+
+    void caricaCarta()
+    {
         // Carica texture base
         Sprite[] layers = Resources.LoadAll<Sprite>($"card/{cardName}");
         if (layers.Length >= 2)
