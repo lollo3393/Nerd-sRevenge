@@ -14616,7 +14616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nomeScenaLivello2: SecondoLivello
   costoLivello2Text: {fileID: 735397914}
-  costo: 600
+  costo: 0
 --- !u!1 &2012924871
 GameObject:
   m_ObjectHideFlags: 0
