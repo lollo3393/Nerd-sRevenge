@@ -7,7 +7,7 @@ namespace Script
     public class CardGenerator : MonoBehaviour
     {
         // oggetto da cui si può manipolare lo spawn delle carte
-        public (cardDatabase,cardRarity) randomCard()
+        public virtual (cardDatabase,cardRarity) randomCard()
         {
             
             cardDatabase cardname = GetRandomEnumValue<cardDatabase>() ;
