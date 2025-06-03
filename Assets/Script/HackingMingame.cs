@@ -186,4 +186,9 @@ public class HackingMingame : MonoBehaviour
     {
         Destroy(transform.root.gameObject);
     }
+
+    public void debugSkipButton()
+    {
+        fineMinigame = true;
+    }
 }

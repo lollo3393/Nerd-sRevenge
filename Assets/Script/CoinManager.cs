@@ -41,4 +41,9 @@ public class CoinManager : MonoBehaviour
         if (moneteText != null)
             moneteText.text = "Coins: " + monete;
     }
+
+    public void AzzeraMonete()
+    {
+        monete = 0;
+    }
 }

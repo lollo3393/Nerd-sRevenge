@@ -43,6 +43,7 @@ public class FPSInput : MonoBehaviour
     [SerializeField] private AudioClip footStepSound;
     private float _footStepSoundLength;
     private bool _step;
+    public bool isRunning = false;
     void Start()
     {
         _soundSource = GetComponent<AudioSource>();
@@ -73,7 +74,7 @@ public class FPSInput : MonoBehaviour
     
     void Update()
     {
-        if (_charController.velocity.magnitude > 0.65f && _step) {
+        if (_charController.velocity.magnitude > 0.8f && _step && isRunning) {
             _soundSource.PlayOneShot(footStepSound);
             StartCoroutine(WaitForFootSteps(_footStepSoundLength));
         }
@@ -176,11 +177,18 @@ public class FPSInput : MonoBehaviour
                 currentSpeed = baseSpeed * crouchMultiplier;
             }
         }
-
+       
         // Corsa
         if (Input.GetKey(KeyCode.LeftShift) && StatoCorrente == PlayerState.InPiedi)
         {
+            isRunning = true;
             currentSpeed = baseSpeed * runMultiplier;
+        }
+        
+        if (Input.GetKeyUp(KeyCode.LeftShift) && StatoCorrente == PlayerState.InPiedi)
+        {
+            isRunning = false;
+            currentSpeed = baseSpeed / runMultiplier;
         }
     }
 

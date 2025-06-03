@@ -31,8 +31,7 @@ public class GiocatoreValuta : MonoBehaviour
         PlayerPrefs.Save();
         OnMoneteAggiornate?.Invoke(monete);
     }
-
-    // <-- Questo è il nuovo metodo
+    
     public void ImpostaMonete(int valore)
     {
         monete = valore;
