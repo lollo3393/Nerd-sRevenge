@@ -22,7 +22,7 @@ namespace SojaExiles
             if (!Player) return;
 
             float dist = Vector3.Distance(Player.position, transform.position);
-            if (dist > 5f) return; // ❗ limite reale per interazione
+            if (dist > 5f) return; 
 
             if (!open && Input.GetKeyDown(KeyCode.E))
             {
