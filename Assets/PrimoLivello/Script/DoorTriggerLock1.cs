@@ -31,6 +31,7 @@ public class DoorTriggerLock : MonoBehaviour
             {
                 canvasPopup.SetActive(false);
                 lockpickingScript.AvviaMinigioco();
+                DisabilitaControlliGiocatore();
             }
         }
     }
@@ -79,6 +80,7 @@ public class DoorTriggerLock : MonoBehaviour
             Collider triggerCollider = GetComponent<Collider>();
             if (triggerCollider != null)
                 triggerCollider.enabled = false;
+           
         }
     }
 
@@ -98,7 +100,9 @@ public class DoorTriggerLock : MonoBehaviour
             float t = tempo / durata;
             portaDaAprire.rotation = Quaternion.Slerp(rotazioneIniziale, rotazioneFinale, t);
             yield return null;
+            DisabilitaControlliGiocatore();
         }
+        RiabilitaControlliGiocatore();
 
         portaDaAprire.rotation = rotazioneFinale;
     }
@@ -110,9 +114,54 @@ public class DoorTriggerLock : MonoBehaviour
 
         // Oppure: yield return new WaitForSeconds(0.5f);
         ikScript.AttivaIK(false);
+        DisabilitaControlliGiocatore();
 
 
         StartCoroutine(RuotaPorta());
     }
+    private void DisabilitaControlliGiocatore()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            var fpsScript = player.GetComponent<FPSInput>();
+            var mouseLookPlayer = player.GetComponent<MouseLook>();
+            if (fpsScript != null) fpsScript.enabled = false;
+            if (mouseLookPlayer != null) mouseLookPlayer.enabled = false;
+        }
 
+        // Disabilito anche il MouseLook sulla camera principale (se presente)
+        if (Camera.main != null)
+        {
+            var mouseLookCamera = Camera.main.GetComponent<MouseLook>();
+            if (mouseLookCamera != null) mouseLookCamera.enabled = false;
+        }
+
+        // Mostro il cursore
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    private void RiabilitaControlliGiocatore()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            var fpsScript = player.GetComponent<FPSInput>();
+            var mouseLookPlayer = player.GetComponent<MouseLook>();
+            if (fpsScript != null) fpsScript.enabled = true;
+            if (mouseLookPlayer != null) mouseLookPlayer.enabled = true;
+        }
+
+        // Riattivo anche il MouseLook sulla camera principale (se presente)
+        if (Camera.main != null)
+        {
+            var mouseLookCamera = Camera.main.GetComponent<MouseLook>();
+            if (mouseLookCamera != null) mouseLookCamera.enabled = true;
+        }
+
+        // Rimetto il cursore invisibile e bloccato
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 }
