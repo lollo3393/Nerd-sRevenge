@@ -3,15 +3,23 @@
   "WorkspaceRootPath": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|c:\\users\\lorenzo\\nerd\u0027s_revenge\\assets\\primolivello\\script\\gestionelivellobonus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\primolivello\\script\\gestionelivellobonus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|c:\\users\\lorenzo\\nerd\u0027s_revenge\\assets\\script\\conevision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\conevision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\assets\\script\\inventariouimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|c:\\users\\lorenzo\\nerd\u0027s_revenge\\assets\\script\\inventariouimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\inventariouimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|c:\\users\\lorenzo\\nerd\u0027s_revenge\\assets\\stanzaplayer\\script\\gestionelivello2ui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\assets\\script\\salvabuttonshook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\salvabuttonshook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\assets\\primolivello\\script\\gestionelivellobonus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\primolivello\\script\\gestionelivellobonus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\assets\\stanzaplayer\\script\\gestionelivello2ui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\stanzaplayer\\script\\gestionelivello2ui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -91,10 +99,6 @@
       "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\gamedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\assets\\script\\salvabuttonshook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\salvabuttonshook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Library\\PackageCache\\com.unity.ide.visualstudio@198cdf337d13\\Editor\\VisualStudioIntegration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.ide.visualstudio@198cdf337d13\\Editor\\VisualStudioIntegration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -168,7 +172,7 @@
               "RelativeDocumentMoniker": "Assets\\Script\\InventarioUIManager.cs",
               "ToolTip": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\InventarioUIManager.cs",
               "RelativeToolTip": "Assets\\Script\\InventarioUIManager.cs",
-              "ViewState": "AgIAAP8AAAAAAAAAAAAkwAwBAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAAEBAAAAAAAAAAAowBMBAACOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-17T14:55:42.152Z",
               "IsPinned": true,
@@ -176,7 +180,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "KeypadUI.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\KeypadUI.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\KeypadUI.cs",
@@ -190,43 +194,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "GestioneLivelloBonus.cs",
-              "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\PrimoLivello\\Script\\GestioneLivelloBonus.cs",
-              "RelativeDocumentMoniker": "Assets\\PrimoLivello\\Script\\GestioneLivelloBonus.cs",
-              "ToolTip": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\PrimoLivello\\Script\\GestioneLivelloBonus.cs",
-              "RelativeToolTip": "Assets\\PrimoLivello\\Script\\GestioneLivelloBonus.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAYwC8AAAAKAAAAAAAAAA==",
+              "Title": "ConeVision.cs",
+              "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\ConeVision.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\ConeVision.cs",
+              "ToolTip": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\ConeVision.cs",
+              "RelativeToolTip": "Assets\\Script\\ConeVision.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T16:55:09.11Z",
+              "WhenOpened": "2025-06-03T18:40:39.389Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "AlbumUIManager.cs",
-              "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\AlbumUIManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\AlbumUIManager.cs",
-              "ToolTip": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\AlbumUIManager.cs",
-              "RelativeToolTip": "Assets\\Script\\AlbumUIManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAIwN0AAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T08:15:46.162Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "PortaMenuTrigger.cs",
-              "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\StanzaPlayer\\Script\\PortaMenuTrigger.cs",
-              "RelativeDocumentMoniker": "Assets\\StanzaPlayer\\Script\\PortaMenuTrigger.cs",
-              "ToolTip": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\StanzaPlayer\\Script\\PortaMenuTrigger.cs",
-              "RelativeToolTip": "Assets\\StanzaPlayer\\Script\\PortaMenuTrigger.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T13:57:47.578Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "Laser2Script.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\Laser2Script.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\Laser2Script.cs",
@@ -238,7 +218,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "FakeMarketLogin.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\FakeMarketLogin.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\FakeMarketLogin.cs",
@@ -250,7 +230,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "GiocatoreValuta.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\vendita\\GiocatoreValuta.cs",
               "RelativeDocumentMoniker": "Assets\\vendita\\GiocatoreValuta.cs",
@@ -262,7 +242,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "MenuLivelliUI.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\StanzaPlayer\\Script\\MenuLivelliUI.cs",
               "RelativeDocumentMoniker": "Assets\\StanzaPlayer\\Script\\MenuLivelliUI.cs",
@@ -274,7 +254,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "GestioneLivello2UI.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\StanzaPlayer\\Script\\GestioneLivello2UI.cs",
               "RelativeDocumentMoniker": "Assets\\StanzaPlayer\\Script\\GestioneLivello2UI.cs",
@@ -282,12 +262,11 @@
               "RelativeToolTip": "Assets\\StanzaPlayer\\Script\\GestioneLivello2UI.cs",
               "ViewState": "AgIAAF0AAAAAAAAAAADwv3UAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T19:30:20.695Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-01T19:30:20.695Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "LockpickingMinigame1.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\PrimoLivello\\Script\\LockpickingMinigame1.cs",
               "RelativeDocumentMoniker": "Assets\\PrimoLivello\\Script\\LockpickingMinigame1.cs",
@@ -299,7 +278,55 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
+              "Title": "SalvaButtonsHook.cs",
+              "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\SalvaButtonsHook.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\SalvaButtonsHook.cs",
+              "ToolTip": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\SalvaButtonsHook.cs",
+              "RelativeToolTip": "Assets\\Script\\SalvaButtonsHook.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T20:31:01.514Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "PortaMenuTrigger.cs",
+              "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\StanzaPlayer\\Script\\PortaMenuTrigger.cs",
+              "RelativeDocumentMoniker": "Assets\\StanzaPlayer\\Script\\PortaMenuTrigger.cs",
+              "ToolTip": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\StanzaPlayer\\Script\\PortaMenuTrigger.cs",
+              "RelativeToolTip": "Assets\\StanzaPlayer\\Script\\PortaMenuTrigger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-17T13:57:47.578Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AlbumUIManager.cs",
+              "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\AlbumUIManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\AlbumUIManager.cs",
+              "ToolTip": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\AlbumUIManager.cs",
+              "RelativeToolTip": "Assets\\Script\\AlbumUIManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAIwN0AAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T08:15:46.162Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GestioneLivelloBonus.cs",
+              "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\PrimoLivello\\Script\\GestioneLivelloBonus.cs",
+              "RelativeDocumentMoniker": "Assets\\PrimoLivello\\Script\\GestioneLivelloBonus.cs",
+              "ToolTip": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\PrimoLivello\\Script\\GestioneLivelloBonus.cs",
+              "RelativeToolTip": "Assets\\PrimoLivello\\Script\\GestioneLivelloBonus.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAYwC8AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T16:55:09.11Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "CardComponent.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\CardComponent.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\CardComponent.cs",
@@ -311,7 +338,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "AlbumEntry.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\AlbumEntry.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\AlbumEntry.cs",
@@ -323,7 +350,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "timerPolizia.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\timerPolizia.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\timerPolizia.cs",
@@ -335,7 +362,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "SafeController.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\SafeController.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\SafeController.cs",
@@ -347,7 +374,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "DoorTriggerLock1.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\PrimoLivello\\Script\\DoorTriggerLock1.cs",
               "RelativeDocumentMoniker": "Assets\\PrimoLivello\\Script\\DoorTriggerLock1.cs",
@@ -359,7 +386,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "MainMenuManager.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\MainMenuManager.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\MainMenuManager.cs",
@@ -371,7 +398,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "VisualStudioIntegration.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Library\\PackageCache\\com.unity.ide.visualstudio@198cdf337d13\\Editor\\VisualStudioIntegration.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.ide.visualstudio@198cdf337d13\\Editor\\VisualStudioIntegration.cs",
@@ -379,12 +406,11 @@
               "RelativeToolTip": "Library\\PackageCache\\com.unity.ide.visualstudio@198cdf337d13\\Editor\\VisualStudioIntegration.cs",
               "ViewState": "AgIAACkAAAAAAAAAAAAqwDYAAADIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T07:44:52.72Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-02T07:44:52.72Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "Rubabile.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\Rubabile.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\Rubabile.cs",
@@ -396,7 +422,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "InterazioneAlbum.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\InterazioneAlbum.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\InterazioneAlbum.cs",
@@ -408,7 +434,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "alarmController.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\alarmController.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\alarmController.cs",
@@ -420,7 +446,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "MercatoUIManager.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\vendita\\MercatoUIManager.cs",
               "RelativeDocumentMoniker": "Assets\\vendita\\MercatoUIManager.cs",
@@ -432,7 +458,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "ItemData.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\ItemData.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\ItemData.cs",
@@ -444,7 +470,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "GameData.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\GameData.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\GameData.cs",
@@ -456,19 +482,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "SalvaButtonsHook.cs",
-              "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\SalvaButtonsHook.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\SalvaButtonsHook.cs",
-              "ToolTip": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\SalvaButtonsHook.cs",
-              "RelativeToolTip": "Assets\\Script\\SalvaButtonsHook.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAzwAUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T20:31:01.514Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "ComputerInteraction.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\ComputerInteraction.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\ComputerInteraction.cs",
@@ -480,7 +494,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "TMP_SDF-Mobile.shader",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-Mobile.shader",
               "RelativeDocumentMoniker": "Assets\\TextMesh Pro\\Shaders\\TMP_SDF-Mobile.shader",
@@ -492,7 +506,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "ComputerMercatoManager.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\ComputerMercatoManager.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\ComputerMercatoManager.cs",
@@ -503,7 +517,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "ValutaUI.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\vendita\\ValutaUI.cs",
               "RelativeDocumentMoniker": "Assets\\vendita\\ValutaUI.cs",
@@ -515,7 +529,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "SelezionaCarteUI.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\vendita\\SelezionaCarteUI.cs",
               "RelativeDocumentMoniker": "Assets\\vendita\\SelezionaCarteUI.cs",
@@ -527,7 +541,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "SlotCartaClickabie.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\vendita\\SlotCartaClickabie.cs",
               "RelativeDocumentMoniker": "Assets\\vendita\\SlotCartaClickabie.cs",
@@ -539,7 +553,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "MarketManager.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\MarketManager.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\MarketManager.cs",
@@ -551,7 +565,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "FPSInput.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\FPSInput.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\FPSInput.cs",
@@ -563,7 +577,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "MouseLook.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\MouseLook.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\MouseLook.cs",
@@ -575,7 +589,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "CameraCutsceneManager.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\PrimoLivello\\Script\\CameraCutsceneManager.cs",
               "RelativeDocumentMoniker": "Assets\\PrimoLivello\\Script\\CameraCutsceneManager.cs",
@@ -587,7 +601,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "AprturaPorte.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\PrimoLivello\\Script\\AprturaPorte.cs",
               "RelativeDocumentMoniker": "Assets\\PrimoLivello\\Script\\AprturaPorte.cs",
@@ -599,7 +613,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "IKManoDestra.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\PrimoLivello\\Script\\IKManoDestra.cs",
               "RelativeDocumentMoniker": "Assets\\PrimoLivello\\Script\\IKManoDestra.cs",
