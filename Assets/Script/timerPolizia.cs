@@ -52,7 +52,7 @@ public class timerPolizia : MonoBehaviour
         //yield return StartCoroutine(FadeOut());
         //image.canvasRenderer.SetAlpha(1f);
        // image.CrossFadeAlpha(0, fadeDuration, true);
-        GiocatoreValuta.Instance.AggiungiMonete(-100);
+        GiocatoreValuta.Instance.ImpostaMonete(0);
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("SampleScene");
         yield return null;
