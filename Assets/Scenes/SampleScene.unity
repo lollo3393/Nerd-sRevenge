@@ -11291,7 +11291,7 @@ GameObject:
   - component: {fileID: 1587291008}
   - component: {fileID: 1587291007}
   - component: {fileID: 1587291006}
-  - component: {fileID: 1587291005}
+  - component: {fileID: 1587291009}
   m_Layer: 5
   m_Name: Livello2 (1)
   m_TagString: Untagged
@@ -11320,21 +11320,6 @@ RectTransform:
   m_AnchoredPosition: {x: 712, y: -285}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1587291005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1587291003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d87db58718a0a7b46abc7ff7ec6c10dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nomeScenaLivello2: LivelloBonus
-  costoLivello2Text: {fileID: 2012924873}
-  costo: 4000
 --- !u!114 &1587291006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11417,6 +11402,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1587291003}
   m_CullTransparentMesh: 1
+--- !u!114 &1587291009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587291003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0372a027eca54c34f8238fb0363aec56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NomeScenaLivelloBonus: LivelloBonus
+  costoLivellobonusText: {fileID: 2012924873}
+  costo: 0
 --- !u!1 &1604655916
 GameObject:
   m_ObjectHideFlags: 0
@@ -14479,7 +14479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nomeScenaLivello2: SecondoLivello
   costoLivello2Text: {fileID: 735397914}
-  costo: 1000
+  costo: 600
 --- !u!1 &2012924871
 GameObject:
   m_ObjectHideFlags: 0

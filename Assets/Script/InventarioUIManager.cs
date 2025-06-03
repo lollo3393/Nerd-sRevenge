@@ -28,6 +28,7 @@ namespace Script
         public Transform contenitoreSlot;
         public GameObject pannelloZaino;
         public bool livello2Sbloccato = false;
+        public bool livelloBonusSbloccato = false;
         private List<ItemData> oggetti = new List<ItemData>();
         public List<AlbumEntry> album = new List<AlbumEntry>();
 
@@ -250,6 +251,7 @@ namespace Script
             public long timestamp;
             public bool livello2Sbloccato;
             public List<AlbumEntry> album;
+            public bool livelloBonusSbloccato;
         }
 
         public void SalvaSuSlot(int slot)
@@ -260,7 +262,8 @@ namespace Script
                 lista = oggetti,
                 timestamp = DateTime.UtcNow.Ticks,
                 livello2Sbloccato = this.livello2Sbloccato,
-                album = this.album
+                album = this.album,
+                livelloBonusSbloccato = this.livelloBonusSbloccato
 
 
             };
@@ -270,7 +273,7 @@ namespace Script
             File.WriteAllText(path, json);
 
             Debug.Log(
-                $"Slot {slot} salvato con timestamp {(new DateTime(data.timestamp)).ToString("G")}. Livello2Sbloccato={data.livello2Sbloccato}");
+                $"Slot {slot} salvato con timestamp {(new DateTime(data.timestamp)).ToString("G")}. Livello2Sbloccato={data.livello2Sbloccato}, livelloBonusSbloccato={data.livelloBonusSbloccato}");
         }
 
         public void CaricaDaSlot(int slot)
@@ -310,13 +313,14 @@ namespace Script
 
             //  ripristina il flag di Livello2
             livello2Sbloccato = data.livello2Sbloccato;
+            livelloBonusSbloccato = data.livelloBonusSbloccato;
 
 
             album = data.album != null ? data.album : new List<AlbumEntry>();
 
             AggiornaUI();
             Debug.Log(
-                $"Caricato slot {slot}: monete={data.monete}, inventario={oggetti.Count} oggetti, album={album.Count} carte, livello2={livello2Sbloccato}");
+                $"Caricato slot {slot}: monete={data.monete}, inventario={oggetti.Count} oggetti, album={album.Count} carte, livello2={livello2Sbloccato}, livelloBonus= {livelloBonusSbloccato}");
 
         }
 

@@ -5,19 +5,19 @@ using TMPro;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Button))]
-public class GestioneLivello2UI : MonoBehaviour
+public class GestioneLivelloBonus : MonoBehaviour
 {
- 
-    public string nomeScenaLivello2 = "Livello2";
-    public TMP_Text costoLivello2Text;
-    public int costo = 2000;
+
+    public string NomeScenaLivelloBonus = "LivelloBonus";
+    public TMP_Text costoLivellobonusText;
+    public int costo = 4000;
 
     private Button _btn;
 
     void Awake()
     {
         _btn = GetComponent<Button>();
-        if (_btn == null || costoLivello2Text == null)
+        if (_btn == null || costoLivellobonusText == null)
         {
 
             enabled = false;
@@ -27,10 +27,10 @@ public class GestioneLivello2UI : MonoBehaviour
 
     void Start()
     {
-     
+
         AggiornaUI();
 
-      
+
         _btn.onClick.RemoveAllListeners();
         _btn.onClick.AddListener(OnButtonClick);
     }
@@ -42,14 +42,13 @@ public class GestioneLivello2UI : MonoBehaviour
 
     private void AggiornaUI()
     {
-       
+
         if (InventarioUIManager.Instance == null)
         {
-            Debug.LogWarning("GestioneLivello2UI: InventarioUIManager.Instance  null! " +
-                             "Verifica che ci sia un InventarioUIManager in scena e che non sia stato distrutto.");
-            
+          
+
             _btn.interactable = false;
-            costoLivello2Text.text = "";
+            costoLivellobonusText.text = "";
             return;
         }
 
@@ -57,16 +56,16 @@ public class GestioneLivello2UI : MonoBehaviour
                                ? GiocatoreValuta.Instance.monete
                                : 0;
 
-        bool sbloccato = InventarioUIManager.Instance.livello2Sbloccato;
+        bool sbloccato = InventarioUIManager.Instance.livelloBonusSbloccato;
 
         if (sbloccato)
         {
-            costoLivello2Text.text = "Sbloccato";
+            costoLivellobonusText.text = "Sbloccato";
             _btn.interactable = true;
         }
         else
         {
-            costoLivello2Text.text = $"{moneteAttuali}/{costo}";
+            costoLivellobonusText.text = $"{moneteAttuali}/{costo}";
             _btn.interactable = (moneteAttuali >= costo);
         }
     }
@@ -75,11 +74,11 @@ public class GestioneLivello2UI : MonoBehaviour
     private void OnButtonClick()
     {
         int moneteAttuali = (GiocatoreValuta.Instance != null) ? GiocatoreValuta.Instance.monete : 0;
-        bool sbloccato = InventarioUIManager.Instance.livello2Sbloccato;
+        bool sbloccato = InventarioUIManager.Instance.livelloBonusSbloccato;
 
         if (sbloccato)
         {
-            // Gi� acquistato in questo slot , carica la scena
+            // Gia acquistato in questo slot , carica la scena
             CaricaLivello();
         }
         else if (moneteAttuali >= costo)
@@ -88,7 +87,7 @@ public class GestioneLivello2UI : MonoBehaviour
             GiocatoreValuta.Instance.ImpostaMonete(moneteAttuali - costo);
 
             // 2) Imposta il flag in InventarioUIManager
-            InventarioUIManager.Instance.livello2Sbloccato = true;
+            InventarioUIManager.Instance.livelloBonusSbloccato = true;
 
 
             // 3) Carica la scena di Livello 2
@@ -96,22 +95,22 @@ public class GestioneLivello2UI : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Impossibile accedere a Livello 2: monete insufficienti.");
+            Debug.LogWarning("Impossibile accedere a Livello bonus: monete insufficienti.");
         }
     }
 
     private void CaricaLivello()
     {
-        // Cerco un�istanza di MenuLivelliUI e uso il suo metodo CaricaLivello
+        // Cerco un istanza di MenuLivelliUI e uso il suo metodo CaricaLivello
         var menu = Object.FindAnyObjectByType<MenuLivelliUI>();
         if (menu != null)
         {
-            menu.CaricaLivello(nomeScenaLivello2);
+            menu.CaricaLivello(NomeScenaLivelloBonus);
         }
         else
         {
             // Fallback diretto
-            SceneManager.LoadScene(nomeScenaLivello2);
+            SceneManager.LoadScene(NomeScenaLivelloBonus);
         }
     }
 }

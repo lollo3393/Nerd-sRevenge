@@ -19,7 +19,7 @@ public class SalvaButtonsHook : MonoBehaviour
             return;
         }
 
-        // Rimuoviamo eventuali listener gi� collegati in Inspector
+        // Rimuoviamo eventuali listener gia collegati in Inspector
         salvaSlot1Button.onClick.RemoveAllListeners();
         salvaSlot2Button.onClick.RemoveAllListeners();
         salvaSlot3Button.onClick.RemoveAllListeners();
