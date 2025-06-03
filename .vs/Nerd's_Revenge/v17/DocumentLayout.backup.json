@@ -3,7 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\assets\\stanzaplayer\\script\\portamenutrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\assets\\stanzaplayer\\script\\menulivelliui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\stanzaplayer\\script\\menulivelliui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\assets\\script\\cardcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\cardcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|c:\\users\\lorenzo\\nerd\u0027s_revenge\\assets\\stanzaplayer\\script\\portamenutrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\stanzaplayer\\script\\portamenutrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,24 +19,16 @@
       "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\albumuimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\assets\\script\\cardcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\cardcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\assets\\script\\albumentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\albumentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|c:\\users\\lorenzo\\nerd\u0027s_revenge\\assets\\vendita\\giocatorevaluta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\assets\\vendita\\giocatorevaluta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\vendita\\giocatorevaluta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\assets\\script\\keypadui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\keypadui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\assets\\stanzaplayer\\script\\menulivelliui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|solutionrelative:assets\\stanzaplayer\\script\\menulivelliui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E72EB82B-7D9E-2120-39FF-5F61FC11B6A4}|Assembly-CSharp.csproj|C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\assets\\script\\laser2script.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -146,7 +146,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
@@ -163,7 +163,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "KeypadUI.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\KeypadUI.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\KeypadUI.cs",
@@ -188,7 +188,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "AlbumUIManager.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\AlbumUIManager.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\AlbumUIManager.cs",
@@ -196,24 +196,24 @@
               "RelativeToolTip": "Assets\\Script\\AlbumUIManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAIwN0AAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T08:15:46.162Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-02T08:15:46.162Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "MenuLivelliUI.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\StanzaPlayer\\Script\\MenuLivelliUI.cs",
               "RelativeDocumentMoniker": "Assets\\StanzaPlayer\\Script\\MenuLivelliUI.cs",
               "ToolTip": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\StanzaPlayer\\Script\\MenuLivelliUI.cs",
               "RelativeToolTip": "Assets\\StanzaPlayer\\Script\\MenuLivelliUI.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwDsAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAgwDsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T08:35:37.113Z"
+              "WhenOpened": "2025-05-16T08:35:37.113Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "GiocatoreValuta.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\vendita\\GiocatoreValuta.cs",
               "RelativeDocumentMoniker": "Assets\\vendita\\GiocatoreValuta.cs",
@@ -221,12 +221,11 @@
               "RelativeToolTip": "Assets\\vendita\\GiocatoreValuta.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAQwAMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T19:00:59.163Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T19:00:59.163Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "AlbumEntry.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\AlbumEntry.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\AlbumEntry.cs",
@@ -234,25 +233,24 @@
               "RelativeToolTip": "Assets\\Script\\AlbumEntry.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T07:45:41.993Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-02T07:45:41.993Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "CardComponent.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\cardComponent.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\cardComponent.cs",
               "ToolTip": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\Script\\cardComponent.cs",
               "RelativeToolTip": "Assets\\Script\\cardComponent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFIAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAawBQAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-17T15:00:55.476Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "PortaMenuTrigger.cs",
               "DocumentMoniker": "C:\\Users\\Lorenzo\\Nerd\u0027s_Revenge\\Assets\\StanzaPlayer\\Script\\PortaMenuTrigger.cs",
               "RelativeDocumentMoniker": "Assets\\StanzaPlayer\\Script\\PortaMenuTrigger.cs",

@@ -11225,7 +11225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nomeScenaLivello2: LivelloBonus
   costoLivello2Text: {fileID: 2012924873}
-  costo: 0
+  costo: 4000
 --- !u!114 &1587291006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14370,7 +14370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nomeScenaLivello2: SecondoLivello
   costoLivello2Text: {fileID: 735397914}
-  costo: 100
+  costo: 1000
 --- !u!1 &2012924871
 GameObject:
   m_ObjectHideFlags: 0
@@ -14405,7 +14405,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -131}
+  m_AnchoredPosition: {x: 33, y: -131}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2012924873
