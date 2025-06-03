@@ -7,7 +7,7 @@ namespace Script
     public class CardMuseum : CardGenerator
     {
         List<string> cardNames = new List<string>();   
-        private void Start()
+        private void Awake()
         {
             foreach (string cardName in Enum.GetNames(typeof(cardDatabase)))
             {
@@ -22,6 +22,7 @@ namespace Script
             while (cardNames.Count > 0)
             {
                 cardDatabase name = GetRandomEnumValue<cardDatabase>();
+                Debug.Log(cardNames.Contains(name.ToString()));
                 if (cardNames.Contains(name.ToString()))
                 {
                     cardNames.Remove(name.ToString());
@@ -29,7 +30,6 @@ namespace Script
                 }
                 
             }
-            
             return (cardDatabase.jelfo, rarity);
         }
     }
