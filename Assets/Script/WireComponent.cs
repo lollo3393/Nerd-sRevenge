@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Script
@@ -9,8 +10,8 @@ namespace Script
     {
         protected Transform dropZone;
         
-        [SerializeField]  public bool disableButton ;
-        [SerializeField]  public bool disableDetroyButton;
+        [SerializeField]  public bool disableButton ; 
+        [SerializeField]  public bool disableDestroyButton;
         [SerializeField]  public bool disableChangeButton;
         
         protected Image image;
@@ -23,6 +24,7 @@ namespace Script
         protected Transform dropZoneParent;
         public  Transform wireParent;
         public Transform wireChildren;
+        [SerializeField] public bool isEnd = false;
         public virtual void Start()
         {
             image = GetComponent<Image>();
@@ -34,12 +36,14 @@ namespace Script
                     CambiaSpriteChangeButton();
                 }
                 
-                if (!disableDetroyButton)
+                if (!disableDestroyButton)
                 {
                     redButton = transform.GetChild(2).gameObject;
                 }
-                
-                curvaButton = transform.GetChild(3).gameObject;
+                if (tipoWire == TipoWire.singolo)
+                {
+                    curvaButton = transform.GetChild(3).gameObject;
+                }
             }
         }
         
@@ -80,13 +84,28 @@ namespace Script
         public virtual void coloraWire(Color wireColor)
         {
             image.color = wireColor;
-
-            if (wireChildren == null)
+            if (isEnd)
             {
-                wireChildren = dropZone.transform.GetChild(0);
-            }else{
+                return;
+            }
+
+            try
+            {
                 WireComponent wc = wireChildren.GetComponent<WireComponent>();
                 wc.coloraWire(wireColor);
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e.Message+ gameObject);
+            }
+
+        }
+
+        public virtual void inizializzaChildren()
+        {
+            if (dropZone.childCount > 0)
+            {
+                wireChildren = dropZone.transform.GetChild(0);
             }
         }
 
@@ -106,6 +125,7 @@ namespace Script
         
         public  virtual void Update()
         {
+            if(wireChildren == null && !isEnd) {inizializzaChildren();}
             if (wireParent == null)
             {
                 InizializzaParent();
@@ -149,25 +169,33 @@ namespace Script
                 if (buttonVisibility)
                 {
                     buttonVisibility = false;
-                    if(!disableDetroyButton){
+                    if(!disableDestroyButton){
                         redButton.SetActive(false);
                     }
                     
                     if(!disableChangeButton){
                         typeChangerButton.SetActive(false);
                     }
-                    curvaButton.gameObject.SetActive(false);
+
+                    if (tipoWire == TipoWire.singolo)
+                    {
+                        curvaButton.gameObject.SetActive(false);
+                    }
                 }
                 else
                 {
                     buttonVisibility = true;
-                    if(!disableDetroyButton){
+                    if(!disableDestroyButton){
                         redButton.SetActive(true);
                     }
                     if(!disableChangeButton){
                         typeChangerButton.SetActive(true);
                     }
-                    curvaButton.gameObject.SetActive(true);
+
+                    if (tipoWire == TipoWire.singolo)
+                    {
+                        curvaButton.gameObject.SetActive(true);
+                    }
                 }
             }
         }

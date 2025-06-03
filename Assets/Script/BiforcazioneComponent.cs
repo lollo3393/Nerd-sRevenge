@@ -61,6 +61,14 @@ namespace Script
 
         public void Update()
         {
+            if (wireParent == null)
+            {
+                InizializzaParent();
+            }
+            if (networkType == NetworkType.notInitialized)
+            {
+                inizializzaNetwork();
+            }
             if (swapFlag) return;
             if (dropZone_left.childCount > 0 && dropZone_right.childCount > 0)
             {

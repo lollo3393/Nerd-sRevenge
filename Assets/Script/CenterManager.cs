@@ -1,20 +1,30 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Script
 {
     public class CenterManager : MonoBehaviour
     {
-        [SerializeField] GameObject center_obj;
+        [SerializeField] public  GameObject center_obj;
         private RectTransform center_rect;
         private RectTransform dropZone_rect;
-        public  Canvas canvas;
+        private  Canvas canvas;
         public static List<GameObject> dropZoneList = new List<GameObject>();
         public float minOverlapRatio = 0.5f;
         [SerializeField]private GameObject TpiecesPrefab;
 
+        public bool PUNOK = false;
+        public bool PDNOK = false;
+
+        [SerializeField] private GameObject PUNwire;
+        [SerializeField] private GameObject PDNwire;
+        private GameObject centerOutWire;
+        public  GameObject finalPUNwire;
+        public GameObject finalPDNwire;
         void Start()
         {
+            centerOutWire = center_obj.transform.GetChild(0).GetChild(0).gameObject;
             canvas = transform.root.GetComponent<Canvas>();
             center_rect = center_obj.GetComponent<RectTransform>();
         }
@@ -31,14 +41,11 @@ namespace Script
 
             return (overlapArea / referenceArea) >= minOverlapRatio;
         }
-       
         
         public bool IsOverlappingWithCenter( RectTransform b)
         {
             return AreOverlapping(center_rect, b);
         }
-
-        
         
         Rect GetScreenRect(RectTransform rt)
         {
@@ -118,17 +125,17 @@ namespace Script
                     {
                         dropZoneList.Remove(a);
                         dropZoneList.Remove(b);
-                        Debug.Log("evvai");
-                        GameObject pezzoT = Instantiate(TpiecesPrefab, b.transform.position, b.transform.rotation , b.transform); ;
-                        pezzoT.transform.Rotate(new Vector3(0, 0, -90));
+                        GameObject pezzoT = Instantiate(TpiecesPrefab, b.transform); 
                         DropZone ScriptA = a.GetComponent<DropZone>();
                         DropZone ScriptB = b.GetComponent<DropZone>();
                        ScriptA.setAlpha0();
+                       ScriptA.isVisible = false;
                        ScriptA.childWire = pezzoT;
                        ScriptB.childWire = pezzoT;
                        CurvaScript CurvaA = a.GetComponentInParent<CurvaScript>();
                        CurvaScript CurvaB = b.GetComponentInParent<CurvaScript>();
                        CurvaA.wireChildren = pezzoT.transform;
+                       CurvaA.isEnd = true;
                        CurvaB.wireChildren = pezzoT.transform;
                     }
                 }
@@ -145,6 +152,56 @@ namespace Script
         void Update()
         {
             CheckAllDropZoneOverlaps();
+            if (finalPUNwire != null)
+            {
+                Color punColor = finalPUNwire.GetComponent<Image>().color;
+                if (punColor != Color.black)
+                {
+                    centerOutWire.GetComponent<WireComponent>().coloraWire(punColor);
+                }
+
+                if(finalPDNwire!=null){
+                    Color pdnColor = finalPDNwire.GetComponent<Image>().color;
+                    if (pdnColor != Color.black)
+                    {
+                        centerOutWire.GetComponent<WireComponent>().coloraWire(pdnColor);
+                    }
+                }
+            }
+        }
+
+        public void coloraPDN()
+        {
+            PDNwire.GetComponent<WireComponent>().coloraWire(Color.brown);
+        }
+        
+        public void coloraPUN()
+        {
+            PUNwire.GetComponent<WireComponent>().coloraWire(Color.blue);
+        }
+        
+        
+        public void resettaPDN()
+        {
+            PDNwire.GetComponent<WireComponent>().coloraWire(Color.black);
+            centerOutWire.GetComponent<WireComponent>().coloraWire(Color.black);
+        }
+        
+        public void resettaPUN()
+        {
+            PUNwire.GetComponent<WireComponent>().coloraWire(Color.black);
+            centerOutWire.GetComponent<WireComponent>().coloraWire(Color.black);
+        }
+
+        public bool controllaCollegamento()
+        {
+            if (PDNOK && PUNOK)
+            {
+                Debug.Log("tuttoCollegato");
+                return true;
+            } 
+            return false;
+            
         }
     }
 }

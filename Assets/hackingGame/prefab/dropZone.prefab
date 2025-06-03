@@ -90,6 +90,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3328feb7e427406f9f25200dff489622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wireTransform: {fileID: 0}
+  childWire: {fileID: 0}
+  parentWire: {fileID: 0}
+  isVisible: 1
+  isDragged: 0
 --- !u!225 &9040630658940459167
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -101,7 +106,7 @@ CanvasGroup:
   m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
+  m_IgnoreParentGroups: 1
 --- !u!114 &8115802012049538425
 MonoBehaviour:
   m_ObjectHideFlags: 0

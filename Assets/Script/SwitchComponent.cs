@@ -9,10 +9,10 @@ namespace Script
         public int tipoSwitch;
         public String var;
         private GameObject controller;
-        private Hackingmingaym gameScript;
+        private HackingMingame gameScript;
         private GameObject varNametextObj;
         public GameObject zonaDiOrigine;
-        
+        public bool debugState;
         
         public override void Start()
         {
@@ -21,7 +21,7 @@ namespace Script
             base.Start();
             redButton= transform.GetChild(1).gameObject;
             controller= GameObject.FindWithTag("centerController");
-            gameScript = controller.GetComponent<Hackingmingaym>();
+            gameScript = controller.GetComponent<HackingMingame>();
             varNametextObj = transform.GetChild(2).gameObject;
             varNametextObj.GetComponentInChildren<TextMeshProUGUI>().text = var; 
             
@@ -41,7 +41,8 @@ namespace Script
 
         public override void coloraWire(Color wireColor)
         {
-            if(State()){
+            debugState = State(); 
+            if(debugState){
                 base.coloraWire(wireColor);
             }
         }

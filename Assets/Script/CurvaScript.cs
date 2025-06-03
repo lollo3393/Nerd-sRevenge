@@ -6,7 +6,7 @@ namespace Script
 {
     public class CurvaScript : WireComponent
     {
-        private int rotazioniavvenute = 0 ;
+        public int rotazioniavvenute = 0 ;
         [SerializeField] public bool disableRotationButton = false;
         private GameObject rotationButton;
         public override void Start()
@@ -19,6 +19,7 @@ namespace Script
 
         public override void Update()
         {
+            if(wireChildren == null) {inizializzaChildren();}
             if (networkType == NetworkType.notInitialized)
             {
                 inizializzaNetwork();
@@ -36,17 +37,17 @@ namespace Script
                 originalDestroyButtonRotation = rotationButton.transform.rotation;
             }
             
-            if (rotazioniavvenute >= 4 && transform.rotation.eulerAngles.z == 0)
+            if (rotazioniavvenute == 3 )
             {
                 transform.Rotate(new Vector3(0, 180, 0));
                 
-                rotazioniavvenute = 1;
+                rotazioniavvenute = 0;
             }else {
                 transform.Rotate(new Vector3(0, 0, 90));
                 
                 rotazioniavvenute++;
             }
-            if (!disableDetroyButton){ redButton.transform.rotation = originalDestroyButtonRotation;}
+            if (!disableDestroyButton){ redButton.transform.rotation = originalDestroyButtonRotation;}
             if (!disableChangeButton){typeChangerButton.transform.rotation = originalChangeButtonRotation;}
             if (!disableRotationButton){rotationButton.transform.rotation = originalRotButtonRotation;}
         }
