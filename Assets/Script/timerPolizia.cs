@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -20,7 +21,7 @@ public class timerPolizia : MonoBehaviour
         timerText = transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
         videoPlayer = gameOverCanvas.transform.GetChild(1).GetComponent<VideoPlayer>();
         image = gameOverCanvas.transform.GetChild(1).GetComponent<RawImage>();
-        videoPlayer.Prepare();
+        //videoPlayer.Prepare();
     }
 
     
@@ -52,7 +53,14 @@ public class timerPolizia : MonoBehaviour
         //yield return StartCoroutine(FadeOut());
         //image.canvasRenderer.SetAlpha(1f);
        // image.CrossFadeAlpha(0, fadeDuration, true);
-        GiocatoreValuta.Instance.ImpostaMonete(0);
+       try
+       {
+           GiocatoreValuta.Instance.ImpostaMonete(0);
+       }
+       catch (Exception e)
+       {
+           Console.WriteLine(e);
+       }
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("SampleScene");
         yield return null;
