@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6124863634443146822}
+  - component: {fileID: 6982035185862819190}
+  - component: {fileID: 1247800633605577852}
   m_Layer: 0
   m_Name: LaserTrap_0
   m_TagString: Untagged
@@ -34,6 +36,41 @@ Transform:
   - {fileID: 3322464799788462134}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6982035185862819190
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2177540244553519674}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7.5294847, y: 10.18235, z: 3.0903368}
+  m_Center: {x: 0.7140088, y: 3.5832014, z: -2.9704537}
+--- !u!114 &1247800633605577852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2177540244553519674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebbbb2d1ae424665a3add2431515ac7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasMinigame: {fileID: 4391321992033405691, guid: c78500a7857d9ef4d88a3c9c50ff3985, type: 3}
+  istanzaMinigioco: {fileID: 0}
 --- !u!1001 &2487896674905006051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -112,6 +149,10 @@ PrefabInstance:
     - target: {fileID: 122648, guid: 11530f2b0a0cd2442949827ecbb622f2, type: 3}
       propertyPath: m_Name
       value: SingleLine-LightSaber (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 122648, guid: 11530f2b0a0cd2442949827ecbb622f2, type: 3}
+      propertyPath: m_TagString
+      value: trap
       objectReference: {fileID: 0}
     - target: {fileID: 436056, guid: 11530f2b0a0cd2442949827ecbb622f2, type: 3}
       propertyPath: m_LocalScale.x

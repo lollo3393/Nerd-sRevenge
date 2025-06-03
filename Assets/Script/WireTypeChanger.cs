@@ -37,12 +37,12 @@ namespace Script
             Destroy(gameObject);
             GameObject nuovo;
             NetworkType oldnNetworkType = GetComponent<WireComponent>().networkType;
-            bool DestroyButtonVisibility = GetComponent<WireComponent>().disableDetroyButton;
+            bool DestroyButtonVisibility = GetComponent<WireComponent>().disableDestroyButton;
             nuovo = Instantiate(curva, posizione, rotazione, parent);
             CurvaScript script = nuovo.GetComponent<CurvaScript>();
             script.tipoWire =  TipoWire.curva;
             script.networkType = oldnNetworkType;
-            script.disableDetroyButton = DestroyButtonVisibility;
+            script.disableDestroyButton = DestroyButtonVisibility;
             molt = isChild ? 2 : 1;
             nuovo.transform.localScale*= molt;
             
@@ -82,14 +82,14 @@ namespace Script
             Destroy(gameObject);
             GameObject nuovo;
             NetworkType oldnNetworkType = GetComponent<WireComponent>().networkType;
-            bool DestroyButtonVisibility = GetComponent<WireComponent>().disableDetroyButton;
+            bool DestroyButtonVisibility = GetComponent<WireComponent>().disableDestroyButton;
             if (tipoWire is TipoWire.biforcazione || tipoWire == TipoWire.curva)
             {    
                  nuovo = Instantiate(wireSingolo, posizione, rotazione, parent);
                  WireComponent wireComponent = nuovo.GetComponent<WireComponent>();
                  wireComponent.tipoWire =  TipoWire.singolo;
                  wireComponent.networkType = oldnNetworkType;
-                 wireComponent.disableDetroyButton = DestroyButtonVisibility;
+                 wireComponent.disableDestroyButton = DestroyButtonVisibility;
                  molt = isChild ? 2 : 1;
                  nuovo.transform.localScale*= molt;
             }
@@ -99,7 +99,7 @@ namespace Script
                  WireComponent wireComponent = nuovo.GetComponent<WireComponent>();
                  wireComponent.tipoWire =TipoWire.biforcazione;
                  wireComponent.networkType = oldnNetworkType;
-                 wireComponent.disableDetroyButton = DestroyButtonVisibility;
+                 wireComponent.disableDestroyButton = DestroyButtonVisibility;
                  molt = isChild ? 1 : 0.5f;
                 nuovo.transform.localScale*= 1.99999f*molt; 
             }

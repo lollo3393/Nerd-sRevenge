@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
 [AddComponentMenu("Control Script/FPS Input")]
@@ -6,7 +7,8 @@ public class FPSInput : MonoBehaviour
 {
     public float baseSpeed = 7.0f;
     private float currentSpeed;
-
+    
+    
     public float runMultiplier = 2f;
     public float crouchMultiplier = 0.25f;
     public float proneMultiplier = 0.75f;
@@ -37,9 +39,15 @@ public class FPSInput : MonoBehaviour
 
     private enum PlayerState { InPiedi, Accovacciato, Sdraiato }
     private PlayerState StatoCorrente = PlayerState.InPiedi;
-
+    private AudioSource _soundSource;
+    [SerializeField] private AudioClip footStepSound;
+    private float _footStepSoundLength;
+    private bool _step;
     void Start()
     {
+        _soundSource = GetComponent<AudioSource>();
+        _step = true;
+        _footStepSoundLength = 0.30f;
         playerCollider = gameObject.GetComponent<BoxCollider>();
         _charController = GetComponent<CharacterController>();
         currentSpeed = baseSpeed;
@@ -57,9 +65,19 @@ public class FPSInput : MonoBehaviour
         sdraiatoSize = new Vector3(3.0459f, 1.175821f, 1.309923f); 
         sdraiatoCenter = new Vector3(-0.385978f, 0.4426304f, 0.1404551f);
     }
-
+    IEnumerator WaitForFootSteps(float stepsLength) {
+        _step = false;
+        yield return new WaitForSeconds(stepsLength);
+        _step = true;
+    }
+    
     void Update()
     {
+        if (_charController.velocity.magnitude > 0.65f && _step) {
+            _soundSource.PlayOneShot(footStepSound);
+            StartCoroutine(WaitForFootSteps(_footStepSoundLength));
+        }
+        
         if (Input.GetKeyDown(KeyCode.K))
         {
             Debug.Log("Provo ad attivare animazione Crouch");

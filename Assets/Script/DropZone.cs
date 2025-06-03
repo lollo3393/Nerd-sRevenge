@@ -63,6 +63,7 @@ namespace Script
            
            WireComponent wireComponent = childWire.GetComponent<WireComponent>();
            wireComponent.inizializzaNetwork();
+           parentWire.GetComponent<WireComponent>().wireChildren = childWire.transform;
            
             setAlpha0();
         }
@@ -103,6 +104,16 @@ namespace Script
                     if (wc.networkType != NetworkType.notInitialized)
                     {
                         Debug.Log("Centro Raggiunto" + wc.networkType);
+                        if (wc.networkType == NetworkType.PDN)
+                        {
+                            cmScript.PDNOK = true;
+                            cmScript.finalPDNwire = parentWire;
+                        }
+                        else
+                        {
+                            cmScript.PUNOK = true;
+                            cmScript.finalPUNwire = parentWire;
+                        }
                     }
 
                 }

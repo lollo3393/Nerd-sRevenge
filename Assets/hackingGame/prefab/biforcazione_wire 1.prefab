@@ -402,12 +402,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableButton: 0
-  disableDetroyButton: 0
+  disableDestroyButton: 0
   disableChangeButton: 0
   networkType: 0
   tipoWire: 1
   wireParent: {fileID: 0}
-  wireChildren: {fileID: 0}
+  wireChildren: {fileID: 7150420887981120247}
 --- !u!114 &4098267454451165912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1452,6 +1452,14 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6474211038519395170, guid: 1cd7c0ba4eee6f2449f5087374a440ba, type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474211038519395170, guid: 1cd7c0ba4eee6f2449f5087374a440ba, type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6555967744282479679, guid: 1cd7c0ba4eee6f2449f5087374a440ba, type: 3}
       propertyPath: m_Color.a
       value: 0.5019608
@@ -1498,7 +1506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7588221574019454549, guid: 1cd7c0ba4eee6f2449f5087374a440ba, type: 3}
       propertyPath: m_IgnoreParentGroups
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7907639508668482446, guid: 1cd7c0ba4eee6f2449f5087374a440ba, type: 3}
       propertyPath: m_Maskable
@@ -1555,11 +1563,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableButton: 1
-  disableDetroyButton: 0
+  disableDestroyButton: 0
   disableChangeButton: 0
   networkType: 0
   tipoWire: 1
-  wireParent: {fileID: 0}
+  wireParent: {fileID: 4135860706513780065}
   wireChildren: {fileID: 0}
   dropZone_right: {fileID: 0}
   dropZone_left: {fileID: 0}
@@ -1660,6 +1668,18 @@ PrefabInstance:
       propertyPath: Center
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4061228289879741207, guid: 6c19b9d26419d9b41a0124ab61d9a367, type: 3}
+      propertyPath: childWire
+      value: 
+      objectReference: {fileID: 7433143438672665388}
+    - target: {fileID: 4061228289879741207, guid: 6c19b9d26419d9b41a0124ab61d9a367, type: 3}
+      propertyPath: isVisible
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4061228289879741207, guid: 6c19b9d26419d9b41a0124ab61d9a367, type: 3}
+      propertyPath: parentWire
+      value: 
+      objectReference: {fileID: 3683356453359787296}
     - target: {fileID: 4783309932830653557, guid: 6c19b9d26419d9b41a0124ab61d9a367, type: 3}
       propertyPath: m_Color.a
       value: 0

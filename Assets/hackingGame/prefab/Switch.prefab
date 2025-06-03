@@ -453,6 +453,7 @@ PrefabInstance:
     - {fileID: 421543267272418636, guid: 8e75762c8e7891a44a911bfde39f2567, type: 3}
     m_RemovedGameObjects:
     - {fileID: 8515891729175151642, guid: 8e75762c8e7891a44a911bfde39f2567, type: 3}
+    - {fileID: 2271653357680566724, guid: 8e75762c8e7891a44a911bfde39f2567, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1513718640971398883, guid: 8e75762c8e7891a44a911bfde39f2567, type: 3}
       insertIndex: -1
@@ -488,12 +489,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableButton: 0
-  disableDetroyButton: 0
+  disableDestroyButton: 0
   disableChangeButton: 0
   networkType: 0
   tipoWire: 2
   wireParent: {fileID: 0}
-  wireChildren: {fileID: 0}
+  wireChildren: {fileID: 8366101737594098831}
   tipoSwitch: 0
   var: 0
   zonaDiOrigine: {fileID: 0}
@@ -673,11 +674,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableButton: 1
-  disableDetroyButton: 0
+  disableDestroyButton: 0
   disableChangeButton: 0
   networkType: 0
   tipoWire: 0
-  wireParent: {fileID: 0}
+  wireParent: {fileID: 1156016427243230395}
   wireChildren: {fileID: 0}
 --- !u!224 &8366101737594098831 stripped
 RectTransform:

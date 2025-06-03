@@ -121,9 +121,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableButton: 0
-  disableDetroyButton: 1
+  disableDestroyButton: 0
   disableChangeButton: 0
-  networkType: 2
+  networkType: 0
   tipoWire: 0
   wireParent: {fileID: 0}
   wireChildren: {fileID: 0}
